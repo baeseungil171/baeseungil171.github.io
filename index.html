@@ -10,29 +10,45 @@
             background-color: #000000; /* 배경색: 검은색 */
             color: #ff0000;          /* 전체 글자색: 빨간색 */
             text-align: center;
-            padding-top: 100px;
+            padding-top: 50px;
         }
         h1 {
             color: #ff0000;          /* 제목 글자색: 빨간색 */
-            font-size: 64px;         /* 제목 크기를 크게(기본 h1의 약 2배) 설정 */
+            font-size: 64px;         /* 제목 크기를 크게 설정 */
         }
         p {
             color: #ff4d4d;          /* 본문 글자색: 밝은 빨간색 */
             font-size: 20px;         /* 본문 크기 설정 */
+        }
+        .site-image {
+            width: 300px;            /* 사진 가로 크기 조절 */
+            border-radius: 10px;     /* 사진 모서리를 살짝 둥글게 */
+            margin: 20px 0;          /* 위아래 여백 주기 */
+        }
+        .insta-icon {
+            width: 50px;             /* 인스타그램 아이콘 크기 조절 */
+            margin-top: 15px;
+            transition: transform 0.2s;
+        }
+        .insta-icon:hover {
+            transform: scale(1.1);   /* 마우스 올리면 살짝 커지는 효과 */
         }
     </style>
 </head>
 <body>
     <h1>P-TYPE THE BIG CAT</h1>
     <p>이곳은 피타입의 음악들의 정보를 담은 웹사이트입니다.</p>
-</body>
-</html>
+    
+    <!-- 메인 사진 (파일 이름을 알맞게 수정하세요) -->
+    <div>
+        <img src="cat.jpg" alt="피타입 사진" class="site-image">
+    </div>
 
-<img src="P-TYPE.jpg" alt="피타입 사진" width="300">
-
-  <!-- 인스타그램 사진 링크 버튼 -->
+    <!-- 인스타그램 사진 링크 버튼 -->
     <div>
         <a href="https://www.instagram.com/ptype_thebigcat?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank">
-            <img src=instagram.png" alt="인스타그램으로 이동" width="100">
+            <img src="instagram.png" alt="인스타그램으로 이동" class="insta-icon">
         </a>
     </div>
+</body>
+</html>

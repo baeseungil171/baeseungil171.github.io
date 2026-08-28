@@ -25,12 +25,15 @@
             border-radius: 10px;     /* 사진 모서리를 살짝 둥글게 */
             margin: 20px 0;          /* 위아래 여백 주기 */
         }
-        .insta-icon {
-            width: 50px;             /* 인스타그램 아이콘 크기 조절 */
+        .icon-container {
             margin-top: 15px;
+        }
+        .social-icon {
+            width: 50px;             /* 아이콘 크기 조절 */
+            margin: 0 10px;          /* 아이콘들 사이의 간격 주기 */
             transition: transform 0.2s;
         }
-        .insta-icon:hover {
+        .social-icon:hover {
             transform: scale(1.1);   /* 마우스 올리면 살짝 커지는 효과 */
         }
     </style>
@@ -39,15 +42,21 @@
     <h1>P-TYPE THE BIG CAT</h1>
     <p>이곳은 피타입의 음악들의 정보를 담은 웹사이트입니다.</p>
     
-    <!-- 메인 사진 (파일 이름을 알맞게 수정하세요) -->
+    <!-- 메인 사진 -->
     <div>
         <img src="P-TYPE.jpg" alt="피타입 사진" class="site-image">
     </div>
 
-    <!-- 인스타그램 사진 링크 버튼 -->
-    <div>
+    <!-- 소셜 아이콘 링크 영역 (인스타그램 + 유튜브) -->
+    <div class="icon-container">
+        <!-- 인스타그램 링크 -->
         <a href="https://www.instagram.com/ptype_thebigcat?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank">
-            <img src="instagram.png" alt="인스타그램으로 이동" class="insta-icon">
+            <img src="instagram.png" alt="인스타그램으로 이동" class="social-icon">
+        </a>
+        
+        <!-- 유튜브 링크 (.jpg 적용) -->
+        <a href="https://www.youtube.com" target="_blank">
+            <img src="youtube.jpg" alt="유튜브로 이동" class="social-icon">
         </a>
     </div>
 </body>

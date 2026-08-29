@@ -12,20 +12,36 @@
             margin: 0;
             padding: 20px;
         }
-        h1, h2 {
+        h1 {
             text-align: center;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+        .subtitle-top {
+            text-align: center;
+            color: #ff5252;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        h2 {
             color: #ffffff;
         }
         .container {
             max-width: 900px;
             margin: 0 auto;
         }
-        .album-section {
+        .album-section, .info-section {
             background: #1e1e1e;
             padding: 20px;
             margin-bottom: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .album-detail-container::after {
+            content: "";
+            display: block;
+            clear: both;
         }
         .detail-cover {
             width: 200px;
@@ -35,22 +51,23 @@
             float: left;
             margin-right: 20px;
             margin-bottom: 20px;
+            background-color: #333; /* 이미지가 로드되기 전 배경색 */
         }
-        .track-table {
+        .track-table, .info-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
         }
-        .track-table th, .track-table td {
+        .track-table th, .track-table td, .info-table th, .info-table td {
             border: 1px solid #333;
             padding: 8px 12px;
             text-align: left;
             font-size: 14px;
         }
-        .track-table th {
+        .track-table th, .info-table th {
             background-color: #2c2c2c;
         }
-        .track-table tr:hover {
+        .track-table tr:hover, .info-table tr:hover {
             background-color: #2a2a2a;
         }
         .tracklist-table-container {
@@ -59,7 +76,6 @@
             margin-bottom: 20px;
             clear: both;
         }
-        /* 불필요한 화살표 관련 스타일 제거 및 깔끔한 스크롤바 적용 */
         .tracklist-table-container::-webkit-scrollbar {
             width: 6px;
         }
@@ -67,7 +83,6 @@
             background: #444;
             border-radius: 3px;
         }
-
         .active-track-display {
             margin-top: 20px;
             background: #252525;
@@ -135,20 +150,52 @@
             line-height: 1.6;
             color: #ccc;
         }
+        .clickable-link {
+            color: #4da6ff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .clickable-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>P-TYPE Archive</h1>
+        <div class="subtitle-top">P-TYPE THE BIG CAT</div>
         
+        <!-- 정규 앨범 영역 -->
         <div id="album1" class="album-section"></div>
         <div id="album2" class="album-section"></div>
         <div id="album3" class="album-section"></div>
         <div id="album4" class="album-section"></div>
         <div id="album5" class="album-section"></div>
+
+        <!-- 싱글 및 참여 음반 영역 -->
+        <div class="info-section">
+            <h2>Singles & EPs</h2>
+            <table class="info-table">
+                <thead>
+                    <tr><th>발매일</th><th>제목</th><th>종류</th></tr>
+                </thead>
+                <tbody id="singles-tbody"></tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h2>Participation / OST</h2>
+            <table class="info-table">
+                <thead>
+                    <tr><th>발매일</th><th>제목</th><th>종류</th><th>설명</th></tr>
+                </thead>
+                <tbody id="participation-tbody"></tbody>
+            </table>
+        </div>
     </div>
 
+    <!-- 순서 중요: lyrics.js가 data.js보다 위에 있어야 합니다 -->
     <script src="lyrics.js"></script>
     <script src="data.js"></script>
 
@@ -168,7 +215,6 @@
             const activeIdx = currentActiveTrack[id];
             const activeTrack = data.tracks[activeIdx];
             
-            // 영상 ID가 없거나 기본값일 때 에러 방지 처리
             let videoId = activeTrack[5];
             if (!videoId || videoId === "-" || videoId === "dQw4w9WgXcQ") {
                 videoId = data.defaultVideo;
@@ -180,7 +226,7 @@
             let tableRows = data.tracks.map((t, tIndex) => `
                 <tr style="${tIndex === activeIdx ? 'background-color: #200000;' : ''}" data-track-index="${tIndex}">
                     <td>${t[0]}</td>
-                    <td><span onclick="selectTrack('${id}', ${tIndex})" style="cursor:pointer; color: #4da6ff;">${t[1]}</span></td>
+                    <td><span class="clickable-link" onclick="selectTrack('${id}', ${tIndex})">${t[1]}</span></td>
                     <td>${t[2]}</td><td>${t[3]}</td><td>${t[4]}</td>
                 </tr>
             `).join('');
@@ -189,7 +235,7 @@
                 section.innerHTML = `
                     <div class="album-detail-container">
                         <h3>${data.title}</h3>
-                        <img src="${data.cover}" class="detail-cover" onerror="this.src='img/album1.png'">
+                        <img src="${data.cover}" class="detail-cover" alt="${data.title} 앨범 커버">
                         <p>${data.desc}</p>
                         <div class="tracklist-table-container">
                             <table class="track-table">
@@ -212,6 +258,12 @@
                 `;
             } else {
                 section.querySelector('.active-track-title').innerText = activeTrack[1];
+                // 커버 이미지 경로 실시간 동기화 보장
+                const coverImg = section.querySelector('.detail-cover');
+                if (coverImg && coverImg.src !== data.cover) {
+                    coverImg.src = data.cover;
+                }
+
                 const iframe = section.querySelector('iframe');
                 const newSrc = `https://www.youtube.com/embed/${videoId}`;
                 if (!iframe.src.includes(videoId)) {
@@ -262,10 +314,36 @@
             }
         }
 
+        function renderInfoSections() {
+            const singlesTbody = document.getElementById('singles-tbody');
+            if (singlesTbody && typeof singlesInfo !== 'undefined') {
+                singlesTbody.innerHTML = singlesInfo.map(s => `
+                    <tr>
+                        <td>${s.date}</td>
+                        <td><a href="https://www.youtube.com/results?search_query=P-TYPE+${encodeURIComponent(s.name)}" target="_blank" class="clickable-link">${s.name}</a></td>
+                        <td>${s.type}</td>
+                    </tr>
+                `).join('');
+            }
+
+            const participationTbody = document.getElementById('participation-tbody');
+            if (participationTbody && typeof participationInfo !== 'undefined') {
+                participationTbody.innerHTML = participationInfo.map(p => `
+                    <tr>
+                        <td>${p.date}</td>
+                        <td><a href="https://www.youtube.com/results?search_query=P-TYPE+${encodeURIComponent(p.name)}" target="_blank" class="clickable-link">${p.name}</a></td>
+                        <td>${p.type}</td>
+                        <td>${p.desc}</td>
+                    </tr>
+                `).join('');
+            }
+        }
+
         window.onload = function() {
             Object.keys(albumsData).forEach(albumId => {
                 renderAlbumSection(albumId);
             });
+            renderInfoSections();
         };
     </script>
 </body>

@@ -66,10 +66,10 @@ const albumsData = {
             ["07", "힙합다운 힙합", "P-TYPE", "P-TYPE", "P-TYPE", "aTFLybqeiPM", "가사..."],
             ["08", "독종", "P-TYPE", "Keeproots", "Keeproots", "89TXO-kW4Ik", "가사..."],
             ["09", "So U Wanna Be Hardcore (Feat. MC Meta)", "P-TYPE, MC Meta", "Keeproots", "Keeproots", "6CSG4qBUwzs", "가사..."],
-            ["10", "언더그라운드", "P-TYPE", "P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "가사..."],
-            ["11", "Musiq Noir (Feat. C-LUV)", "P-TYPE, C-LUV", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "가사..."],
-            ["12", "Skit - 언어의 연주가", "P-TYPE", "Keeproots", "P-TYPE", "dQw4w9WgXcQ", "가사..."],
-            ["13", "Wild Style (Feat. 빅마마)", "P-TYPE", "P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "가사..."],
+            ["10", "언더그라운드", "P-TYPE", "P-TYPE", "P-TYPE", "YV5s5uQ-UyU", "가사..."],
+            ["11", "Musiq Noir (Feat. C-LUV)", "P-TYPE, C-LUV", "Keeproots", "Keeproots", "xrX474-XD0A", "가사..."],
+            ["12", "Skit - 언어의 연주가", "P-TYPE", "Keeproots", "P-TYPE", "LUPMTJKrL-U", "가사..."],
+            ["13", "Wild Style (Feat. 빅마마)", "P-TYPE", "P-TYPE", "P-TYPE", "62jtThWYwWs", "가사..."],
             ["14", "언어의 연주가 (Bonus Track)", "P-TYPE", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "가사..."]
         ]
     },

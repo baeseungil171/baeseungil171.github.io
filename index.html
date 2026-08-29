@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P-TYPE THE BIG CAT - Discography & Soundtracks</title>
+    <title>P-TYPE THE BIG CAT - Discography & Tracklist</title>
     <!-- 구글 폰트(Black Han Sans) 불러오기 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -149,31 +149,30 @@
         .album-detail-section {
             padding: 80px 20px;
             border-bottom: 1px solid #220000;
-            min-height: 400px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .album-detail-container {
-            max-width: 800px;
+            max-width: 1100px;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 25px;
         }
 
         .album-detail-section h3 {
             font-family: 'Black Han Sans', sans-serif;
             font-size: 36px;
             color: #ff0000;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .detail-cover {
-            width: 250px;
-            height: 250px;
+            width: 220px;
+            height: 220px;
             object-fit: cover;
             border-radius: 10px;
             border: 2px solid #ff0000;
@@ -183,6 +182,59 @@
         .album-detail-section p {
             color: #cccccc;
             font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* 이미지 스타일의 트랙리스트 크레딧 테이블 스타일 */
+        .tracklist-table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+
+        .track-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #080000;
+            border: 1px solid #400000;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .track-table th, .track-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #330000;
+        }
+
+        .track-table th {
+            background-color: #1a0000;
+            color: #ff0000;
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 16px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .track-table td:nth-child(1) {
+            text-align: center;
+            color: #ff4d4d;
+            font-weight: bold;
+            width: 80px;
+        }
+
+        .track-table td:nth-child(2) {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .track-table td:nth-child(3),
+        .track-table td:nth-child(4),
+        .track-table td:nth-child(5) {
+            color: #cc9999;
+        }
+
+        .track-table tr:hover {
+            background-color: #150000;
         }
 
         /* 사운드트랙 박스 스타일 */
@@ -193,7 +245,7 @@
             border-radius: 8px;
             padding: 20px;
             box-sizing: border-box;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         .soundtrack-box h4 {
@@ -301,7 +353,7 @@
         </div>
     </div>
 
-    <!-- 3. 각 앨범별 상세 정보 구역 (아래 영역에서 사운드트랙 코드를 직접 수정하세요) -->
+    <!-- 3. 각 앨범별 상세 정보 구역 (요청하신 표 형식 크레딧 및 사운드트랙 포함) -->
     
     <!-- 1집 상세 영역 -->
     <div id="album1" class="album-detail-section">
@@ -310,9 +362,41 @@
             <img src="img/album1.png" alt="1집 상세 커버" class="detail-cover">
             <p>한국 힙합 역사상 가장 찬란한 명반 중 하나로 꼽히는 피타입의 정규 1집 데뷔 앨범입니다.</p>
             
+            <!-- 트랙리스트 및 크레딧 표 -->
+            <div class="tracklist-table-container">
+                <table class="track-table">
+                    <thead>
+                        <tr>
+                            <th>TRACK</th>
+                            <th>TITLE</th>
+                            <th>ARTIST</th>
+                            <th>PRODUCER</th>
+                            <th>MIXING / MASTERING</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>Heavy Bass Intro</td>
+                            <td>P-TYPE</td>
+                            <td>Keeproots</td>
+                            <td>Keeproots</td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>돈만 모으면 돼</td>
+                            <td>P-TYPE</td>
+                            <td>Keeproots</td>
+                            <td>Keeproots, P-TYPE</td>
+                        </tr>
+                        <!-- 필요한 만큼 트랙을 추가하여 수정하세요 -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 사운드트랙 플레이어 구역 -->
             <div class="soundtrack-box">
                 <h4>SOUNDTRACK / PREVIEW</h4>
-                <!-- [수정 방법] 아래 src 안의 YOUR_YOUTUBE_VIDEO_ID_1을 실제 유튜브 영상 ID로 바꾸세요 (예: dQw4w9WgXcQ) -->
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID_1" title="1집 사운드트랙" allowfullscreen></iframe>
                 </div>
@@ -327,9 +411,31 @@
             <img src="img/album2.png" alt="2집 상세 커버" class="detail-cover">
             <p>특유의 클래식하고 묵직한 서정성이 돋보이는 정규 2집 앨범입니다.</p>
             
+            <div class="tracklist-table-container">
+                <table class="track-table">
+                    <thead>
+                        <tr>
+                            <th>TRACK</th>
+                            <th>TITLE</th>
+                            <th>ARTIST</th>
+                            <th>PRODUCER</th>
+                            <th>MIXING / MASTERING</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>The Vintage Intro</td>
+                            <td>P-TYPE</td>
+                            <td>Fredi Casso</td>
+                            <td>Fredi Casso</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
             <div class="soundtrack-box">
                 <h4>SOUNDTRACK / PREVIEW</h4>
-                <!-- [수정 방법] 아래 src 안의 YOUR_YOUTUBE_VIDEO_ID_2를 실제 유튜브 영상 ID로 바꾸세요 -->
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID_2" title="2집 사운드트랙" allowfullscreen></iframe>
                 </div>
@@ -344,9 +450,31 @@
             <img src="img/album3.png" alt="3집 상세 커버" class="detail-cover">
             <p>랩이라는 장르와 그 본질에 대한 깊은 고찰이 담긴 정규 3집 앨범입니다.</p>
             
+            <div class="tracklist-table-container">
+                <table class="track-table">
+                    <thead>
+                        <tr>
+                            <th>TRACK</th>
+                            <th>TITLE</th>
+                            <th>ARTIST</th>
+                            <th>PRODUCER</th>
+                            <th>MIXING / MASTERING</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>RAP Intro</td>
+                            <td>P-TYPE</td>
+                            <td>Pe2ny</td>
+                            <td>Pe2ny</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
             <div class="soundtrack-box">
                 <h4>SOUNDTRACK / PREVIEW</h4>
-                <!-- [수정 방법] 아래 src 안의 YOUR_YOUTUBE_VIDEO_ID_3을 실제 유튜브 영상 ID로 바꾸세요 -->
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID_3" title="3집 사운드트랙" allowfullscreen></iframe>
                 </div>
@@ -361,9 +489,31 @@
             <img src="img/album4.png" alt="4집 상세 커버" class="detail-cover">
             <p>거리의 시인으로서 피타입의 날카로운 통찰력과 가사가 돋보이는 4집 앨범입니다.</p>
             
+            <div class="tracklist-table-container">
+                <table class="track-table">
+                    <thead>
+                        <tr>
+                            <th>TRACK</th>
+                            <th>TITLE</th>
+                            <th>ARTIST</th>
+                            <th>PRODUCER</th>
+                            <th>MIXING / MASTERING</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>Street Poetry Intro</td>
+                            <td>P-TYPE</td>
+                            <td>Deepfry</td>
+                            <td>Deepfry</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
             <div class="soundtrack-box">
                 <h4>SOUNDTRACK / PREVIEW</h4>
-                <!-- [수정 방법] 아래 src 안의 YOUR_YOUTUBE_VIDEO_ID_4를 실제 유튜브 영상 ID로 바꾸세요 -->
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID_4" title="4집 사운드트랙" allowfullscreen></iframe>
                 </div>
@@ -371,16 +521,171 @@
         </div>
     </div>
 
-    <!-- 5집 상세 영역 -->
+    <!-- 5집 상세 영역 (예시로 보여주신 이미지와 같은 구조의 5집 트랙리스트 적용) -->
     <div id="album5" class="album-detail-section">
         <div class="album-detail-container">
             <h3>5집 - Hardboiled Café 5</h3>
             <img src="img/album5.png" alt="5집 상세 커버" class="detail-cover">
             <p>하드보일드한 감성을 담아내며 건재함을 증명한 정규 5집 앨범입니다.</p>
             
+            <div class="tracklist-table-container">
+                <table class="track-table">
+                    <thead>
+                        <tr>
+                            <th>TRACK</th>
+                            <th>TITLE</th>
+                            <th>ARTIST</th>
+                            <th>PRODUCER</th>
+                            <th>MIXING / MASTERING</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>Writer's Profile</td>
+                            <td>P-TYPE</td>
+                            <td>Keeproots</td>
+                            <td>Keeproots</td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>Intro (Feat. WRKMS, 김현심)</td>
+                            <td>P-TYPE</td>
+                            <td>WRKMS</td>
+                            <td>WRKMS, P-TYPE</td>
+                        </tr>
+                        <tr>
+                            <td>03</td>
+                            <td>Hardboiled Café (Feat. 정인, FROM ALL TO HUMAN)</td>
+                            <td>P-TYPE</td>
+                            <td>Keeproots, FROM ALL TO HUMAN</td>
+                            <td>Keeproots, FROM ALL TO HUMAN, P-TYPE</td>
+                        </tr>
+                        <tr>
+                            <td>04</td>
+                            <td>깨끗하고 밝은 곳</td>
+                            <td>P-TYPE</td>
+                            <td>PLAYHOUSE</td>
+                            <td>PLAYHOUSE</td>
+                        </tr>
+                        <tr>
+                            <td>05</td>
+                            <td>The Picaresque</td>
+                            <td>P-TYPE</td>
+                            <td>Fredi Casso</td>
+                            <td>Fredi Casso</td>
+                        </tr>
+                        <tr>
+                            <td>06</td>
+                            <td>안녕, 내 사랑 (Feat. 르네, WRKMS)</td>
+                            <td>P-TYPE</td>
+                            <td>WRKMS, 르네</td>
+                            <td>P-TYPE</td>
+                        </tr>
+                        <tr>
+                            <td>07</td>
+                            <td>노인의 테마: 낚시 (Feat. 최엘비)</td>
+                            <td>P-TYPE, 최엘비</td>
+                            <td>PLAYHOUSE</td>
+                            <td>PLAYHOUSE</td>
+                        </tr>
+                        <tr>
+                            <td>08</td>
+                            <td>The Simple Art of Rhyme (Feat. KWAII)</td>
+                            <td>P-TYPE, KWAII</td>
+                            <td>Pe2ny</td>
+                            <td>Pe2ny</td>
+                        </tr>
+                        <tr>
+                            <td>09</td>
+                            <td>For Sale, My Rhymes, Never Used (Feat. JUSTHIS, DON MALIK)</td>
+                            <td>P-TYPE, JUSTHIS, DON MALIK</td>
+                            <td>Fredi Casso</td>
+                            <td>Fredi Casso</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>MIC "The Hammer" (Feat. Paloalto, Chin)</td>
+                            <td>P-TYPE, Paloalto, Chin</td>
+                            <td>Deepfry</td>
+                            <td>Deepfry, Fascinating, P-TYPE</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>Lyricist Paradox (Feat. DON MALIK)</td>
+                            <td>P-TYPE, DON MALIK</td>
+                            <td>Keeproots</td>
+                            <td>Keeproots</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>Heavy Bass Saga (Feat. 김오키)</td>
+                            <td>P-TYPE</td>
+                            <td>Keeproots</td>
+                            <td>Keeproots</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>고양이와 남자</td>
+                            <td>P-TYPE</td>
+                            <td>Fredi Casso</td>
+                            <td>Fredi Casso</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>Moonlighting (Feat. 서사무엘) (album version)</td>
+                            <td>P-TYPE, 서사무엘</td>
+                            <td>Keeproots, 서사무엘</td>
+                            <td>Keeproots</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>Big Sleep (Feat. ILLINIT)</td>
+                            <td>P-TYPE, ILLINIT</td>
+                            <td>Fascinating</td>
+                            <td>Fascinating</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>Kiss Me Deadly (Feat. 김필)</td>
+                            <td>P-TYPE, 김필</td>
+                            <td>Fascinating, 김필</td>
+                            <td>Fascinating</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>고양이는 아홉번 죽는다</td>
+                            <td>P-TYPE</td>
+                            <td>Fascinating</td>
+                            <td>Fascinating</td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td>부정의 부정은 긍정 (Feat. 버벌진트)</td>
+                            <td>P-TYPE, Verbal Jint</td>
+                            <td>Fascinating</td>
+                            <td>Fascinating</td>
+                        </tr>
+                        <tr>
+                            <td>19</td>
+                            <td>Outro (Feat. 김현심)</td>
+                            <td>P-TYPE</td>
+                            <td>Keeproots, P-TYPE</td>
+                            <td>P-TYPE</td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td>에필로그: 씬을 위한 오드 (Feat. The Quiett, 서사무엘)</td>
+                            <td>P-TYPE, The Quiett, 서사무엘</td>
+                            <td>Keeproots, 서사무엘</td>
+                            <td>Keeproots</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
             <div class="soundtrack-box">
                 <h4>SOUNDTRACK / PREVIEW</h4>
-                <!-- [수정 방법] 아래 src 안의 YOUR_YOUTUBE_VIDEO_ID_5를 실제 유튜브 영상 ID로 바꾸세요 -->
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID_5" title="5집 사운드트랙" allowfullscreen></iframe>
                 </div>

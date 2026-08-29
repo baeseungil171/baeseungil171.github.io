@@ -262,59 +262,97 @@
             if (currentLyricsState[id] === undefined) currentLyricsState[id] = false;
 
             const activeIdx = currentActiveTrack[id];
-            const isLyricsOpen = currentLyricsState[id];
             const activeTrack = data.tracks[activeIdx];
             const videoId = activeTrack[5] !== "VIDEO_ID" ? activeTrack[5] : data.defaultVideo;
 
             let tableRows = data.tracks.map((t, tIndex) => `
-                <tr style="${tIndex === activeIdx ? 'background-color: #200000;' : ''}">
+                <tr style="${tIndex === activeIdx ? 'background-color: #200000;' : ''}" data-track-index="${tIndex}">
                     <td>${t[0]}</td>
                     <td><span onclick="selectTrack('${id}', ${tIndex})" style="cursor:pointer;">${t[1]}</span></td>
                     <td>${t[2]}</td><td>${t[3]}</td><td>${t[4]}</td>
                 </tr>
             `).join('');
 
-            section.innerHTML = `
-                <div class="album-detail-container">
-                    <h3>${data.title}</h3>
-                    <img src="${data.cover}" class="detail-cover" onerror="this.src='img/album1.png'">
-                    <p>${data.desc}</p>
-                    <div class="tracklist-table-container">
-                        <table class="track-table">
-                            <thead><tr><th>트랙</th><th>제목 (클릭)</th><th>작사</th><th>작곡</th><th>편곡</th></tr></thead>
-                            <tbody>${tableRows}</tbody>
-                        </table>
-                    </div>
-                    <div class="active-track-display">
-                        <div class="active-track-title">${activeTrack[1]}</div>
-                        <div class="video-container"><iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe></div>
-                        
-                        <!-- 가사 보기 버튼 -->
-                        <button class="lyrics-toggle-btn" onclick="toggleLyrics('${id}')">
-                            ${isLyricsOpen ? '가사 접기 ▲' : '가사 보기 ▼'}
-                        </button>
+            // 최초 1회만 전체 구조를 뼈대로 그림 (영상이 이미 있다면 재생 상태 유지)
+            if (!section.querySelector('.album-detail-container')) {
+                section.innerHTML = `
+                    <div class="album-detail-container">
+                        <h3>${data.title}</h3>
+                        <img src="${data.cover}" class="detail-cover" onerror="this.src='img/album1.png'">
+                        <p>${data.desc}</p>
+                        <div class="tracklist-table-container">
+                            <table class="track-table">
+                                <thead><tr><th>트랙</th><th>제목 (클릭)</th><th>작사</th><th>작곡</th><th>편곡</th></tr></thead>
+                                <tbody>${tableRows}</tbody>
+                            </table>
+                        </div>
+                        <div class="active-track-display">
+                            <div class="active-track-title">${activeTrack[1]}</div>
+                            <div class="video-container"><iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe></div>
+                            
+                            <button class="lyrics-toggle-btn" onclick="toggleLyrics('${id}')">가사 보기 ▼</button>
 
-                        <!-- 가사 영역 -->
-                        <div class="lyrics-container ${isLyricsOpen ? 'show' : ''}">
-                            <div class="lyrics-header">[ 가 사 ]</div>
-                            <div class="lyrics-text">${activeTrack[6] || "가사가 없습니다."}</div>
+                            <div class="lyrics-container">
+                                <div class="lyrics-header">[ 가 사 ]</div>
+                                <div class="lyrics-text">${activeTrack[6] || "가사가 없습니다."}</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            `;
+                `;
+            } else {
+                // 이미 그려져 있는 경우 내용만 업데이트 (영상 리셋 방지)
+                section.querySelector('.active-track-title').innerText = activeTrack[1];
+                const iframe = section.querySelector('iframe');
+                const newSrc = `https://www.youtube.com/embed/${videoId}`;
+                if (!iframe.src.includes(videoId)) {
+                    iframe.src = newSrc; // 곡을 바꿨을 때만 영상 교체
+                }
+                section.querySelector('.lyrics-text').innerText = activeTrack[6] || "가사가 없습니다.";
+                
+                // 테이블 활성화 표시 줄 갱신
+                const rows = section.querySelectorAll('.track-table tbody tr');
+                rows.forEach((row, idx) => {
+                    row.style.backgroundColor = (idx === activeIdx) ? '#200000' : '';
+                });
+            }
         }
 
         function selectTrack(albumId, trackIndex) {
             currentActiveTrack[albumId] = trackIndex;
-            currentLyricsState[albumId] = false; // 곡을 바꾸면 가사는 다시 닫힘
+            currentLyricsState[albumId] = false; // 곡 변경 시 가사는 닫힘 상태로 초기화
+            
+            // 가사창 및 버튼 초기화
+            const section = document.getElementById(albumId);
+            if(section) {
+                const lyricsContainer = section.querySelector('.lyrics-container');
+                const btn = section.querySelector('.lyrics-toggle-btn');
+                if(lyricsContainer) lyricsContainer.classList.remove('show');
+                if(btn) btn.innerText = '가사 보기 ▼';
+            }
+            
             renderAlbumSection(albumId);
         }
 
         function toggleLyrics(albumId) {
-            currentLyricsState[albumId] = !currentLyricsState[albumId];
-            renderAlbumSection(albumId);
-        }
+            const section = document.getElementById(albumId);
+            if (!section) return;
 
+            currentLyricsState[albumId] = !currentLyricsState[albumId];
+            const isOpen = currentLyricsState[albumId];
+
+            const lyricsContainer = section.querySelector('.lyrics-container');
+            const btn = section.querySelector('.lyrics-toggle-btn');
+
+            if (lyricsContainer && btn) {
+                if (isOpen) {
+                    lyricsContainer.classList.add('show');
+                    btn.innerText = '가사 접기 ▲';
+                } else {
+                    lyricsContainer.classList.remove('show');
+                    btn.innerText = '가사 보기 ▼';
+                }
+            }
+        }
         document.querySelectorAll('.album-detail-section').forEach(section => {
             renderAlbumSection(section.getAttribute('data-album'));
         });

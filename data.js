@@ -5,7 +5,7 @@ const albumsData = {
         cover: "img/album1.png",
         defaultVideo: "dQw4w9WgXcQ",
         tracks: [
-            ["01", "서시", "P-TYPE", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "새로운 시작 앞에서 난 가난한 가슴을 열어 말한다...\n(서시 가사)"],
+            ["01", "서시", "P-TYPE", "Keeproots", "Keeproots", "-UjhZpdCBYg", "새로운 시작 앞에서 난 가난한 가슴을 열어 말한다...\n(서시 가사)"],
             ["02", "Skit - 보여주고 증명하라", "P-TYPE", "P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "보여주고 증명하라 가사..."],
             ["03", "돈키호테 (Feat. 휘성)", "P-TYPE, 휘성", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "돈키호테 가사..."],
             ["04", "Skit - 힙합다운 힙합", "P-TYPE", "P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "Skit 가사..."],

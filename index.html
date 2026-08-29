@@ -185,7 +185,7 @@
             margin-bottom: 10px;
         }
 
-        /* 이미지 스타일의 트랙리스트 크레딧 테이블 스타일 */
+        /* 트랙리스트 크레딧 테이블 스타일 */
         .tracklist-table-container {
             width: 100%;
             overflow-x: auto;
@@ -353,48 +353,45 @@
         </div>
     </div>
 
-    <!-- 3. 각 앨범별 상세 정보 구역 (요청하신 표 형식 크레딧 및 사운드트랙 포함) -->
+    <!-- 3. 각 앨범별 상세 정보 구역 (1~4집 이미지 트랙리스트 반영) -->
     
-    <!-- 1집 상세 영역 -->
+    <!-- 1집 상세 영역 (Heavy Bass) -->
     <div id="album1" class="album-detail-section">
         <div class="album-detail-container">
-            <h3>1집 - Heavy Bass</h3>
+            <h3>1집 - Heavy Bass (2004.05.31)</h3>
             <img src="img/album1.png" alt="1집 상세 커버" class="detail-cover">
             <p>한국 힙합 역사상 가장 찬란한 명반 중 하나로 꼽히는 피타입의 정규 1집 데뷔 앨범입니다.</p>
             
-            <!-- 트랙리스트 및 크레딧 표 -->
             <div class="tracklist-table-container">
                 <table class="track-table">
                     <thead>
                         <tr>
-                            <th>TRACK</th>
-                            <th>TITLE</th>
-                            <th>ARTIST</th>
-                            <th>PRODUCER</th>
-                            <th>MIXING / MASTERING</th>
+                            <th>트랙</th>
+                            <th>제목</th>
+                            <th>작사</th>
+                            <th>작곡</th>
+                            <th>편곡</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>Heavy Bass Intro</td>
-                            <td>P-TYPE</td>
-                            <td>Keeproots</td>
-                            <td>Keeproots</td>
-                        </tr>
-                        <tr>
-                            <td>02</td>
-                            <td>돈만 모으면 돼</td>
-                            <td>P-TYPE</td>
-                            <td>Keeproots</td>
-                            <td>Keeproots, P-TYPE</td>
-                        </tr>
-                        <!-- 필요한 만큼 트랙을 추가하여 수정하세요 -->
+                        <tr><td>01</td><td>서시</td><td>P-TYPE</td><td>Keeproots</td><td>Keeproots</td></tr>
+                        <tr><td>02</td><td>Skit - 보여주고 증명하라</td><td>P-TYPE</td><td>P-TYPE</td><td>P-TYPE</td></tr>
+                        <tr><td>03</td><td>돈키호테 (Feat. 휘성)</td><td>P-TYPE, 휘성</td><td>Keeproots</td><td>Keeproots</td></tr>
+                        <tr><td>04</td><td>Skit - 힙합다운 힙합</td><td>P-TYPE</td><td>P-TYPE</td><td>P-TYPE</td></tr>
+                        <tr><td>05</td><td>Heavy Bass</td><td>P-TYPE</td><td>P-TYPE</td><td>P-TYPE</td></tr>
+                        <tr><td>06</td><td>P-Type The Big Cat</td><td>P-TYPE</td><td>SAATAN</td><td>SAATAN</td></tr>
+                        <tr><td>07</td><td>힙합다운 힙합</td><td>P-TYPE</td><td>P-TYPE</td><td>P-TYPE</td></tr>
+                        <tr><td>08</td><td>독종</td><td>P-TYPE</td><td>Keeproots</td><td>Keeproots</td></tr>
+                        <tr><td>09</td><td>So U Wanna Be Hardcore (Feat. MC Meta)</td><td>P-TYPE, MC Meta</td><td>Keeproots</td><td>Keeproots</td></tr>
+                        <tr><td>10</td><td>언더그라운드</td><td>P-TYPE</td><td>Keeproots</td><td>Keeproots</td></tr>
+                        <tr><td>11</td><td>Musiq Noir (Feat. C-LUV)</td><td>P-TYPE, C-LUV</td><td>Keeproots</td><td>Keeproots</td></tr>
+                        <tr><td>12</td><td>Skit - 언어의 연주가</td><td>P-TYPE</td><td>Keeproots</td><td>P-TYPE</td></tr>
+                        <tr><td>13</td><td>Wild Style (Feat. 빅마마)</td><td>P-TYPE</td><td>P-TYPE</td><td>P-TYPE</td></tr>
+                        <tr><td>14</td><td>언어의 연주가 (Bonus Track)</td><td>P-TYPE</td><td>Keeproots</td><td>-</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <!-- 사운드트랙 플레이어 구역 -->
             <div class="soundtrack-box">
                 <h4>SOUNDTRACK / PREVIEW</h4>
                 <div class="video-container">
@@ -404,10 +401,10 @@
         </div>
     </div>
 
-    <!-- 2집 상세 영역 -->
+    <!-- 2집 상세 영역 (The Vintage) -->
     <div id="album2" class="album-detail-section">
         <div class="album-detail-container">
-            <h3>2집 - The Vintage</h3>
+            <h3>2집 - The Vintage (2008.11.27)</h3>
             <img src="img/album2.png" alt="2집 상세 커버" class="detail-cover">
             <p>특유의 클래식하고 묵직한 서정성이 돋보이는 정규 2집 앨범입니다.</p>
             
@@ -415,21 +412,31 @@
                 <table class="track-table">
                     <thead>
                         <tr>
-                            <th>TRACK</th>
-                            <th>TITLE</th>
-                            <th>ARTIST</th>
-                            <th>PRODUCER</th>
-                            <th>MIXING / MASTERING</th>
+                            <th>트랙</th>
+                            <th>제목</th>
+                            <th>작사</th>
+                            <th>작곡</th>
+                            <th>편곡</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>The Vintage Intro</td>
-                            <td>P-TYPE</td>
-                            <td>Fredi Casso</td>
-                            <td>Fredi Casso</td>
-                        </tr>
+                        <tr><td>01</td><td>Intro</td><td>P-Type</td><td>-</td><td>-</td></tr>
+                        <tr><td>02</td><td>비를 위한 발라드 (Feat. Gina)</td><td>P-Type</td><td>Keeproots</td><td>Keeproots</td></tr>
+                        <tr><td>03</td><td>Happy People (Feat. Soulman)</td><td>P-Type</td><td>Artisan Beats</td><td>Artisan Beats</td></tr>
+                        <tr><td>04</td><td>Music City (Feat. Ali)</td><td>P-Type</td><td>Artisan Beats</td><td>Artisan Beats</td></tr>
+                        <tr><td>05</td><td>A Long Time Ago (Feat. Heritage)</td><td>P-Type</td><td>Mild Beats</td><td>Mild Beats</td></tr>
+                        <tr><td>06</td><td>Interlude</td><td>P-Type</td><td>-</td><td>-</td></tr>
+                        <tr><td>07</td><td>수컷 (Feat. 박광수)</td><td>P-Type</td><td>P-Type</td><td>P-Type</td></tr>
+                        <tr><td>08</td><td>젊은 날의 초상 (Feat. Koonta, 이인관)</td><td>P-Type, Koonta, 이인관</td><td>P-Type</td><td>P-Type</td></tr>
+                        <tr><td>09</td><td>소나기 (Feat. Soulman)</td><td>P-Type</td><td>Keeproots</td><td>Keeproots</td></tr>
+                        <tr><td>10</td><td>후유증 (Feat. 정인, 이인관)</td><td>P-Type, 한경훈</td><td>한경훈</td><td>한경훈</td></tr>
+                        <tr><td>11</td><td>Poetry Sayer</td><td>P-Type</td><td>The Quiett</td><td>The Quiett</td></tr>
+                        <tr><td>12</td><td>Skit</td><td>P-Type</td><td>-</td><td>-</td></tr>
+                        <tr><td>13</td><td>비를 위한 발라드 (Inst.)</td><td>-</td><td>Keeproots</td><td>Keeproots</td></tr>
+                        <tr><td>14</td><td>Skit</td><td>P-Type</td><td>-</td><td>-</td></tr>
+                        <tr><td>15</td><td>소나기 (Inst.)</td><td>-</td><td>Keeproots</td><td>Keeproots</td></tr>
+                        <tr><td>16</td><td>Skit</td><td>P-Type</td><td>-</td><td>-</td></tr>
+                        <tr><td>17</td><td>수컷 (Inst.)</td><td>-</td><td>P-Type</td><td>P-Type</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -443,10 +450,10 @@
         </div>
     </div>
 
-    <!-- 3집 상세 영역 -->
+    <!-- 3집 상세 영역 (RAP) -->
     <div id="album3" class="album-detail-section">
         <div class="album-detail-container">
-            <h3>3집 - RAP</h3>
+            <h3>3집 - RAP (2013.07.29)</h3>
             <img src="img/album3.png" alt="3집 상세 커버" class="detail-cover">
             <p>랩이라는 장르와 그 본질에 대한 깊은 고찰이 담긴 정규 3집 앨범입니다.</p>
             
@@ -454,21 +461,26 @@
                 <table class="track-table">
                     <thead>
                         <tr>
-                            <th>TRACK</th>
-                            <th>TITLE</th>
-                            <th>ARTIST</th>
-                            <th>PRODUCER</th>
-                            <th>MIXING / MASTERING</th>
+                            <th>트랙</th>
+                            <th>제목</th>
+                            <th>작사</th>
+                            <th>작곡</th>
+                            <th>편곡</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>RAP Intro</td>
-                            <td>P-TYPE</td>
-                            <td>Pe2ny</td>
-                            <td>Pe2ny</td>
-                        </tr>
+                        <tr><td>01</td><td>I’m Back</td><td>P-type</td><td>Ging, Optical Eyez XL</td><td>Ging, Optical Eyez XL</td></tr>
+                        <tr><td>02</td><td>Love, Life, Rap (Feat. GRAY)</td><td>P-type</td><td>GRAY, Keeproots</td><td>Keeproots</td></tr>
+                        <tr><td>03</td><td>볼케이노 (Feat. 선우정아, 손수경)</td><td>P-type</td><td>Keeproots, Fascinating, Rhymer</td><td>Keeproots, Fascinating</td></tr>
+                        <tr><td>04</td><td>꿈의 해석 (Feat. Jinbo)</td><td>P-type</td><td>프라이머리, Jinbo</td><td>프라이머리</td></tr>
+                        <tr><td>05</td><td>Highway Trucker</td><td>P-type</td><td>G-Slow</td><td>G-Slow</td></tr>
+                        <tr><td>06</td><td>OST: Peace (Feat. Paloalto, B-Free, Huckleberry P)</td><td>P-type, Paloalto, B-Free, Huckleberry P</td><td>G-Slow</td><td>G-Slow</td></tr>
+                        <tr><td>07</td><td>뿔 (Feat. BUMKEY)</td><td>P-type, BUMKEY</td><td>Keeproots, Fascinating, BUMKEY</td><td>Keeproots, Fascinating</td></tr>
+                        <tr><td>08</td><td>불 꺼</td><td>P-type</td><td>G-Slow</td><td>G-Slow</td></tr>
+                        <tr><td>09</td><td>OST: Respect (Feat. Beenzino, Dok2)</td><td>P-type, Beenzino, Dok2</td><td>Fascinating</td><td>Fascinating</td></tr>
+                        <tr><td>10</td><td>OST: One Love (Feat. Noise Mob)</td><td>P-type, Minos, RHYME-A-</td><td>Score 13</td><td>Score 13</td></tr>
+                        <tr><td>11</td><td>Unchangeable (Feat. Sean2slow)</td><td>P-type, Sean2slow</td><td>Optical Eyez XL</td><td>Optical Eyez XL</td></tr>
+                        <tr><td>12</td><td>다이하드 (Feat. Ali, MC Meta)</td><td>P-type, MC Meta</td><td>Artisan Beats, Keeproots</td><td>Keeproots</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -482,10 +494,10 @@
         </div>
     </div>
 
-    <!-- 4집 상세 영역 -->
+    <!-- 4집 상세 영역 (Street Poetry) -->
     <div id="album4" class="album-detail-section">
         <div class="album-detail-container">
-            <h3>4집 - Street Poetry</h3>
+            <h3>4집 - Street Poetry (2015.03.20)</h3>
             <img src="img/album4.png" alt="4집 상세 커버" class="detail-cover">
             <p>거리의 시인으로서 피타입의 날카로운 통찰력과 가사가 돋보이는 4집 앨범입니다.</p>
             
@@ -493,21 +505,27 @@
                 <table class="track-table">
                     <thead>
                         <tr>
-                            <th>TRACK</th>
-                            <th>TITLE</th>
-                            <th>ARTIST</th>
-                            <th>PRODUCER</th>
-                            <th>MIXING / MASTERING</th>
+                            <th>트랙</th>
+                            <th>제목</th>
+                            <th>작사</th>
+                            <th>작곡</th>
+                            <th>편곡</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>Street Poetry Intro</td>
-                            <td>P-TYPE</td>
-                            <td>Deepfry</td>
-                            <td>Deepfry</td>
-                        </tr>
+                        <tr><td>01</td><td>폭력적인 잡종문화</td><td>P-Type</td><td>Ronald Bell, R. Jackson, Deepfry</td><td>Kay Gee's, Deepfry</td></tr>
+                        <tr><td>02</td><td>Do The Right Rap (Feat. Huckleberry P)</td><td>P-Type, Huckleberry P</td><td>Fascinating</td><td>Fascinating</td></tr>
+                        <tr><td>03</td><td>Timberland 6" (Feat. NUCK of Souldive)</td><td>P-Type, NUCK</td><td>Keeproots</td><td>Keeproots</td></tr>
+                        <tr><td>04</td><td>네안데르탈 (Feat. Minos, Justhis)</td><td>P-Type, Minos, Justhis</td><td>Deepfry</td><td>Deepfry</td></tr>
+                        <tr><td>05</td><td>광화문 (Feat. 태완)</td><td>P-Type</td><td>Fascinating, 김태완</td><td>Fascinating, YELLA Diamond</td></tr>
+                        <tr><td>06</td><td>돈키호테2 (Feat. 바버렛츠)</td><td>P-Type</td><td>Fascinating, 김은혜</td><td>Fascinating, DJ Juice</td></tr>
+                        <tr><td>07</td><td>이방인 (Feat. 차붐)</td><td>Neil Young, P-Type, 차붐</td><td>Neil Young, Deepfry</td><td>Neil Young, Deepfry</td></tr>
+                        <tr><td>08</td><td>반환점</td><td>P-Type</td><td>김창완, 김창훈</td><td>김창완, 김영진, 김제형</td></tr>
+                        <tr><td>09</td><td>최악의 남자</td><td>P-Type</td><td>Fascinating</td><td>Fascinating, DJ Juice, P-Type</td></tr>
+                        <tr><td>10</td><td>Vice Versa (Feat. 선우정아)</td><td>선우정아, P-Type</td><td>Kebee, 박민우, 선우정아</td><td>Kebee, 박민우</td></tr>
+                        <tr><td>11</td><td>광화문 (Inst.) (CD only)</td><td>-</td><td>Fascinating, 김태완</td><td>Fascinating, YELLA Diamond</td></tr>
+                        <tr><td>12</td><td>돈키호테2 (Inst.) (CD only)</td><td>-</td><td>Fascinating, 김은혜</td><td>Fascinating, DJ Juice</td></tr>
+                        <tr><td>13</td><td>반환점 (Inst.) (CD only)</td><td>-</td><td>김창완, 김창훈</td><td>김창완, 김영진, 김제형</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -521,10 +539,10 @@
         </div>
     </div>
 
-    <!-- 5집 상세 영역 (예시로 보여주신 이미지와 같은 구조의 5집 트랙리스트 적용) -->
+    <!-- 5집 상세 영역 (Hardboiled Café 5) -->
     <div id="album5" class="album-detail-section">
         <div class="album-detail-container">
-            <h3>5집 - Hardboiled Café 5</h3>
+            <h3>5집 - Hardboiled Café 5 (2022.02.18)</h3>
             <img src="img/album5.png" alt="5집 상세 커버" class="detail-cover">
             <p>하드보일드한 감성을 담아내며 건재함을 증명한 정규 5집 앨범입니다.</p>
             
@@ -532,154 +550,34 @@
                 <table class="track-table">
                     <thead>
                         <tr>
-                            <th>TRACK</th>
-                            <th>TITLE</th>
-                            <th>ARTIST</th>
-                            <th>PRODUCER</th>
-                            <th>MIXING / MASTERING</th>
+                            <th>트랙</th>
+                            <th>제목</th>
+                            <th>작사</th>
+                            <th>작곡</th>
+                            <th>편곡</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>Writer's Profile</td>
-                            <td>P-TYPE</td>
-                            <td>Keeproots</td>
-                            <td>Keeproots</td>
-                        </tr>
-                        <tr>
-                            <td>02</td>
-                            <td>Intro (Feat. WRKMS, 김현심)</td>
-                            <td>P-TYPE</td>
-                            <td>WRKMS</td>
-                            <td>WRKMS, P-TYPE</td>
-                        </tr>
-                        <tr>
-                            <td>03</td>
-                            <td>Hardboiled Café (Feat. 정인, FROM ALL TO HUMAN)</td>
-                            <td>P-TYPE</td>
-                            <td>Keeproots, FROM ALL TO HUMAN</td>
-                            <td>Keeproots, FROM ALL TO HUMAN, P-TYPE</td>
-                        </tr>
-                        <tr>
-                            <td>04</td>
-                            <td>깨끗하고 밝은 곳</td>
-                            <td>P-TYPE</td>
-                            <td>PLAYHOUSE</td>
-                            <td>PLAYHOUSE</td>
-                        </tr>
-                        <tr>
-                            <td>05</td>
-                            <td>The Picaresque</td>
-                            <td>P-TYPE</td>
-                            <td>Fredi Casso</td>
-                            <td>Fredi Casso</td>
-                        </tr>
-                        <tr>
-                            <td>06</td>
-                            <td>안녕, 내 사랑 (Feat. 르네, WRKMS)</td>
-                            <td>P-TYPE</td>
-                            <td>WRKMS, 르네</td>
-                            <td>P-TYPE</td>
-                        </tr>
-                        <tr>
-                            <td>07</td>
-                            <td>노인의 테마: 낚시 (Feat. 최엘비)</td>
-                            <td>P-TYPE, 최엘비</td>
-                            <td>PLAYHOUSE</td>
-                            <td>PLAYHOUSE</td>
-                        </tr>
-                        <tr>
-                            <td>08</td>
-                            <td>The Simple Art of Rhyme (Feat. KWAII)</td>
-                            <td>P-TYPE, KWAII</td>
-                            <td>Pe2ny</td>
-                            <td>Pe2ny</td>
-                        </tr>
-                        <tr>
-                            <td>09</td>
-                            <td>For Sale, My Rhymes, Never Used (Feat. JUSTHIS, DON MALIK)</td>
-                            <td>P-TYPE, JUSTHIS, DON MALIK</td>
-                            <td>Fredi Casso</td>
-                            <td>Fredi Casso</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>MIC "The Hammer" (Feat. Paloalto, Chin)</td>
-                            <td>P-TYPE, Paloalto, Chin</td>
-                            <td>Deepfry</td>
-                            <td>Deepfry, Fascinating, P-TYPE</td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td>Lyricist Paradox (Feat. DON MALIK)</td>
-                            <td>P-TYPE, DON MALIK</td>
-                            <td>Keeproots</td>
-                            <td>Keeproots</td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td>Heavy Bass Saga (Feat. 김오키)</td>
-                            <td>P-TYPE</td>
-                            <td>Keeproots</td>
-                            <td>Keeproots</td>
-                        </tr>
-                        <tr>
-                            <td>13</td>
-                            <td>고양이와 남자</td>
-                            <td>P-TYPE</td>
-                            <td>Fredi Casso</td>
-                            <td>Fredi Casso</td>
-                        </tr>
-                        <tr>
-                            <td>14</td>
-                            <td>Moonlighting (Feat. 서사무엘) (album version)</td>
-                            <td>P-TYPE, 서사무엘</td>
-                            <td>Keeproots, 서사무엘</td>
-                            <td>Keeproots</td>
-                        </tr>
-                        <tr>
-                            <td>15</td>
-                            <td>Big Sleep (Feat. ILLINIT)</td>
-                            <td>P-TYPE, ILLINIT</td>
-                            <td>Fascinating</td>
-                            <td>Fascinating</td>
-                        </tr>
-                        <tr>
-                            <td>16</td>
-                            <td>Kiss Me Deadly (Feat. 김필)</td>
-                            <td>P-TYPE, 김필</td>
-                            <td>Fascinating, 김필</td>
-                            <td>Fascinating</td>
-                        </tr>
-                        <tr>
-                            <td>17</td>
-                            <td>고양이는 아홉번 죽는다</td>
-                            <td>P-TYPE</td>
-                            <td>Fascinating</td>
-                            <td>Fascinating</td>
-                        </tr>
-                        <tr>
-                            <td>18</td>
-                            <td>부정의 부정은 긍정 (Feat. 버벌진트)</td>
-                            <td>P-TYPE, Verbal Jint</td>
-                            <td>Fascinating</td>
-                            <td>Fascinating</td>
-                        </tr>
-                        <tr>
-                            <td>19</td>
-                            <td>Outro (Feat. 김현심)</td>
-                            <td>P-TYPE</td>
-                            <td>Keeproots, P-TYPE</td>
-                            <td>P-TYPE</td>
-                        </tr>
-                        <tr>
-                            <td>20</td>
-                            <td>에필로그: 씬을 위한 오드 (Feat. The Quiett, 서사무엘)</td>
-                            <td>P-TYPE, The Quiett, 서사무엘</td>
-                            <td>Keeproots, 서사무엘</td>
-                            <td>Keeproots</td>
-                        </tr>
+                        <tr><td>01</td><td>Writer's Profile</td><td>P-TYPE</td><td>Keeproots</td><td>Keeproots</td></tr>
+                        <tr><td>02</td><td>Intro (Feat. WRKMS, 김현심)</td><td>P-TYPE</td><td>WRKMS</td><td>WRKMS, P-TYPE</td></tr>
+                        <tr><td>03</td><td>Hardboiled Café (Feat. 정인, FROM ALL TO HUMAN)</td><td>P-TYPE</td><td>Keeproots, FROM ALL TO HUMAN</td><td>Keeproots, FROM ALL TO HUMAN, P-TYPE</td></tr>
+                        <tr><td>04</td><td>깨끗하고 밝은 곳</td><td>P-TYPE</td><td>PLAYHOUSE</td><td>PLAYHOUSE</td></tr>
+                        <tr><td>05</td><td>The Picaresque</td><td>P-TYPE</td><td>Fredi Casso</td><td>Fredi Casso</td></tr>
+                        <tr><td>06</td><td>안녕, 내 사랑 (Feat. 르네, WRKMS)</td><td>P-TYPE</td><td>WRKMS, 르네</td><td>P-TYPE</td></tr>
+                        <tr><td>07</td><td>노인의 테마: 낚시 (Feat. 최엘비)</td><td>P-TYPE, 최엘비</td><td>PLAYHOUSE</td><td>PLAYHOUSE</td></tr>
+                        <tr><td>08</td><td>The Simple Art of Rhyme (Feat. KWAII)</td><td>P-TYPE, KWAII</td><td>Pe2ny</td><td>Pe2ny</td></tr>
+                        <tr><td>09</td><td>For Sale, My Rhymes, Never Used (Feat. JUSTHIS, DON MALIK)</td><td>P-TYPE, JUSTHIS, DON MALIK</td><td>Fredi Casso</td><td>Fredi Casso</td></tr>
+                        <tr><td>10</td><td>MIC "The Hammer" (Feat. Paloalto, Chin)</td><td>P-TYPE, Paloalto, Chin</td><td>Deepfry</td><td>Deepfry, Fascinating, P-TYPE</td></tr>
+                        <tr><td>11</td><td>Lyricist Paradox (Feat. DON MALIK)</td><td>P-TYPE, DON MALIK</td><td>Keeproots</td><td>Keeproots</td></tr>
+                        <tr><td>12</td><td>Heavy Bass Saga (Feat. 김오키)</td><td>P-TYPE</td><td>Keeproots</td><td>Keeproots</td></tr>
+                        <tr><td>13</td><td>고양이와 남자</td><td>P-TYPE</td><td>Fredi Casso</td><td>Fredi Casso</td></tr>
+                        <tr><td>14</td><td>Moonlighting (Feat. 서사무엘) (album version)</td><td>P-TYPE, 서사무엘</td><td>Keeproots, 서사무엘</td><td>Keeproots</td></tr>
+                        <tr><td>15</td><td>Big Sleep (Feat. ILLINIT)</td><td>P-TYPE, ILLINIT</td><td>Fascinating</td><td>Fascinating</td></tr>
+                        <tr><td>16</td><td>Kiss Me Deadly (Feat. 김필)</td><td>P-TYPE, 김필</td><td>Fascinating, 김필</td><td>Fascinating</td></tr>
+                        <tr><td>17</td><td>고양이는 아홉번 죽는다</td><td>P-TYPE</td><td>Fascinating</td><td>Fascinating</td></tr>
+                        <tr><td>18</td><td>부정의 부정은 긍정 (Feat. 버벌진트)</td><td>P-TYPE, Verbal Jint</td><td>Fascinating</td><td>Fascinating</td></tr>
+                        <tr><td>19</td><td>Outro (Feat. 김현심)</td><td>P-TYPE</td><td>Keeproots, P-TYPE</td><td>P-TYPE</td></tr>
+                        <tr><td>20</td><td>에필로그: 씬을 위한 오드 (Feat. The Quiett, 서사무엘)</td><td>P-TYPE, The Quiett, 서사무엘</td><td>Keeproots, 서사무엘</td><td>Keeproots</td></tr>
                     </tbody>
                 </table>
             </div>

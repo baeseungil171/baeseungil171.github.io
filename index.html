@@ -9,301 +9,78 @@
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 
     <style>
-        /* 부드러운 스크롤 이동 효과 적용 */
-        html {
-            scroll-behavior: smooth;
-        }
-
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Apple SD Gothic Neo', sans-serif;
-            background-color: #000000; /* 배경색: 검은색 */
-            color: #ff0000;         /* 전체 글자색: 빨간색 */
+            background-color: #000000;
+            color: #ff0000;
             text-align: center;
             margin: 0;
             padding: 0;
-            padding-top: 60px; /* 고정 내비게이션 바 높이만큼 상단 여백 추가 */
+            padding-top: 60px;
         }
         
-        /* 상단 고정 내비게이션 바 스타일 */
+        /* 내비게이션 바 */
         .navbar {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 60px;
+            top: 0; left: 0;
+            width: 100%; height: 60px;
             background-color: rgba(10, 0, 0, 0.95);
             border-bottom: 2px solid #ff0000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
+            display: flex; justify-content: center; align-items: center; gap: 25px;
             z-index: 1000;
             box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
         }
-
         .nav-link {
-            text-decoration: none;
-            color: #ffffff;
-            font-family: 'Black Han Sans', sans-serif;
-            font-size: 16px;
+            text-decoration: none; color: #ffffff;
+            font-family: 'Black Han Sans', sans-serif; font-size: 16px;
             transition: color 0.2s, text-shadow 0.2s;
         }
+        .nav-link:hover { color: #ff0000; text-shadow: 0 0 8px rgba(255, 0, 0, 0.6); }
 
-        .nav-link:hover {
-            color: #ff0000;
-            text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
-        }
+        /* 히어로 섹션 */
+        .hero-section { padding: 40px 20px 50px; border-bottom: 2px solid #330000; }
+        h1 { font-family: 'Black Han Sans', sans-serif; color: #ff0000; font-size: 72px; letter-spacing: 2px; margin-bottom: 10px; }
+        p { color: #ff4d4d; font-size: 20px; }
+        .site-image { width: 300px; border-radius: 10px; margin: 20px 0; }
+        .icon-container { margin-top: 25px; display: flex; justify-content: center; align-items: center; gap: 30px; }
+        .social-icon-link { display: inline-block; width: 80px; height: 80px; transition: transform 0.2s; }
+        .social-icon-link:hover { transform: scale(1.1); }
+        .social-icon { width: 100%; height: 100%; object-fit: contain; }
 
-        /* 상단 메인 히어로 섹션 */
-        .hero-section {
-            padding-top: 40px;
-            padding-bottom: 50px;
-            border-bottom: 2px solid #330000; 
-        }
+        /* 디스코그래피 섹션 */
+        .content-section { padding: 80px 20px; border-bottom: 2px solid #330000; }
+        .content-section h2 { font-family: 'Black Han Sans', sans-serif; font-size: 45px; color: #ff0000; margin-bottom: 40px; letter-spacing: 1px; }
+        .album-grid { display: flex; flex-wrap: nowrap; justify-content: center; gap: 20px; max-width: 1300px; margin: 0 auto; overflow-x: auto; padding: 15px 0 20px; }
+        .album-link { text-decoration: none; flex: 1; min-width: 200px; }
+        .album-card { background-color: #110000; border: 1px solid #400000; border-radius: 10px; height: 100%; padding: 15px; transition: transform 0.2s, border-color 0.2s; box-sizing: border-box; }
+        .album-link:hover .album-card { transform: translateY(-8px); border-color: #ff0000; }
+        .album-cover { width: 100%; height: 200px; object-fit: cover; border-radius: 6px; margin-bottom: 12px; }
+        .album-title { font-size: 16px; font-weight: bold; color: #ffffff; margin-bottom: 5px; }
+        .album-year { font-size: 14px; color: #ff4d4d; }
 
-        h1 {
-            font-family: 'Black Han Sans', sans-serif;
-            color: #ff0000;          
-            font-size: 72px;         
-            letter-spacing: 2px;     
-            margin-bottom: 10px;
-        }
+        /* 앨범 상세 섹션 */
+        .album-detail-section { padding: 80px 20px; border-bottom: 1px solid #220000; display: flex; flex-direction: column; align-items: center; scroll-margin-top: 70px; }
+        .album-detail-container { max-width: 1100px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 25px; }
+        .album-detail-section h3 { font-family: 'Black Han Sans', sans-serif; font-size: 36px; color: #ff0000; margin-bottom: 5px; }
+        .detail-cover { width: 220px; height: 220px; object-fit: cover; border-radius: 10px; border: 2px solid #ff0000; box-shadow: 0 0 15px rgba(255, 0, 0, 0.3); }
+        .album-detail-section p { color: #cccccc; font-size: 16px; margin-bottom: 10px; }
 
-        p {
-            color: #ff4d4d;          
-            font-size: 20px;         
-        }
+        /* 트랙리스트 테이블 스타일 */
+        .tracklist-table-container { width: 100%; overflow-x: auto; margin-top: 15px; }
+        .track-table { width: 100%; border-collapse: collapse; background-color: #080000; border: 1px solid #400000; text-align: left; font-size: 14px; }
+        .track-table th, .track-table td { padding: 12px 15px; border-bottom: 1px solid #330000; }
+        .track-table th { background-color: #1a0000; color: #ff0000; font-family: 'Black Han Sans', sans-serif; font-size: 16px; text-align: center; letter-spacing: 1px; }
+        .track-table td:nth-child(1) { text-align: center; color: #ff4d4d; font-weight: bold; width: 80px; }
+        .track-table td:nth-child(2) { color: #ffffff; font-weight: bold; }
+        .track-table td:nth-child(3), .track-table td:nth-child(4), .track-table td:nth-child(5) { color: #cc9999; }
+        .track-table tr:hover { background-color: #150000; }
 
-        .site-image {
-            width: 300px;            
-            border-radius: 10px;     
-            margin: 20px 0;          
-        }
-
-        .icon-container {
-            margin-top: 25px;
-            display: flex;            
-            justify-content: center; 
-            align-items: center;     
-            gap: 30px;               
-        }
-
-        .social-icon-link {
-            display: inline-block;
-            width: 80px;             
-            height: 80px;
-            transition: transform 0.2s;
-        }
-
-        .social-icon-link:hover {
-            transform: scale(1.1);   
-        }
-
-        .social-icon {
-            width: 100%;             
-            height: 100%;
-            object-fit: contain;     
-        }
-
-        /* 디스코그래피 섹션 스타일 */
-        .content-section {
-            padding: 80px 20px;
-            border-bottom: 2px solid #330000;
-        }
-
-        .content-section h2 {
-            font-family: 'Black Han Sans', sans-serif;
-            font-size: 45px;
-            color: #ff0000;
-            margin-bottom: 40px;
-            letter-spacing: 1px;
-        }
-
-        /* 앨범 목록 레이아웃 */
-        .album-grid {
-            display: flex;
-            flex-wrap: nowrap;        
-            justify-content: center;
-            gap: 20px;
-            max-width: 1300px;
-            margin: 0 auto;
-            overflow-x: auto;         
-            padding-top: 15px;        
-            padding-bottom: 20px;     
-        }
-
-        /* 앨범 링크 (기본 링크 밑줄 및 색상 제거) */
-        .album-link {
-            text-decoration: none;
-            flex: 1;
-            min-width: 200px;
-        }
-
-        /* 개별 앨범 카드 */
-        .album-card {
-            background-color: #110000;
-            border: 1px solid #400000;
-            border-radius: 10px;
-            height: 100%;
-            padding: 15px;
-            transition: transform 0.2s, border-color 0.2s;
-            box-sizing: border-box;
-        }
-
-        .album-link:hover .album-card {
-            transform: translateY(-8px); 
-            border-color: #ff0000;
-        }
-
-        .album-cover {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 6px;
-            margin-bottom: 12px;
-        }
-
-        .album-title {
-            font-size: 16px;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 5px;
-        }
-
-        .album-year {
-            font-size: 14px;
-            color: #ff4d4d;
-        }
-
-        /* 각 앨범별 상세 정보 구역 */
-        .album-detail-section {
-            padding: 80px 20px;
-            border-bottom: 1px solid #220000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            scroll-margin-top: 70px; /* 고정 내비게이션 바에 가리지 않도록 스크롤 위치 보정 */
-        }
-
-        .album-detail-container {
-            max-width: 1100px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .album-detail-section h3 {
-            font-family: 'Black Han Sans', sans-serif;
-            font-size: 36px;
-            color: #ff0000;
-            margin-bottom: 5px;
-        }
-
-        .detail-cover {
-            width: 220px;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 2px solid #ff0000;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
-        }
-
-        .album-detail-section p {
-            color: #cccccc;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        /* 트랙리스트 크레딧 테이블 스타일 */
-        .tracklist-table-container {
-            width: 100%;
-            overflow-x: auto;
-            margin-top: 15px;
-        }
-
-        .track-table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #080000;
-            border: 1px solid #400000;
-            text-align: left;
-            font-size: 14px;
-        }
-
-        .track-table th, .track-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #330000;
-        }
-
-        .track-table th {
-            background-color: #1a0000;
-            color: #ff0000;
-            font-family: 'Black Han Sans', sans-serif;
-            font-size: 16px;
-            text-align: center;
-            letter-spacing: 1px;
-        }
-
-        .track-table td:nth-child(1) {
-            text-align: center;
-            color: #ff4d4d;
-            font-weight: bold;
-            width: 80px;
-        }
-
-        .track-table td:nth-child(2) {
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        .track-table td:nth-child(3),
-        .track-table td:nth-child(4),
-        .track-table td:nth-child(5) {
-            color: #cc9999;
-        }
-
-        .track-table tr:hover {
-            background-color: #150000;
-        }
-
-        /* 사운드트랙 박스 스타일 */
-        .soundtrack-box {
-            width: 100%;
-            background-color: #110000;
-            border: 1px solid #400000;
-            border-radius: 8px;
-            padding: 20px;
-            box-sizing: border-box;
-            margin-top: 20px;
-        }
-
-        .soundtrack-box h4 {
-            color: #ff0000;
-            font-size: 18px;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-family: 'Black Han Sans', sans-serif;
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 비율 */
-            height: 0;
-            margin-top: 10px;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 6px;
-            border: 1px solid #400000;
-        }
+        /* 사운드트랙 박스 */
+    .soundtrack-box { width: 100%; background-color: #110000; border: 1px solid #400000; border-radius: 8px; padding: 20px; box-sizing: border-box; margin-top: 20px; }
+        .soundtrack-box h4 { color: #ff0000; font-size: 18px; margin-top: 0; margin-bottom: 15px; font-family: 'Black Han Sans', sans-serif; }
+        .video-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; margin-top: 10px; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 6px; border: 1px solid #400000; }
     </style>
 </head>
 <body>
@@ -320,302 +97,171 @@
     <div class="hero-section">
         <h1>P-TYPE THE BIG CAT</h1>
         <p>이곳은 피타입의 음악들의 정보를 담은 웹사이트입니다.</p>
-        
-        <div>
-            <img src="img/P-TYPE.jpg" alt="피타입 사진" class="site-image">
-        </div>
-
+        <div><img src="img/P-TYPE.jpg" alt="피타입 사진" class="site-image"></div>
         <div class="icon-container">
-            <a href="https://www.instagram.com/ptype_thebigcat?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank" class="social-icon-link">
-                <img src="img/instagram.png" alt="인스타그램" class="social-icon">
-            </a>
-            
-            <a href="https://www.youtube.com/channel/UC_BBrruv8aajni5I9muvtEw" target="_blank" class="social-icon-link">
-                <img src="img/youtube.png" alt="유튜브" class="social-icon">
-            </a>
-
-            <a href="https://music.youtube.com/channel/UC_BBrruv8aajni5I9muvtEw?si=ZB1nuf0cdEgdFKBM" target="_blank" class="social-icon-link">
-                <img src="img/youtubemusic.png" alt="유튜브 뮤직" class="social-icon">
-            </a>
+            <a href="https://www.instagram.com/ptype_thebigcat" target="_blank" class="social-icon-link"><img src="img/instagram.png" alt="인스타그램" class="social-icon"></a>
+            <a href="https://www.youtube.com/channel/UC_BBrruv8aajni5I9muvtEw" target="_blank" class="social-icon-link"><img src="img/youtube.png" alt="유튜브" class="social-icon"></a>
+            <a href="https://music.youtube.com/channel/UC_BBrruv8aajni5I9muvtEw" target="_blank" class="social-icon-link"><img src="img/youtubemusic.png" alt="유튜브 뮤직" class="social-icon"></a>
         </div>
     </div>
 
     <div class="content-section">
         <h2>DISCOGRAPHY</h2>
-        
         <div class="album-grid">
-            <a href="#album1" class="album-link">
-                <div class="album-card">
-                    <img src="img/album1.png" alt="1집 앨범 커버" class="album-cover">
-                    <div class="album-title">Heavy Bass</div>
-                    <div class="album-year">2004.05.31</div>
-                </div>
-            </a>
-
-            <a href="#album2" class="album-link">
-                <div class="album-card">
-                    <img src="img/album2.png" alt="2집 앨범 커버" class="album-cover">
-                    <div class="album-title">The Vintage</div>
-                    <div class="album-year">2008.11.27</div>
-                </div>
-            </a>
-
-            <a href="#album3" class="album-link">
-                <div class="album-card">
-                    <img src="img/album3.png" alt="3집 앨범 커버" class="album-cover">
-                    <div class="album-title">RAP</div>
-                    <div class="album-year">2013.07.29</div>
-                </div>
-            </a>
-
-            <a href="#album4" class="album-link">
-                <div class="album-card">
-                    <img src="img/album4.png" alt="4집 앨범 커버" class="album-cover">
-                    <div class="album-title">Street Poetry</div>
-                    <div class="album-year">2015.03.20</div>
-                </div>
-            </a>
-
-            <a href="#album5" class="album-link">
-                <div class="album-card">
-                    <img src="img/album5.png" alt="5집 앨범 커버" class="album-cover">
-                    <div class="album-title">Hardboiled Café 5</div>
-                    <div class="album-year">2022.02.18</div>
-                </div>
-            </a>
+            <a href="#album1" class="album-link"><div class="album-card"><img src="img/album1.png" class="album-cover"><div class="album-title">Heavy Bass</div><div class="album-year">2004.05.31</div></div></a>
+            <a href="#album2" class="album-link"><div class="album-card"><img src="img/album2.png" class="album-cover"><div class="album-title">The Vintage</div><div class="album-year">2008.11.27</div></div></a>
+            <a href="#album3" class="album-link"><div class="album-card"><img src="img/album3.png" class="album-cover"><div class="album-title">RAP</div><div class="album-year">2013.07.29</div></div></a>
+            <a href="#album4" class="album-link"><div class="album-card"><img src="img/album4.png" class="album-cover"><div class="album-title">Street Poetry</div><div class="album-year">2015.03.20</div></div></a>
+            <a href="#album5" class="album-link"><div class="album-card"><img src="img/album5.png" class="album-cover"><div class="album-title">Hardboiled Café 5</div><div class="album-year">2022.02.18</div></div></a>
         </div>
     </div>
 
-    <div id="album1" class="album-detail-section">
-        <div class="album-detail-container">
-            <h3>1집 - Heavy Bass (2004.05.31)</h3>
-            <img src="img/album1.png" alt="1집 상세 커버" class="detail-cover">
-            <p>한국 힙합 역사상 가장 찬란한 명반 중 하나로 꼽히는 피타입의 정규 1집 데뷔 앨범입니다.</p>
-            
-            <div class="tracklist-table-container">
-                <table class="track-table">
-                    <thead>
-                        <tr>
-                            <th>트랙</th>
-                            <th>제목</th>
-                            <th>작사</th>
-                            <th>작곡</th>
-                            <th>편곡</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>01</td><td>서시</td><td>P-TYPE</td><td>Keeproots</td><td>Keeproots</td></tr>
-                        <tr><td>02</td><td>Skit - 보여주고 증명하라</td><td>P-TYPE</td><td>P-TYPE</td><td>P-TYPE</td></tr>
-                        <tr><td>03</td><td>돈키호테 (Feat. 휘성)</td><td>P-TYPE, 휘성</td><td>Keeproots</td><td>Keeproots</td></tr>
-                        <tr><td>04</td><td>Skit - 힙합다운 힙합</td><td>P-TYPE</td><td>P-TYPE</td><td>P-TYPE</td></tr>
-                        <tr><td>05</td><td>Heavy Bass</td><td>P-TYPE</td><td>P-TYPE</td><td>P-TYPE</td></tr>
-                        <tr><td>06</td><td>P-Type The Big Cat</td><td>P-TYPE</td><td>SAATAN</td><td>SAATAN</td></tr>
-                        <tr><td>07</td><td>힙합다운 힙합</td><td>P-TYPE</td><td>P-TYPE</td><td>P-TYPE</td></tr>
-                        <tr><td>08</td><td>독종</td><td>P-TYPE</td><td>Keeproots</td><td>Keeproots</td></tr>
-                        <tr><td>09</td><td>So U Wanna Be Hardcore (Feat. MC Meta)</td><td>P-TYPE, MC Meta</td><td>Keeproots</td><td>Keeproots</td></tr>
-                        <tr><td>10</td><td>언더그라운드</td><td>P-TYPE</td><td>Keeproots</td><td>Keeproots</td></tr>
-                        <tr><td>11</td><td>Musiq Noir (Feat. C-LUV)</td><td>P-TYPE, C-LUV</td><td>Keeproots</td><td>Keeproots</td></tr>
-                        <tr><td>12</td><td>Skit - 언어의 연주가</td><td>P-TYPE</td><td>Keeproots</td><td>P-TYPE</td></tr>
-                        <tr><td>13</td><td>Wild Style (Feat. 빅마마)</td><td>P-TYPE</td><td>P-TYPE</td><td>P-TYPE</td></tr>
-                        <tr><td>14</td><td>언어의 연주가 (Bonus Track)</td><td>P-TYPE</td><td>Keeproots</td><td>-</td></tr>
-                    </tbody>
-                </table>
-            </div>
+    <div id="album1" class="album-detail-section" data-album="1"></div>
+    <div id="album2" class="album-detail-section" data-album="2"></div>
+    <div id="album3" class="album-detail-section" data-album="3"></div>
+    <div id="album4" class="album-detail-section" data-album="4"></div>
+    <div id="album5" class="album-detail-section" data-album="5"></div>
 
-            <div class="soundtrack-box">
-                <h4>SOUNDTRACK / PREVIEW</h4>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID_1" title="1집 사운드트랙" allowfullscreen></iframe>
+    <script>
+        // 앨범 데이터 관리 (여기서 트랙리스트나 유튜브 ID를 간편하게 수정할 수 있습니다!)
+        const albumsData = {
+            1: {
+                title: "1집 - Heavy Bass (2004.05.31)",
+                desc: "한국 힙합 역사상 가장 찬란한 명반 중 하나로 꼽히는 피타입의 정규 1집 데뷔 앨범입니다.",
+                cover: "img/album1.png",
+                youtubeId: "YOUR_YOUTUBE_VIDEO_ID_1",
+                tracks: [
+                    ["01", "서시", "P-TYPE", "Keeproots", "Keeproots"],
+                    ["02", "Skit - 보여주고 증명하라", "P-TYPE", "P-TYPE", "P-TYPE"],
+                    ["03", "돈키호테 (Feat. 휘성)", "P-TYPE, 휘성", "Keeproots", "Keeproots"],
+                    ["04", "Skit - 힙합다운 힙합", "P-TYPE", "P-TYPE", "P-TYPE"],
+                    ["05", "Heavy Bass", "P-TYPE", "P-TYPE", "P-TYPE"],
+                    ["06", "P-Type The Big Cat", "P-TYPE", "SAATAN", "SAATAN"],
+                    ["07", "힙합다운 힙합", "P-TYPE", "P-TYPE", "P-TYPE"],
+                    ["08", "독종", "P-TYPE", "Keeproots", "Keeproots"],
+                    ["09", "So U Wanna Be Hardcore (Feat. MC Meta)", "P-TYPE, MC Meta", "Keeproots", "Keeproots"],
+                    ["10", "언더그라운드", "P-TYPE", "Keeproots", "Keeproots"],
+                    ["11", "Musiq Noir (Feat. C-LUV)", "P-TYPE, C-LUV", "Keeproots", "Keeproots"],
+                    ["12", "Skit - 언어의 연주가", "P-TYPE", "Keeproots", "P-TYPE"],
+                    ["13", "Wild Style (Feat. 빅마마)", "P-TYPE", "P-TYPE", "P-TYPE"],
+                    ["14", "언어의 연주가 (Bonus Track)", "P-TYPE", "Keeproots", "-"]
+                ]
+            },
+            2: {
+                title: "2집 - The Vintage (2008.11.27)",
+                desc: "특유의 클래식하고 묵직한 서정성이 돋보이는 정규 2집 앨범입니다.",
+                cover: "img/album2.png",
+                youtubeId: "YOUR_YOUTUBE_VIDEO_ID_2",
+                tracks: [
+                    ["01", "Intro", "P-Type", "-", "-"],
+                    ["02", "비를 위한 발라드 (Feat. Gina)", "P-Type", "Keeproots", "Keeproots"],
+                    ["03", "Happy People (Feat. Soulman)", "P-Type", "Artisan Beats", "Artisan Beats"],
+                    ["04", "Music City (Feat. Ali)", "P-Type", "Artisan Beats", "Artisan Beats"],
+                    ["05", "A Long Time Ago (Feat. Heritage)", "P-Type", "Mild Beats", "Mild Beats"],
+                    ["06", "Interlude", "P-Type", "-", "-"],
+                    ["07", "수컷 (Feat. 박광수)", "P-Type", "P-Type", "P-Type"],
+                    ["08", "젊은 날의 초상 (Feat. Koonta, 이인관)", "P-Type, Koonta, 이인관", "P-Type", "P-Type"],
+                    ["09", "소나기 (Feat. Soulman)", "P-Type", "Keeproots", "Keeproots"],
+                    ["10", "후유증 (Feat. 정인, 이인관)", "P-Type, 한경훈", "한경훈", "한경훈"],
+                    ["11", "Poetry Sayer", "P-Type", "The Quiett", "The Quiett"],
+                    ["12", "Skit", "P-Type", "-", "-"],
+                    ["13", "비를 위한 발라드 (Inst.)", "-", "Keeproots", "Keeproots"],
+                    ["14", "Skit", "P-Type", "-", "-"],
+                    ["15", "소나기 (Inst.)", "-", "Keeproots", "Keeproots"],
+                    ["16", "Skit", "P-Type", "-", "-"],
+                    ["17", "수컷 (Inst.)", "-", "P-Type", "P-Type"]
+                ]
+            },
+            3: {
+                title: "3집 - RAP (2013.07.29)",
+                desc: "랩이라는 장르와 그 본질에 대한 깊은 고찰이 담긴 정규 3집 앨범입니다.",
+                cover: "img/album3.png",
+                youtubeId: "YOUR_YOUTUBE_VIDEO_ID_3",
+                tracks: [
+                    ["01", "I’m Back", "P-type", "Ging, Optical Eyez XL", "Ging, Optical Eyez XL"],
+                    ["02", "Love, Life, Rap (Feat. GRAY)", "P-type", "GRAY, Keeproots", "Keeproots"],
+                    ["03", "볼케이노 (Feat. 선우정아, 손수경)", "P-type", "Keeproots, Fascinating, Rhymer", "Keeproots, Fascinating"],
+                    ["04", "꿈의 해석 (Feat. Jinbo)", "P-type", "프라이머리, Jinbo", "프라이머리"],
+                    ["05", "Highway Trucker", "P-type", "G-Slow", "G-Slow"],
+                    ["06", "OST: Peace (Feat. Paloalto, B-Free, Huckleberry P)", "P-type 외", "G-Slow", "G-Slow"],
+                    ["07", "뿔 (Feat. BUMKEY)", "P-type, BUMKEY", "Keeproots 외", "Keeproots 외"],
+                    ["08", "불 꺼", "P-type", "G-Slow", "G-Slow"],
+                    ["09", "OST: Respect (Feat. Beenzino, Dok2)", "P-type 외", "Fascinating", "Fascinating"],
+                    ["10", "OST: One Love (Feat. Noise Mob)", "P-type 외", "Score 13", "Score 13"],
+                    ["11", "Unchangeable (Feat. Sean2slow)", "P-type, Sean2slow", "Optical Eyez XL", "Optical Eyez XL"],
+                    ["12", "다이하드 (Feat. Ali, MC Meta)", "P-type, MC Meta", "Artisan Beats 외", "Keeproots"]
+                ]
+            },
+            4: {
+                title: "4집 - Street Poetry (2015.03.20)",
+                desc: "거리의 시인으로서 피타입의 날카로운 통찰력과 가사가 돋보이는 4집 앨범입니다.",
+                cover: "img/album4.png",
+                youtubeId: "YOUR_YOUTUBE_VIDEO_ID_4",
+                tracks: [
+                    ["01", "폭력적인 잡종문화", "P-Type", "Ronald Bell 외", "Kay Gee's, Deepfry"],
+                    ["02", "Do The Right Rap (Feat. Huckleberry P)", "P-Type 외", "Fascinating", "Fascinating"],
+                    ["03", "Timberland 6\" (Feat. NUCK)", "P-Type, NUCK", "Keeproots", "Keeproots"],
+                    ["04", "네안데르탈 (Feat. Minos, Justhis)", "P-Type 외", "Deepfry", "Deepfry"],
+                    ["05", "광화문 (Feat. 태완)", "P-Type", "Fascinating 외", "Fascinating 외"],
+                    ["06", "돈키호테2 (Feat. 바버렛츠)", "P-Type", "Fascinating 외", "Fascinating 외"],
+                    ["07", "이방인 (Feat. 차붐)", "Neil Young 외", "Neil Young, Deepfry", "Neil Young 외"],
+                    ["08", "반환점", "P-Type", "김창완, 김창훈", "김창완 외"],
+                    ["09", "최악의 남자", "P-Type", "Fascinating", "Fascinating 외"],
+                    ["10", "Vice Versa (Feat. 선우정아)", "선우정아, P-Type", "Kebee 외", "Kebee, 박민우"]
+                ]
+            },
+            5: {
+                title: "5집 - Hardboiled Café 5 (2022.02.18)",
+                desc: "하드보일드한 감성을 담아내며 건재함을 증명한 정규 5집 앨범입니다.",
+                cover: "img/album5.png",
+                youtubeId: "YOUR_YOUTUBE_VIDEO_ID_5",
+                tracks: [
+                    ["01", "Writer's Profile", "P-TYPE", "Keeproots", "Keeproots"],
+                    ["02", "Intro (Feat. WRKMS, 김현심)", "P-TYPE", "WRKMS", "WRKMS, P-TYPE"],
+                    ["03", "Hardboiled Café (Feat. 정인 외)", "P-TYPE", "Keeproots 외", "Keeproots 외"],
+                    ["04", "깨끗하고 밝은 곳", "P-TYPE", "PLAYHOUSE", "PLAYHOUSE"],
+                    ["05", "The Picaresque", "P-TYPE", "Fredi Casso", "Fredi Casso"],
+                    ["06", "안녕, 내 사랑 (Feat. 르네, WRKMS)", "P-TYPE", "WRKMS, 르네", "P-TYPE"],
+                    ["07", "노인의 테마: 낚시 (Feat. 최엘비)", "P-TYPE, 최엘비", "PLAYHOUSE", "PLAYHOUSE"],
+                    ["08", "The Simple Art of Rhyme (Feat. KWAII)", "P-TYPE, KWAII", "Pe2ny", "Pe2ny"],
+                    ["09", "For Sale, My Rhymes, Never Used", "P-TYPE 외", "Fredi Casso", "Fredi Casso"],
+                    ["10", "MIC \"The Hammer\"", "P-TYPE 외", "Deepfry", "Deepfry 외"]
+                ]
+            }
+        };
+
+        // 자바스크립트로 각 앨범 영역 자동 완성
+        document.querySelectorAll('.album-detail-section').forEach(section => {
+            const id = section.getAttribute('data-album');
+            const data = albumsData[id];
+            if (!data) return;
+
+            let tableRows = data.tracks.map(t => `
+                <tr><td>${t[0]}</td><td>${t[1]}</td><td>${t[2]}</td><td>${t[3]}</td><td>${t[4]}</td></tr>
+            `).join('');
+
+            section.innerHTML = `
+                <div class="album-detail-container">
+                    <h3>${data.title}</h3>
+                    <img src="${data.cover}" alt="앨범 커버" class="detail-cover">
+                    <p>${data.desc}</p>
+                    <div class="tracklist-table-container">
+                        <table class="track-table">
+                            <thead>
+                                <tr><th>트랙</th><th>제목</th><th>작사</th><th>작곡</th><th>편곡</th></tr>
+                            </thead>
+                            <tbody>${tableRows}</tbody>
+                        </table>
+                    </div>
+                    <div class="soundtrack-box">
+                        <h4>SOUNDTRACK / PREVIEW</h4>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/${data.youtubeId}" title="사운드트랙" allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="album2" class="album-detail-section">
-        <div class="album-detail-container">
-            <h3>2집 - The Vintage (2008.11.27)</h3>
-            <img src="img/album2.png" alt="2집 상세 커버" class="detail-cover">
-            <p>특유의 클래식하고 묵직한 서정성이 돋보이는 정규 2집 앨범입니다.</p>
-            
-            <div class="tracklist-table-container">
-                <table class="track-table">
-                    <thead>
-                        <tr>
-                            <th>트랙</th>
-                            <th>제목</th>
-                            <th>작사</th>
-                            <th>작곡</th>
-                            <th>편곡</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>01</td><td>Intro</td><td>P-Type</td><td>-</td><td>-</td></tr>
-                        <tr><td>02</td><td>비를 위한 발라드 (Feat. Gina)</td><td>P-Type</td><td>Keeproots</td><td>Keeproots</td></tr>
-                        <tr><td>03</td><td>Happy People (Feat. Soulman)</td><td>P-Type</td><td>Artisan Beats</td><td>Artisan Beats</td></tr>
-                        <tr><td>04</td><td>Music City (Feat. Ali)</td><td>P-Type</td><td>Artisan Beats</td><td>Artisan Beats</td></tr>
-                        <tr><td>05</td><td>A Long Time Ago (Feat. Heritage)</td><td>P-Type</td><td>Mild Beats</td><td>Mild Beats</td></tr>
-                        <tr><td>06</td><td>Interlude</td><td>P-Type</td><td>-</td><td>-</td></tr>
-                        <tr><td>07</td><td>수컷 (Feat. 박광수)</td><td>P-Type</td><td>P-Type</td><td>P-Type</td></tr>
-                        <tr><td>08</td><td>젊은 날의 초상 (Feat. Koonta, 이인관)</td><td>P-Type, Koonta, 이인관</td><td>P-Type</td><td>P-Type</td></tr>
-                        <tr><td>09</td><td>소나기 (Feat. Soulman)</td><td>P-Type</td><td>Keeproots</td><td>Keeproots</td></tr>
-                        <tr><td>10</td><td>후유증 (Feat. 정인, 이인관)</td><td>P-Type, 한경훈</td><td>한경훈</td><td>한경훈</td></tr>
-                        <tr><td>11</td><td>Poetry Sayer</td><td>P-Type</td><td>The Quiett</td><td>The Quiett</td></tr>
-                        <tr><td>12</td><td>Skit</td><td>P-Type</td><td>-</td><td>-</td></tr>
-                        <tr><td>13</td><td>비를 위한 발라드 (Inst.)</td><td>-</td><td>Keeproots</td><td>Keeproots</td></tr>
-                        <tr><td>14</td><td>Skit</td><td>P-Type</td><td>-</td><td>-</td></tr>
-                        <tr><td>15</td><td>소나기 (Inst.)</td><td>-</td><td>Keeproots</td><td>Keeproots</td></tr>
-                        <tr><td>16</td><td>Skit</td><td>P-Type</td><td>-</td><td>-</td></tr>
-                        <tr><td>17</td><td>수컷 (Inst.)</td><td>-</td><td>P-Type</td><td>P-Type</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="soundtrack-box">
-                <h4>SOUNDTRACK / PREVIEW</h4>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID_2" title="2집 사운드트랙" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="album3" class="album-detail-section">
-        <div class="album-detail-container">
-            <h3>3집 - RAP (2013.07.29)</h3>
-            <img src="img/album3.png" alt="3집 상세 커버" class="detail-cover">
-            <p>랩이라는 장르와 그 본질에 대한 깊은 고찰이 담긴 정규 3집 앨범입니다.</p>
-            
-            <div class="tracklist-table-container">
-                <table class="track-table">
-                    <thead>
-                        <tr>
-                            <th>트랙</th>
-                            <th>제목</th>
-                            <th>작사</th>
-                            <th>작곡</th>
-                            <th>편곡</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>01</td><td>I’m Back</td><td>P-type</td><td>Ging, Optical Eyez XL</td><td>Ging, Optical Eyez XL</td></tr>
-                        <tr><td>02</td><td>Love, Life, Rap (Feat. GRAY)</td><td>P-type</td><td>GRAY, Keeproots</td><td>Keeproots</td></tr>
-                        <tr><td>03</td><td>볼케이노 (Feat. 선우정아, 손수경)</td><td>P-type</td><td>Keeproots, Fascinating, Rhymer</td><td>Keeproots, Fascinating</td></tr>
-                        <tr><td>04</td><td>꿈의 해석 (Feat. Jinbo)</td><td>P-type</td><td>프라이머리, Jinbo</td><td>프라이머리</td></tr>
-                        <tr><td>05</td><td>Highway Trucker</td><td>P-type</td><td>G-Slow</td><td>G-Slow</td></tr>
-                        <tr><td>06</td><td>OST: Peace (Feat. Paloalto, B-Free, Huckleberry P)</td><td>P-type, Paloalto, B-Free, Huckleberry P</td><td>G-Slow</td><td>G-Slow</td></tr>
-                        <tr><td>07</td><td>뿔 (Feat. BUMKEY)</td><td>P-type, BUMKEY</td><td>Keeproots, Fascinating, BUMKEY</td><td>Keeproots, Fascinating</td></tr>
-                        <tr><td>08</td><td>불 꺼</td><td>P-type</td><td>G-Slow</td><td>G-Slow</td></tr>
-                        <tr><td>09</td><td>OST: Respect (Feat. Beenzino, Dok2)</td><td>P-type, Beenzino, Dok2</td><td>Fascinating</td><td>Fascinating</td></tr>
-                        <tr><td>10</td><td>OST: One Love (Feat. Noise Mob)</td><td>P-type, Minos, RHYME-A-</td><td>Score 13</td><td>Score 13</td></tr>
-                        <tr><td>11</td><td>Unchangeable (Feat. Sean2slow)</td><td>P-type, Sean2slow</td><td>Optical Eyez XL</td><td>Optical Eyez XL</td></tr>
-                        <tr><td>12</td><td>다이하드 (Feat. Ali, MC Meta)</td><td>P-type, MC Meta</td><td>Artisan Beats, Keeproots</td><td>Keeproots</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="soundtrack-box">
-                <h4>SOUNDTRACK / PREVIEW</h4>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID_3" title="3집 사운드트랙" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="album4" class="album-detail-section">
-        <div class="album-detail-container">
-            <h3>4집 - Street Poetry (2015.03.20)</h3>
-            <img src="img/album4.png" alt="4집 상세 커버" class="detail-cover">
-            <p>거리의 시인으로서 피타입의 날카로운 통찰력과 가사가 돋보이는 4집 앨범입니다.</p>
-            
-            <div class="tracklist-table-container">
-                <table class="track-table">
-                    <thead>
-                        <tr>
-                            <th>트랙</th>
-                            <th>제목</th>
-                            <th>작사</th>
-                            <th>작곡</th>
-                            <th>편곡</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>01</td><td>폭력적인 잡종문화</td><td>P-Type</td><td>Ronald Bell, R. Jackson, Deepfry</td><td>Kay Gee's, Deepfry</td></tr>
-                        <tr><td>02</td><td>Do The Right Rap (Feat. Huckleberry P)</td><td>P-Type, Huckleberry P</td><td>Fascinating</td><td>Fascinating</td></tr>
-                        <tr><td>03</td><td>Timberland 6" (Feat. NUCK of Souldive)</td><td>P-Type, NUCK</td><td>Keeproots</td><td>Keeproots</td></tr>
-                        <tr><td>04</td><td>네안데르탈 (Feat. Minos, Justhis)</td><td>P-Type, Minos, Justhis</td><td>Deepfry</td><td>Deepfry</td></tr>
-                        <tr><td>05</td><td>광화문 (Feat. 태완)</td><td>P-Type</td><td>Fascinating, 김태완</td><td>Fascinating, YELLA Diamond</td></tr>
-                        <tr><td>06</td><td>돈키호테2 (Feat. 바버렛츠)</td><td>P-Type</td><td>Fascinating, 김은혜</td><td>Fascinating, DJ Juice</td></tr>
-                        <tr><td>07</td><td>이방인 (Feat. 차붐)</td><td>Neil Young, P-Type, 차붐</td><td>Neil Young, Deepfry</td><td>Neil Young, Deepfry</td></tr>
-                        <tr><td>08</td><td>반환점</td><td>P-Type</td><td>김창완, 김창훈</td><td>김창완, 김영진, 김제형</td></tr>
-                        <tr><td>09</td><td>최악의 남자</td><td>P-Type</td><td>Fascinating</td><td>Fascinating, DJ Juice, P-Type</td></tr>
-                        <tr><td>10</td><td>Vice Versa (Feat. 선우정아)</td><td>선우정아, P-Type</td><td>Kebee, 박민우, 선우정아</td><td>Kebee, 박민우</td></tr>
-                        <tr><td>11</td><td>광화문 (Inst.) (CD only)</td><td>-</td><td>Fascinating, 김태완</td><td>Fascinating, YELLA Diamond</td></tr>
-                        <tr><td>12</td><td>돈키호테2 (Inst.) (CD only)</td><td>-</td><td>Fascinating, 김은혜</td><td>Fascinating, DJ Juice</td></tr>
-                        <tr><td>13</td><td>반환점 (Inst.) (CD only)</td><td>-</td><td>김창완, 김창훈</td><td>김창완, 김영진, 김제형</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="soundtrack-box">
-                <h4>SOUNDTRACK / PREVIEW</h4>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID_4" title="4집 사운드트랙" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="album5" class="album-detail-section">
-        <div class="album-detail-container">
-            <h3>5집 - Hardboiled Café 5 (2022.02.18)</h3>
-            <img src="img/album5.png" alt="5집 상세 커버" class="detail-cover">
-            <p>하드보일드한 감성을 담아내며 건재함을 증명한 정규 5집 앨범입니다.</p>
-            
-            <div class="tracklist-table-container">
-                <table class="track-table">
-                    <thead>
-                        <tr>
-                            <th>트랙</th>
-                            <th>제목</th>
-                            <th>작사</th>
-                            <th>작곡</th>
-                            <th>편곡</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>01</td><td>Writer's Profile</td><td>P-TYPE</td><td>Keeproots</td><td>Keeproots</td></tr>
-                        <tr><td>02</td><td>Intro (Feat. WRKMS, 김현심)</td><td>P-TYPE</td><td>WRKMS</td><td>WRKMS, P-TYPE</td></tr>
-                        <tr><td>03</td><td>Hardboiled Café (Feat. 정인, FROM ALL TO HUMAN)</td><td>P-TYPE</td><td>Keeproots, FROM ALL TO HUMAN</td><td>Keeproots, FROM ALL TO HUMAN, P-TYPE</td></tr>
-                        <tr><td>04</td><td>깨끗하고 밝은 곳</td><td>P-TYPE</td><td>PLAYHOUSE</td><td>PLAYHOUSE</td></tr>
-                        <tr><td>05</td><td>The Picaresque</td><td>P-TYPE</td><td>Fredi Casso</td><td>Fredi Casso</td></tr>
-                        <tr><td>06</td><td>안녕, 내 사랑 (Feat. 르네, WRKMS)</td><td>P-TYPE</td><td>WRKMS, 르네</td><td>P-TYPE</td></tr>
-                        <tr><td>07</td><td>노인의 테마: 낚시 (Feat. 최엘비)</td><td>P-TYPE, 최엘비</td><td>PLAYHOUSE</td><td>PLAYHOUSE</td></tr>
-                        <tr><td>08</td><td>The Simple Art of Rhyme (Feat. KWAII)</td><td>P-TYPE, KWAII</td><td>Pe2ny</td><td>Pe2ny</td></tr>
-                        <tr><td>09</td><td>For Sale, My Rhymes, Never Used (Feat. JUSTHIS, DON MALIK)</td><td>P-TYPE, JUSTHIS, DON MALIK</td><td>Fredi Casso</td><td>Fredi Casso</td></tr>
-                        <tr><td>10</td><td>MIC "The Hammer" (Feat. Paloalto, Chin)</td><td>P-TYPE, Paloalto, Chin</td><td>Deepfry</td><td>Deepfry, Fascinating, P-TYPE</td></tr>
-                        <tr><td>11</td><td>Lyricist Paradox (Feat. DON MALIK)</td><td>P-TYPE, DON MALIK</td><td>Keeproots</td><td>Keeproots</td></tr>
-                        <tr><td>12</td><td>Heavy Bass Saga (Feat. 김오키)</td><td>P-TYPE</td><td>Keeproots</td><td>Keeproots</td></tr>
-                        <tr><td>13</td><td>고양이와 남자</td><td>P-TYPE</td><td>Fredi Casso</td><td>Fredi Casso</td></tr>
-                        <tr><td>14</td><td>Moonlighting (Feat. 서사무엘) (album version)</td><td>P-TYPE, 서사무엘</td><td>Keeproots, 서사무엘</td><td>Keeproots</td></tr>
-                        <tr><td>15</td><td>Big Sleep (Feat. ILLINIT)</td><td>P-TYPE, ILLINIT</td><td>Fascinating</td><td>Fascinating</td></tr>
-                        <tr><td>16</td><td>Kiss Me Deadly (Feat. 김필)</td><td>P-TYPE, 김필</td><td>Fascinating, 김필</td><td>Fascinating</td></tr>
-                        <tr><td>17</td><td>고양이는 아홉번 죽는다</td><td>P-TYPE</td><td>Fascinating</td><td>Fascinating</td></tr>
-                        <tr><td>18</td><td>부정의 부정은 긍정 (Feat. 버벌진트)</td><td>P-TYPE, Verbal Jint</td><td>Fascinating</td><td>Fascinating</td></tr>
-                        <tr><td>19</td><td>Outro (Feat. 김현심)</td><td>P-TYPE</td><td>Keeproots, P-TYPE</td><td>P-TYPE</td></tr>
-                        <tr><td>20</td><td>에필로그: 씬을 위한 오드 (Feat. The Quiett, 서사무엘)</td><td>P-TYPE, The Quiett, 서사무엘</td><td>Keeproots, 서사무엘</td><td>Keeproots</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="soundtrack-box">
-                <h4>SOUNDTRACK / PREVIEW</h4>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID_5" title="5집 사운드트랙" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-
+            `;
+        });
+    </script>
 </body>
 </html>

@@ -12,27 +12,36 @@
             margin: 0;
             padding: 20px;
         }
-        h1, h2 {
+        h1 {
             text-align: center;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+        .subtitle-top {
+            text-align: center;
+            color: #ff5252;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        h2 {
             color: #ffffff;
         }
         .container {
             max-width: 900px;
             margin: 0 auto;
         }
-        .album-section {
+        .album-section, .info-section {
             background: #1e1e1e;
             padding: 20px;
             margin-bottom: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
-        .album-section h3 {
-            margin-top: 0;
-            color: #ffffff;
-            font-size: 20px;
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
+        .album-detail-container::after {
+            content: "";
+            display: block;
+            clear: both;
         }
         .detail-cover {
             width: 200px;
@@ -42,12 +51,12 @@
             float: left;
             margin-right: 20px;
             margin-bottom: 20px;
+            background-color: #333;
         }
         .album-desc {
             margin-bottom: 20px;
             color: #ccc;
             line-height: 1.5;
-            min-height: 80px;
         }
         .track-table, .info-table {
             width: 100%;
@@ -95,7 +104,7 @@
         .video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 비율 */
+            padding-bottom: 56.25%;
             height: 0;
             margin-bottom: 15px;
         }
@@ -154,34 +163,22 @@
         .clickable-link:hover {
             text-decoration: underline;
         }
-        .info-section {
-            background: #1e1e1e;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-        .album-detail-container::after {
-            content: "";
-            display: block;
-            clear: both;
-        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>P-TYPE Archive</h1>
-        <h2 style="color: #ff5252; font-size: 18px; margin-top: -10px; margin-bottom: 30px;">P-TYPE THE BIG CAT</h2>
+        <div class="subtitle-top">P-TYPE THE BIG CAT</div>
         
-        <!-- 각 앨범이 동적으로 그려질 영역 -->
+        <!-- 정규 앨범 영역 -->
         <div id="album1" class="album-section"></div>
         <div id="album2" class="album-section"></div>
         <div id="album3" class="album-section"></div>
         <div id="album4" class="album-section"></div>
         <div id="album5" class="album-section"></div>
 
-        <!-- 싱글 및 참여 음반 섹션 -->
+        <!-- 싱글 및 참여 음반 영역 -->
         <div class="info-section">
             <h2>Singles & EPs</h2>
             <table class="info-table">
@@ -242,7 +239,7 @@
             if (!section.querySelector('.album-detail-container')) {
                 section.innerHTML = `
                     <div class="album-detail-container">
-                        <h3>${data.title}</h3>
+                        <h2>${data.title}</h2>
                         <img src="${data.cover}" class="detail-cover" alt="${data.title} 커버" onerror="this.src='img/album1.png'">
                         <div class="album-desc">${data.desc}</div>
                         <div class="tracklist-table-container">
@@ -265,7 +262,7 @@
                     </div>
                 `;
             } else {
-                section.querySelector('h3').innerText = data.title;
+                section.querySelector('h2').innerText = data.title;
                 const coverImg = section.querySelector('.detail-cover');
                 if (coverImg && coverImg.src !== data.cover) {
                     coverImg.src = data.cover;

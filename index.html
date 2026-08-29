@@ -4,75 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P-TYPE THE BIG CAT</title>
+    <!-- 구글 폰트(Black Han Sans) 불러오기 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+
     <style>
         body {
             font-family: 'Apple SD Gothic Neo', sans-serif;
             background-color: #000000; /* 배경색: 검은색 */
             color: #ff0000;          /* 전체 글자색: 빨간색 */
             text-align: center;
-            padding-top: 50px;
+            margin: 0;
+            padding: 0;
         }
+        
+        /* 상단 메인 히어로 섹션 */
+        .hero-section {
+            padding-top: 80px;
+            padding-bottom: 50px;
+            border-bottom: 2px solid #330000; /* 아래 구역과 경계를 나누는 은은한 선 */
+        }
+
         h1 {
-            color: #ff0000;          /* 제목 글자색: 빨간색 */
-            font-size: 64px;         /* 제목 크기를 크게 설정 */
+            font-family: 'Black Han Sans', sans-serif;
+            color: #ff0000;          
+            font-size: 72px;         
+            letter-spacing: 2px;     
+            margin-bottom: 10px;
         }
+
         p {
-            color: #ff4d4d;          /* 본문 글자색: 밝은 빨간색 */
-            font-size: 20px;         /* 본문 크기 설정 */
+            color: #ff4d4d;          
+            font-size: 20px;         
         }
+
         .site-image {
-            width: 300px;            /* 사진 가로 크기 조절 */
-            border-radius: 10px;     /* 사진 모서리를 살짝 둥글게 */
-            margin: 20px 0;          /* 위아래 여백 주기 */
+            width: 300px;            
+            border-radius: 10px;     
+            margin: 20px 0;          
         }
+
         .icon-container {
             margin-top: 25px;
-            display: flex;           /* 아이콘들을 가로로 나란히 배치 */
-            justify-content: center; /* 가운데 정렬 */
-            align-items: center;     /* 세로 중앙 정렬 */
-            gap: 30px;               /* 아이콘 사이 간격을 넓게 조절 */
+            display: flex;           
+            justify-content: center; 
+            align-items: center;     
+            gap: 30px;               
         }
+
         .social-icon-link {
             display: inline-block;
-            width: 80px;             /* 아이콘 크기 키움 (기존 50px -> 80px) */
-            height: 80px;            /* 아이콘 크기 키움 (기존 50px -> 80px) */
+            width: 80px;             
+            height: 80px;
             transition: transform 0.2s;
         }
+
         .social-icon-link:hover {
-            transform: scale(1.1);   /* 마우스 올리면 살짝 커지는 효과 */
+            transform: scale(1.1);   
         }
+
         .social-icon {
-            width: 100%;             /* 링크 공간 안에 이미지를 꽉 채움 */
+            width: 100%;             
             height: 100%;
-            object-fit: contain;     /* 이미지 비율을 유지하면서 공간 안에 맞춤 */
+            object-fit: contain;     
+        }
+
+        /* 아래쪽에 정보를 추가할 때 사용할 공통 섹션 스타일 */
+        .content-section {
+            padding: 80px 20px;
+            min-height: 400px; /* 내용이 적어도 아래로 스크롤 공간을 확보 */
+            border-bottom: 2px solid #330000;
+        }
+
+        .content-section h2 {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 40px;
+            color: #ff0000;
+            margin-bottom: 20px;
+        }
+
+        .content-section p {
+            font-size: 18px;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
-    <h1>P-TYPE THE BIG CAT</h1>
-    <p>이곳은 피타입의 음악들의 정보를 담은 웹사이트입니다.</p>
-    
-    <!-- 메인 사진 -->
-    <div>
-        <img src="img/P-TYPE.jpg" alt="피타입 사진" class="site-image">
-    </div>
 
-    <!-- 소셜 아이콘 링크 영역 (크기 확대 및 간격 넓힘) -->
-    <div class="icon-container">
-        <!-- 인스타그램 링크 -->
-        <a href="https://www.instagram.com/ptype_thebigcat?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank" class="social-icon-link">
-            <img src="img/instagram.png" alt="인스타그램" class="social-icon">
-        </a>
+    <!-- 1. 최상단 메인 영역 -->
+    <div class="hero-section">
+        <h1>P-TYPE THE BIG CAT</h1>
+        <p>이곳은 피타입의 음악들의 정보를 담은 웹사이트입니다.</p>
         
-        <!-- 유튜브 링크 -->
-        <a href="Https://www.youtube.com/channel/UC_BBrruv8aajni5I9muvtEw" target="_blank" class="social-icon-link">
-            <img src="img/youtube.png" alt="유튜브" class="social-icon">
-        </a>
+        <div>
+            <img src="img/P-TYPE.jpg" alt="피타입 사진" class="site-image">
+        </div>
 
-        <!-- 유튜브 뮤직 링크 -->
-        <a href="https://music.youtube.com/channel/UC_BBrruv8aajni5I9muvtEw?si=ZB1nuf0cdEgdFKBM" target="_blank" class="social-icon-link">
-            <img src="img/youtubemusic.png" alt="유튜브 뮤직" class="social-icon">
-        </a>
+        <div class="icon-container">
+            <a href="https://www.instagram.com/ptype_thebigcat?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank" class="social-icon-link">
+                <img src="img/instagram.png" alt="인스타그램" class="social-icon">
+            </a>
+            
+            <a href="Https://www.youtube.com/channel/UC_BBrruv8aajni5I9muvtEw" target="_blank" class="social-icon-link">
+                <img src="img/youtube.png" alt="유튜브" class="social-icon">
+            </a>
+
+            <a href="https://music.youtube.com/channel/UC_BBrruv8aajni5I9muvtEw?si=ZB1nuf0cdEgdFKBM" target="_blank" class="social-icon-link">
+                <img src="img/youtubemusic.png" alt="유튜브 뮤직" class="social-icon">
+            </a>
+        </div>
     </div>
+
+    <!-- 2. 두 번째 구역 (정보 추가 공간 1) -->
+    <div class="content-section">
+        <h2>DISCOGRAPHY</h2>
+        <p>여기에 피타입의 앨범 정보나 음악 리스트를 적어보세요.</p>
+        <!-- 사진이나 텍스트를 계속 추가할 수 있습니다 -->
+    </div>
+
+    <!-- 3. 세 번째 구역 (정보 추가 공간 2) -->
+    <div class="content-section">
+        <h2>ABOUT MUSIC</h2>
+        <p>여기에 곡 소개나 가사, 활동 이력 등을 자유롭게 적어 내려가시면 됩니다.</p>
+    </div>
+
 </body>
 </html>

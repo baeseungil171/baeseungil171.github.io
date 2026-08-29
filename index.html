@@ -56,6 +56,19 @@
         .album-title { font-size: 14px; font-weight: bold; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .album-year { font-size: 12px; color: #ff4d4d; margin-top: 4px; }
 
+        /* 토글 버튼 디자인 (싱글/참여 음반 펼치기용) */
+        .toggle-btn {
+            font-family: 'Black Han Sans', sans-serif;
+            background-color: #1a0000; color: #ff0000;
+            border: 2px solid #ff0000; padding: 12px 30px;
+            font-size: 18px; border-radius: 8px; cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+            margin-bottom: 20px;
+        }
+        .toggle-btn:hover { background-color: #ff0000; color: #000; }
+        .toggle-content { display: none; margin-top: 20px; }
+        .toggle-content.show { display: block; }
+
         /* 앨범 상세 섹션 */
         .album-detail-section { padding: 60px 20px; border-bottom: 1px solid #220000; display: flex; flex-direction: column; align-items: center; scroll-margin-top: 70px; }
         .album-detail-container { max-width: 1000px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 20px; }
@@ -85,6 +98,7 @@
 </head>
 <body>
 
+    <!-- 내비게이션 바 -->
     <div class="navbar">
         <a href="#" class="nav-link">HOME</a>
         <a href="#album1" class="nav-link">1집</a>
@@ -96,6 +110,7 @@
         <a href="#part-section" class="nav-link">참여음반</a>
     </div>
 
+    <!-- 히어로 섹션 -->
     <div class="hero-section">
         <h1>P-TYPE THE BIG CAT</h1>
         <p>피타입 디스코그래피 및 가사/유튜브 연동 웹사이트</p>
@@ -107,6 +122,7 @@
         </div>
     </div>
 
+    <!-- 정규 앨범 그리드 (항상 표시) -->
     <div class="content-section">
         <h2>STUDIO ALBUMS</h2>
         <div class="album-grid">
@@ -118,27 +134,53 @@
         </div>
     </div>
 
+    <!-- 싱글음반 섹션 (접혀있음) -->
     <div id="singles-section" class="content-section">
         <h2>싱글음반</h2>
-        <div class="album-grid scrollable" id="singles-grid"></div>
+        <button class="toggle-btn" onclick="toggleSection('singles-content', this)">싱글음반 목록 펼치기 ▼</button>
+        <div id="singles-content" class="toggle-content">
+            <div class="album-grid scrollable" id="singles-grid"></div>
+        </div>
     </div>
 
+    <!-- 참여 음반 섹션 (접혀있음) -->
     <div id="part-section" class="content-section">
         <h2>참여 음반</h2>
-        <div class="album-grid scrollable" id="participation-grid"></div>
+        <button class="toggle-btn" onclick="toggleSection('part-content', this)">참여음반 목록 펼치기 ▼</button>
+        <div id="part-content" class="toggle-content">
+            <div class="album-grid scrollable" id="participation-grid"></div>
+        </div>
     </div>
 
+    <!-- 정규 앨범 상세 컨테이너 -->
     <div id="album1" class="album-detail-section" data-album="album1"></div>
     <div id="album2" class="album-detail-section" data-album="album2"></div>
     <div id="album3" class="album-detail-section" data-album="album3"></div>
     <div id="album4" class="album-detail-section" data-album="album4"></div>
     <div id="album5" class="album-detail-section" data-album="album5"></div>
 
-    <div id="singles-details-container"></div>
-    <div id="participation-details-container"></div>
+    <!-- 싱글 및 참여 음반 상세 컨테이너 (펼쳐졌을 때 나타남) -->
+    <div id="singles-details-container" class="toggle-content"></div>
+    <div id="participation-details-container" class="toggle-content"></div>
 
+    <!-- 외부 데이터 파일 로드 -->
     <script src="data.js"></script>
     <script>
+        // 토글 버튼 동작 함수
+        function toggleSection(contentId, btn) {
+            const content = document.getElementById(contentId);
+            const isShown = content.classList.toggle('show');
+            
+            // 싱글/참여 음반 상세 영역도 같이 열리도록 연동
+            if (contentId === 'singles-content') {
+                document.getElementById('singles-details-container').classList.toggle('show', isShown);
+            } else if (contentId === 'part-content') {
+                document.getElementById('participation-details-container').classList.toggle('show', isShown);
+            }
+
+            btn.innerText = isShown ? btn.innerText.replace('펼치기 ▼', '접기 ▲') : btn.innerText.replace('접기 ▲', '펼치기 ▼');
+        }
+
         const singlesData = {};
         const singlesGrid = document.getElementById('singles-grid');
         const singlesDetailsContainer = document.getElementById('singles-details-container');

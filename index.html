@@ -55,19 +55,26 @@
         .content-section { padding: 80px 20px; border-bottom: 2px solid #330000; }
         .content-section h2 { font-family: 'Black Han Sans', sans-serif; font-size: 40px; color: #ff0000; margin-bottom: 30px; letter-spacing: 1px; }
         
+        /* 기본 앨범 그리드 (정규 앨범용 - 중앙 정렬) */
         .album-grid { 
             display: flex; 
-            flex-wrap: nowrap; 
-            justify-content: flex-start; 
+            flex-wrap: wrap; 
+            justify-content: center; 
             gap: 20px; 
             max-width: 1300px; 
             margin: 0 auto; 
-            overflow-x: auto; 
             padding: 15px 0 20px; 
         }
-        .album-grid::-webkit-scrollbar { height: 8px; }
-        .album-grid::-webkit-scrollbar-track { background: #110000; }
-        .album-grid::-webkit-scrollbar-thumb { background: #400000; border-radius: 4px; }
+
+        /* 가로 스크롤 그리드 (싱글 및 참여 음반용) */
+        .album-grid.scrollable {
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            overflow-x: auto;
+        }
+        .album-grid.scrollable::-webkit-scrollbar { height: 8px; }
+        .album-grid.scrollable::-webkit-scrollbar-track { background: #110000; }
+        .album-grid.scrollable::-webkit-scrollbar-thumb { background: #400000; border-radius: 4px; }
 
         .album-link { text-decoration: none; flex: 0 0 220px; }
         .album-card { background-color: #110000; border: 1px solid #400000; border-radius: 10px; height: 100%; padding: 15px; transition: transform 0.2s, border-color 0.2s; box-sizing: border-box; }
@@ -110,6 +117,7 @@
         <a href="#album3" class="nav-link">3집</a>
         <a href="#album4" class="nav-link">4집</a>
         <a href="#album5" class="nav-link">5집</a>
+        <a href="#part-section" class="nav-link">참여음반</a>
         <a href="#singles-section" class="nav-link">싱글음반</a>
     </div>
 
@@ -124,7 +132,7 @@
         </div>
     </div>
 
-    <!-- 정규 앨범 섹션 -->
+    <!-- 정규 앨범 섹션 (가운데 정렬) -->
     <div class="content-section">
         <h2>STUDIO ALBUMS</h2>
         <div class="album-grid">
@@ -136,10 +144,16 @@
         </div>
     </div>
 
-    <!-- 싱글음반 섹션 (21개 자동 생성) -->
+    <!-- 참여 음반 섹션 (3개, 가로 스크롤) -->
+    <div id="part-section" class="content-section">
+        <h2>참여 음반</h2>
+        <div class="album-grid scrollable" id="participation-grid"></div>
+    </div>
+
+    <!-- 싱글음반 섹션 (21개, 가로 스크롤) -->
     <div id="singles-section" class="content-section">
         <h2>싱글음반</h2>
-        <div class="album-grid" id="singles-grid"></div>
+        <div class="album-grid scrollable" id="singles-grid"></div>
     </div>
 
     <!-- 정규 앨범 상세 영역 -->
@@ -148,6 +162,9 @@
     <div id="album3" class="album-detail-section" data-album="album3"></div>
     <div id="album4" class="album-detail-section" data-album="album4"></div>
     <div id="album5" class="album-detail-section" data-album="album5"></div>
+
+    <!-- 참여 음반 상세 영역 컨테이너 -->
+    <div id="participation-details-container"></div>
 
     <!-- 싱글음반 상세 영역 컨테이너 -->
     <div id="singles-details-container"></div>
@@ -203,7 +220,14 @@
             }
         };
 
-        // 이미지에 나온 21개 싱글/무료 음반 정보 배열
+        // 참여 음반 3개 정보
+        const participationInfo = [
+            { name: "돈의 화신 OST - MONEY", date: "2013.03.16.", type: "참여 음반", desc: "SBS 드라마 '돈의 화신' OST 참여 곡입니다." },
+            { name: "스노우볼 프로젝트 Vol.3 - 우린 여기에", date: "2016.12.16.", type: "참여 음반", desc: "크라잉넛과 피타입이 함께 참여한 프로젝트 음반입니다." },
+            { name: "무증상", date: "2021.06.16.", type: "참여 음반 (더블 싱글)", desc: "P-TYPE & OPTICAL EYEZ XL의 참여 음반입니다." }
+        ];
+
+        // 싱글음반 21개 정보
         const singlesInfo = [
             { name: "Soulfire", date: "2006.09.07.", type: "싱글 1집" },
             { name: "다이하드", date: "2013.03.22.", type: "싱글" },
@@ -228,6 +252,39 @@
             { name: "추가 싱글 21", date: "202X.XX.XX.", type: "싱글" }
         ];
 
+        const participationData = {};
+        const participationGrid = document.getElementById('participation-grid');
+        const participationDetailsContainer = document.getElementById('participation-details-container');
+
+        participationInfo.forEach((item, index) => {
+            const i = index + 1;
+            const key = `part${i}`;
+            
+            participationData[key] = {
+                title: `${item.type} - ${item.name} (${item.date})`,
+                desc: item.desc,
+                cover: `img/part${i}.png`,
+                youtubeId: `YOUR_YOUTUBE_VIDEO_ID_PART_${i}`,
+                tracks: [
+                    ["01", item.name, "P-TYPE", "Producer", "Arranger"]
+                ]
+            };
+
+            participationGrid.innerHTML += `
+                <a href="#${key}" class="album-link">
+                    <div class="album-card">
+                        <img src="img/part${i}.png" alt="${item.name} 커버" class="album-cover" onerror="this.src='img/album1.png'">
+                        <div class="album-title">${item.name}</div>
+                        <div class="album-year">${item.date}</div>
+                    </div>
+                </a>
+            `;
+
+            participationDetailsContainer.innerHTML += `
+                <div id="${key}" class="album-detail-section" data-album="${key}"></div>
+            `;
+        });
+
         const singlesData = {};
         const singlesGrid = document.getElementById('singles-grid');
         const singlesDetailsContainer = document.getElementById('singles-details-container');
@@ -246,7 +303,6 @@
                 ]
             };
 
-            // 싱글 디스코그래피 카드 생성
             singlesGrid.innerHTML += `
                 <a href="#${key}" class="album-link">
                     <div class="album-card">
@@ -257,14 +313,13 @@
                 </a>
             `;
 
-            // 싱글 상세 섹션 생성
             singlesDetailsContainer.innerHTML += `
                 <div id="${key}" class="album-detail-section" data-album="${key}"></div>
             `;
         });
 
-        // 앨범 렌더링
-        const allData = { ...albumsData, ...singlesData };
+        // 모든 앨범 데이터 통합 후 렌더링
+        const allData = { ...albumsData, ...participationData, ...singlesData };
 
         document.querySelectorAll('.album-detail-section').forEach(section => {
             const id = section.getAttribute('data-album');

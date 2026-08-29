@@ -109,7 +109,6 @@
 </head>
 <body>
 
-    <!-- 고정 내비게이션 바 -->
     <div class="navbar">
         <a href="#" class="nav-link">HOME</a>
         <a href="#album1" class="nav-link">1집</a>
@@ -117,8 +116,8 @@
         <a href="#album3" class="nav-link">3집</a>
         <a href="#album4" class="nav-link">4집</a>
         <a href="#album5" class="nav-link">5집</a>
-        <a href="#part-section" class="nav-link">참여음반</a>
         <a href="#singles-section" class="nav-link">싱글음반</a>
+        <a href="#part-section" class="nav-link">참여음반</a>
     </div>
 
     <div class="hero-section">
@@ -132,7 +131,6 @@
         </div>
     </div>
 
-    <!-- 정규 앨범 섹션 (가운데 정렬) -->
     <div class="content-section">
         <h2>STUDIO ALBUMS</h2>
         <div class="album-grid">
@@ -144,30 +142,25 @@
         </div>
     </div>
 
-    <!-- 참여 음반 섹션 (3개, 가로 스크롤) -->
-    <div id="part-section" class="content-section">
-        <h2>참여 음반</h2>
-        <div class="album-grid scrollable" id="participation-grid"></div>
-    </div>
-
-    <!-- 싱글음반 섹션 (21개, 가로 스크롤) -->
     <div id="singles-section" class="content-section">
         <h2>싱글음반</h2>
         <div class="album-grid scrollable" id="singles-grid"></div>
     </div>
 
-    <!-- 정규 앨범 상세 영역 -->
+    <div id="part-section" class="content-section">
+        <h2>참여 음반</h2>
+        <div class="album-grid scrollable" id="participation-grid"></div>
+    </div>
+
     <div id="album1" class="album-detail-section" data-album="album1"></div>
     <div id="album2" class="album-detail-section" data-album="album2"></div>
     <div id="album3" class="album-detail-section" data-album="album3"></div>
     <div id="album4" class="album-detail-section" data-album="album4"></div>
     <div id="album5" class="album-detail-section" data-album="album5"></div>
 
-    <!-- 참여 음반 상세 영역 컨테이너 -->
-    <div id="participation-details-container"></div>
-
-    <!-- 싱글음반 상세 영역 컨테이너 -->
     <div id="singles-details-container"></div>
+
+    <div id="participation-details-container"></div>
 
     <script>
         const albumsData = {
@@ -178,7 +171,19 @@
                 youtubeId: "YOUR_YOUTUBE_VIDEO_ID_1",
                 tracks: [
                     ["01", "서시", "P-TYPE", "Keeproots", "Keeproots"],
-                    ["02", "Skit - 보여주고 증명하라", "P-TYPE", "P-TYPE", "P-TYPE"]
+                    ["02", "Skit - 보여주고 증명하라", "P-TYPE", "P-TYPE", "P-TYPE"],
+                    ["03", "돈키호테 (Feat. 휘성)", "P-TYPE, 휘성", "Keeproots", "Keeproots"],
+                    ["04", "Skit - 힙합다운 힙합", "P-TYPE", "P-TYPE", "P-TYPE"],
+                    ["05", "Heavy Bass", "P-TYPE", "P-TYPE", "P-TYPE"],
+                    ["06", "P-Type The Big Cat", "P-TYPE", "SAATAN", "SAATAN"],
+                    ["07", "힙합다운 힙합", "P-TYPE", "P-TYPE", "P-TYPE"],
+                    ["08", "독종", "P-TYPE", "Keeproots", "Keeproots"],
+                    ["09", "So U Wanna Be Hardcore (Feat. MC Meta)", "P-TYPE, MC Meta", "Keeproots", "Keeproots"],
+                    ["10", "언더그라운드", "P-TYPE", "P-TYPE", "P-TYPE"],
+                    ["11", "Musiq Noir (Feat. C-LUV)", "P-TYPE, C-LUV", "Keeproots", "Keeproots"],
+                    ["12", "Skit - 언어의 연주가", "P-TYPE", "Keeproots", "P-TYPE"],
+                    ["13", "Wild Style (Feat. 빅마마)", "P-TYPE", "P-TYPE", "P-TYPE"],
+                    ["14", "언어의 연주가 (Bonus Track)", "P-TYPE", "Keeproots", "Keeproots"]
                 ]
             },
             album2: {
@@ -188,7 +193,22 @@
                 youtubeId: "YOUR_YOUTUBE_VIDEO_ID_2",
                 tracks: [
                     ["01", "Intro", "P-Type", "-", "-"],
-                    ["02", "비를 위한 발라드 (Feat. Gina)", "P-Type", "Keeproots", "Keeproots"]
+                    ["02", "비를 위한 발라드 (Feat. Gina)", "P-Type", "Keeproots", "Keeproots"],
+                    ["03", "Happy People (Feat. Soulman)", "P-Type", "Artisan Beats", "Artisan Beats"],
+                    ["04", "Music City (Feat. Ali)", "P-Type", "Artisan Beats", "Artisan Beats"],
+                    ["05", "A Long Time Ago (Feat. Heritage)", "P-Type", "Mild Beats", "Mild Beats"],
+                    ["06", "Interlude (내레이션+)", "P-Type", "-", "-"],
+                    ["07", "수컷 (Feat. 박광수)", "P-Type", "P-Type", "P-Type"],
+                    ["08", "젊은 날의 초상 (Feat. Koonta, 이인관)", "P-Type, Koonta, 이인관", "P-Type", "P-Type"],
+                    ["09", "소나기 (Feat. Soulman)", "P-Type", "Keeproots", "Keeproots"],
+                    ["10", "후유증 (Feat. 정인, 이인관)", "P-Type, 한경훈", "한경훈", "한경훈"],
+                    ["11", "Poetry Sayer", "P-Type", "The Quiett", "The Quiett"],
+                    ["12", "Skit (내레이션)", "P-Type", "-", "-"],
+                    ["13", "비를 위한 발라드 (Inst.)", "-", "Keeproots", "Keeproots"],
+                    ["14", "Skit (내레이션)", "P-Type", "-", "-"],
+                    ["15", "소나기 (Inst.)", "-", "Keeproots", "Keeproots"],
+                    ["16", "Skit (내레이션)", "P-Type", "-", "-"],
+                    ["17", "수컷 (Inst.)", "-", "P-Type", "P-Type"]
                 ]
             },
             album3: {
@@ -197,7 +217,18 @@
                 cover: "img/album3.png",
                 youtubeId: "YOUR_YOUTUBE_VIDEO_ID_3",
                 tracks: [
-                    ["01", "I’m Back", "P-type", "Ging, Optical Eyez XL", "Ging, Optical Eyez XL"]
+                    ["01", "I’m Back", "P-type", "Ging, Optical Eyez XL", "Ging, Optical Eyez XL"],
+                    ["02", "Love, Life, Rap (Feat. GRAY)", "P-type", "GRAY, Keeproots", "Keeproots"],
+                    ["03", "볼케이노 (Feat. 선우정아, 손수경)", "P-type", "Keeproots, Fascinating, Rhymer", "Keeproots, Fascinating"],
+                    ["04", "꿈의 해석 (Feat. Jinbo)", "P-type", "프라이머리, Jinbo", "프라이머리"],
+                    ["05", "Highway Trucker", "P-type", "G-Slow", "G-Slow"],
+                    ["06", "OST: Peace (Feat. Paloalto, B-Free, Huckleberry P)", "P-type, Paloalto, B-Free, Huckleberry P", "G-Slow", "G-Slow"],
+                    ["07", "뿔 (Feat. BUMKEY)", "P-type, BUMKEY", "Keeproots, Fascinating, BUMKEY", "Keeproots, Fascinating"],
+                    ["08", "불 꺼", "P-type", "G-Slow", "G-Slow"],
+                    ["09", "OST: Respect (Feat. Beenzino, Dok2)", "P-type, Beenzino, Dok2", "Fascinating", "Fascinating"],
+                    ["10", "OST: One Love (Feat. Noise Mob)", "P-type, Minos, RHYME-A-", "Score 13", "Score 13"],
+                    ["11", "Unchangeable (Feat. Sean2slow)", "P-type, Sean2slow", "Optical Eyez XL", "Optical Eyez XL"],
+                    ["12", "다이하드 (Feat. Ali, MC Meta)", "P-type, MC Meta", "Artisan Beats, Keeproots", "Keeproots"]
                 ]
             },
             album4: {
@@ -206,7 +237,19 @@
                 cover: "img/album4.png",
                 youtubeId: "YOUR_YOUTUBE_VIDEO_ID_4",
                 tracks: [
-                    ["01", "폭력적인 잡종문화", "P-Type", "Ronald Bell 외", "Kay Gee's, Deepfry"]
+                    ["01", "폭력적인 잡종문화", "P-Type", "Ronald Bell, R. Jackson, Deepfry", "Kay Gee's, Deepfry"],
+                    ["02", "Do The Right Rap (Feat. Huckleberry P)", "P-Type, Huckleberry P", "Fascinating", "Fascinating"],
+                    ["03", "Timberland 6\" (Feat. NUCK of Souldive)", "P-Type, NUCK", "Keeproots", "Keeproots"],
+                    ["04", "네안데르탈 (Feat. Minos, Justhis)", "P-Type, Minos, Justhis", "Deepfry", "Deepfry"],
+                    ["05", "광화문 (Feat. 태완)", "P-Type", "Fascinating, 김태완", "Fascinating, YELLA Diamond"],
+                    ["06", "돈키호테2 (Feat. 바버렛츠)", "P-Type", "Fascinating, 김은혜", "Fascinating, DJ Juice"],
+                    ["07", "이방인 (Feat. 차붐)", "Neil Young, P-Type, 차붐", "Neil Young, Deepfry", "Neil Young, Deepfry"],
+                    ["08", "반환점", "P-Type", "김창완, 김창훈", "김창완, 김영진, 김제형"],
+                    ["09", "최악의 남자", "P-Type", "Fascinating", "Fascinating, DJ Juice, P-Type"],
+                    ["10", "Vice Versa (Feat. 선우정아)", "선우정아, P-Type", "Kebee, 박민우, 선우정아", "Kebee, 박민우"],
+                    ["11", "광화문 (Inst.) (CD only)", "-", "Fascinating, 김태완", "Fascinating, YELLA Diamond"],
+                    ["12", "돈키호테2 (Inst.) (CD only)", "-", "Fascinating, 김은혜", "Fascinating, DJ Juice"],
+                    ["13", "반환점 (Inst.) (CD only)", "-", "김창완, 김창훈", "김창완, 김영진, 김제형"]
                 ]
             },
             album5: {
@@ -215,17 +258,29 @@
                 cover: "img/album5.png",
                 youtubeId: "YOUR_YOUTUBE_VIDEO_ID_5",
                 tracks: [
-                    ["01", "Writer's Profile", "P-TYPE", "Keeproots", "Keeproots"]
+                    ["01", "Writer's Profile", "P-TYPE", "Keeproots", "Keeproots"],
+                    ["02", "Intro (Feat. WRKMS, 김현심)", "P-TYPE", "WRKMS", "WRKMS, P-TYPE"],
+                    ["03", "Hardboiled Café (Feat. 정인, FROM ALL TO HUMAN)", "P-TYPE", "Keeproots, FROM ALL TO HUMAN", "Keeproots, FROM ALL TO HUMAN, P-TYPE"],
+                    ["04", "깨끗하고 밝은 곳", "P-TYPE", "PLAYHOUSE", "PLAYHOUSE"],
+                    ["05", "The Picaresque", "P-TYPE", "Fredi Casso", "Fredi Casso"],
+                    ["06", "안녕, 내 사랑 (Feat. 르네, WRKMS)", "P-TYPE", "WRKMS, 르네", "P-TYPE"],
+                    ["07", "노인의 테마: 낚시 (Feat. 최엘비)", "P-TYPE, 최엘비", "PLAYHOUSE", "PLAYHOUSE"],
+                    ["08", "The Simple Art of Rhyme (Feat. KWAII)", "P-TYPE, KWAII", "Pe2ny", "Pe2ny"],
+                    ["09", "For Sale, My Rhymes, Never Used (Feat. JUSTHIS, DON MALIK)", "P-TYPE, JUSTHIS, DON MALIK", "Fredi Casso", "Fredi Casso"],
+                    ["10", "MIC \"The Hammer\" (Feat. Paloalto, Chin)", "P-TYPE, Paloalto, Chin", "Deepfry", "Deepfry, Fascinating, P-TYPE"],
+                    ["11", "Lyricist Paradox (Feat. DON MALIK)", "P-TYPE, DON MALIK", "Keeproots", "Keeproots"],
+                    ["12", "Heavy Bass Saga (Feat. 김오키)", "P-TYPE", "Keeproots", "Keeproots"],
+                    ["13", "고양이와 남자", "P-TYPE", "Fredi Casso", "Fredi Casso"],
+                    ["14", "Moonlighting (Feat. 서사무엘) (album version)", "P-TYPE, 서사무엘", "Keeproots, 서사무엘", "Keeproots"],
+                    ["15", "Big Sleep (Feat. ILLINIT)", "P-TYPE, ILLINIT", "Fascinating", "Fascinating"],
+                    ["16", "Kiss Me Deadly (Feat. 김필)", "P-TYPE, 김필", "Fascinating, 김필", "Fascinating"],
+                    ["17", "고양이는 아홉번 죽는다", "P-TYPE", "Fascinating", "Fascinating"],
+                    ["18", "부정의 부정은 긍정 (Feat. 버벌진트)", "P-TYPE, Verbal Jint", "Fascinating", "Fascinating"],
+                    ["19", "Outro (Feat. 김현심)", "P-TYPE", "Keeproots, P-TYPE", "P-TYPE"],
+                    ["20", "에필로그: 씬을 위한 오드 (Feat. The Quiett, 서사무엘)", "P-TYPE, The Quiett, 서사무엘", "Keeproots, 서사무엘", "Keeproots"]
                 ]
             }
         };
-
-        // 참여 음반 3개 정보
-        const participationInfo = [
-            { name: "돈의 화신 OST - MONEY", date: "2013.03.16.", type: "참여 음반", desc: "SBS 드라마 '돈의 화신' OST 참여 곡입니다." },
-            { name: "스노우볼 프로젝트 Vol.3 - 우린 여기에", date: "2016.12.16.", type: "참여 음반", desc: "크라잉넛과 피타입이 함께 참여한 프로젝트 음반입니다." },
-            { name: "무증상", date: "2021.06.16.", type: "참여 음반 (더블 싱글)", desc: "P-TYPE & OPTICAL EYEZ XL의 참여 음반입니다." }
-        ];
 
         // 싱글음반 21개 정보
         const singlesInfo = [
@@ -252,38 +307,12 @@
             { name: "추가 싱글 21", date: "202X.XX.XX.", type: "싱글" }
         ];
 
-        const participationData = {};
-        const participationGrid = document.getElementById('participation-grid');
-        const participationDetailsContainer = document.getElementById('participation-details-container');
-
-        participationInfo.forEach((item, index) => {
-            const i = index + 1;
-            const key = `part${i}`;
-            
-            participationData[key] = {
-                title: `${item.type} - ${item.name} (${item.date})`,
-                desc: item.desc,
-                cover: `img/part${i}.png`,
-                youtubeId: `YOUR_YOUTUBE_VIDEO_ID_PART_${i}`,
-                tracks: [
-                    ["01", item.name, "P-TYPE", "Producer", "Arranger"]
-                ]
-            };
-
-            participationGrid.innerHTML += `
-                <a href="#${key}" class="album-link">
-                    <div class="album-card">
-                        <img src="img/part${i}.png" alt="${item.name} 커버" class="album-cover" onerror="this.src='img/album1.png'">
-                        <div class="album-title">${item.name}</div>
-                        <div class="album-year">${item.date}</div>
-                    </div>
-                </a>
-            `;
-
-            participationDetailsContainer.innerHTML += `
-                <div id="${key}" class="album-detail-section" data-album="${key}"></div>
-            `;
-        });
+        // 참여 음반 3개 정보
+        const participationInfo = [
+            { name: "돈의 화신 OST - MONEY", date: "2013.03.16.", type: "참여 음반", desc: "SBS 드라마 '돈의 화신' OST 참여 곡입니다." },
+            { name: "스노우볼 프로젝트 Vol.3 - 우린 여기에", date: "2016.12.16.", type: "참여 음반", desc: "크라잉넛과 피타입이 함께 참여한 프로젝트 음반입니다." },
+            { name: "무증상", date: "2021.06.16.", type: "참여 음반 (더블 싱글)", desc: "P-TYPE & OPTICAL EYEZ XL의 참여 음반입니다." }
+        ];
 
         const singlesData = {};
         const singlesGrid = document.getElementById('singles-grid');
@@ -318,8 +347,41 @@
             `;
         });
 
+        const participationData = {};
+        const participationGrid = document.getElementById('participation-grid');
+        const participationDetailsContainer = document.getElementById('participation-details-container');
+
+        participationInfo.forEach((item, index) => {
+            const i = index + 1;
+            const key = `part${i}`;
+            
+            participationData[key] = {
+                title: `${item.type} - ${item.name} (${item.date})`,
+                desc: item.desc,
+                cover: `img/part${i}.png`,
+                youtubeId: `YOUR_YOUTUBE_VIDEO_ID_PART_${i}`,
+                tracks: [
+                    ["01", item.name, "P-TYPE", "Producer", "Arranger"]
+                ]
+            };
+
+            participationGrid.innerHTML += `
+                <a href="#${key}" class="album-link">
+                    <div class="album-card">
+                        <img src="img/part${i}.png" alt="${item.name} 커버" class="album-cover" onerror="this.src='img/album1.png'">
+                        <div class="album-title">${item.name}</div>
+                        <div class="album-year">${item.date}</div>
+                    </div>
+                </a>
+            `;
+
+            participationDetailsContainer.innerHTML += `
+                <div id="${key}" class="album-detail-section" data-album="${key}"></div>
+            `;
+        });
+
         // 모든 앨범 데이터 통합 후 렌더링
-        const allData = { ...albumsData, ...participationData, ...singlesData };
+        const allData = { ...albumsData, ...singlesData, ...participationData };
 
         document.querySelectorAll('.album-detail-section').forEach(section => {
             const id = section.getAttribute('data-album');

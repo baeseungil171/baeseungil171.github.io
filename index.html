@@ -84,14 +84,16 @@
             letter-spacing: 1px;
         }
 
-        /* 앨범 목록을 가로로 정렬하는 그리드 레이아웃 */
+        /* 앨범 목록을 무조건 가로 한 줄로 정렬하는 레이아웃 */
         .album-grid {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;       /* 줄바꿈 방지: 한 줄로 고정 */
             justify-content: center;
-            gap: 30px;
-            max-width: 1100px;
+            gap: 20px;
+            max-width: 1300px;
             margin: 0 auto;
+            overflow-x: auto;        /* 화면이 너무 작을 때 가로로 스크롤 가능하게 처리 */
+            padding-bottom: 15px;
         }
 
         /* 개별 앨범 카드 */
@@ -99,7 +101,8 @@
             background-color: #110000;
             border: 1px solid #400000;
             border-radius: 10px;
-            width: 200px;
+            min-width: 200px;        /* 카드의 최소 너비 설정 */
+            flex: 1;
             padding: 15px;
             transition: transform 0.2s, border-color 0.2s;
         }
@@ -156,7 +159,7 @@
         </div>
     </div>
 
-    <!-- 2. 정규앨범 5개 디스코그래피 구역 -->
+    <!-- 2. 정규앨범 5개 가로 한 줄 디스코그래피 구역 -->
     <div class="content-section">
         <h2>DISCOGRAPHY</h2>
         
@@ -189,10 +192,10 @@
                 <div class="album-year">2015.03.20</div>
             </div>
 
-            <!-- 5집 (필요에 맞게 수정하세요) -->
+            <!-- 5집 -->
             <div class="album-card">
                 <img src="img/album5.png" alt="5집 앨범 커버" class="album-cover">
-                <div class="album-title">Hardboiled Café 5</div>
+                <div class="album-title">Hardboiled Café</div>
                 <div class="album-year">2022.02.18</div>
             </div>
         </div>

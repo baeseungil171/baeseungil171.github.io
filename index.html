@@ -59,6 +59,15 @@
             margin-bottom: 20px;
             clear: both;
         }
+        /* 불필요한 화살표 관련 스타일 제거 및 깔끔한 스크롤바 적용 */
+        .tracklist-table-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .tracklist-table-container::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 3px;
+        }
+
         .active-track-display {
             margin-top: 20px;
             background: #252525;
@@ -133,7 +142,6 @@
     <div class="container">
         <h1>P-TYPE Archive</h1>
         
-        <!-- 각 앨범이 동적으로 그려질 영역 -->
         <div id="album1" class="album-section"></div>
         <div id="album2" class="album-section"></div>
         <div id="album3" class="album-section"></div>
@@ -141,12 +149,10 @@
         <div id="album5" class="album-section"></div>
     </div>
 
-    <!-- 순서 중요: lyrics.js가 data.js보다 위에 있어야 합니다 -->
     <script src="lyrics.js"></script>
     <script src="data.js"></script>
 
     <script>
-        // 현재 활성화된 트랙 및 가사 열림 상태를 관리하는 객체
         const currentActiveTrack = {};
         const currentLyricsState = {};
 
@@ -161,9 +167,13 @@
 
             const activeIdx = currentActiveTrack[id];
             const activeTrack = data.tracks[activeIdx];
-            const videoId = activeTrack[5] !== "dQw4w9WgXcQ" && activeTrack[5] !== "-" ? activeTrack[5] : data.defaultVideo;
+            
+            // 영상 ID가 없거나 기본값일 때 에러 방지 처리
+            let videoId = activeTrack[5];
+            if (!videoId || videoId === "-" || videoId === "dQw4w9WgXcQ") {
+                videoId = data.defaultVideo;
+            }
 
-            // 가사 데이터 가져오기 (lyrics.js의 key값인 경우 변환, 아니면 일반 텍스트 출력)
             const lyricKey = activeTrack[6];
             const lyricText = (typeof lyricsData !== 'undefined' && lyricsData[lyricKey]) ? lyricsData[lyricKey] : (lyricKey || "가사가 없습니다.");
 
@@ -175,7 +185,6 @@
                 </tr>
             `).join('');
 
-            // 최초 1회만 전체 구조를 뼈대로 그림 (영상이 이미 있다면 재생 상태 유지)
             if (!section.querySelector('.album-detail-container')) {
                 section.innerHTML = `
                     <div class="album-detail-container">
@@ -202,16 +211,14 @@
                     </div>
                 `;
             } else {
-                // 이미 그려져 있는 경우 내용만 업데이트 (영상 리셋 방지)
                 section.querySelector('.active-track-title').innerText = activeTrack[1];
                 const iframe = section.querySelector('iframe');
                 const newSrc = `https://www.youtube.com/embed/${videoId}`;
                 if (!iframe.src.includes(videoId)) {
-                    iframe.src = newSrc; // 곡을 바꿨을 때만 영상 교체
+                    iframe.src = newSrc;
                 }
                 section.querySelector('.lyrics-text').innerText = lyricText;
                 
-                // 테이블 활성화 표시 줄 갱신
                 const rows = section.querySelectorAll('.track-table tbody tr');
                 rows.forEach((row, idx) => {
                     row.style.backgroundColor = (idx === activeIdx) ? '#200000' : '';
@@ -221,9 +228,8 @@
 
         function selectTrack(albumId, trackIndex) {
             currentActiveTrack[albumId] = trackIndex;
-            currentLyricsState[albumId] = false; // 곡 변경 시 가사는 닫힘 상태로 초기화
+            currentLyricsState[albumId] = false;
             
-            // 가사창 및 버튼 초기화
             const section = document.getElementById(albumId);
             if(section) {
                 const lyricsContainer = section.querySelector('.lyrics-container');
@@ -256,7 +262,6 @@
             }
         }
 
-        // 페이지 로드 시 모든 앨범 섹션 초기 렌더링
         window.onload = function() {
             Object.keys(albumsData).forEach(albumId => {
                 renderAlbumSection(albumId);

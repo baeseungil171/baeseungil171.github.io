@@ -12,104 +12,47 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Apple SD Gothic Neo', sans-serif;
-            background-color: #000000;
-            color: #ff0000;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            padding-top: 60px;
+            background-color: #000; color: #ff0000;
+            text-align: center; margin: 0; padding-top: 60px;
         }
-        
-        /* 내비게이션 바 */
         .navbar {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 60px;
-            background-color: rgba(10, 0, 0, 0.95);
-            border-bottom: 2px solid #ff0000;
-            display: flex; justify-content: center; align-items: center; gap: 20px;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
-            overflow-x: auto;
-            padding: 0 10px;
+            position: fixed; top: 0; left: 0; width: 100%; height: 60px;
+            background-color: rgba(10, 0, 0, 0.95); border-bottom: 2px solid #ff0000;
+            display: flex; justify-content: center; align-items: center; gap: 20px; z-index: 1000;
         }
-        .nav-link {
-            text-decoration: none; color: #ffffff;
-            font-family: 'Black Han Sans', sans-serif; font-size: 15px;
-            white-space: nowrap;
-            transition: color 0.2s, text-shadow 0.2s;
-        }
-        .nav-link:hover { color: #ff0000; text-shadow: 0 0 8px rgba(255, 0, 0, 0.6); }
-
-        /* 히어로 섹션 */
+        .nav-link { text-decoration: none; color: #fff; font-family: 'Black Han Sans', sans-serif; font-size: 15px; }
+        .nav-link:hover { color: #ff0000; }
         .hero-section { padding: 40px 20px 50px; border-bottom: 2px solid #330000; }
-        h1 { font-family: 'Black Han Sans', sans-serif; color: #ff0000; font-size: 72px; letter-spacing: 2px; margin-bottom: 10px; }
-        p { color: #ff4d4d; font-size: 20px; }
-        .site-image { width: 300px; border-radius: 10px; margin: 20px 0; }
-        .icon-container { margin-top: 25px; display: flex; justify-content: center; align-items: center; gap: 30px; }
-        .social-icon-link { display: inline-block; width: 80px; height: 80px; transition: transform 0.2s; }
-        .social-icon-link:hover { transform: scale(1.1); }
-        .social-icon { width: 100%; height: 100%; object-fit: contain; }
-
-        /* 디스코그래피 섹션 */
-        .content-section { padding: 80px 20px; border-bottom: 2px solid #330000; }
-        .content-section h2 { font-family: 'Black Han Sans', sans-serif; font-size: 40px; color: #ff0000; margin-bottom: 30px; letter-spacing: 1px; }
-        
-        /* 앨범 그리드 */
-        .album-grid { 
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; 
-            max-width: 1300px; margin: 0 auto; padding: 15px 0 20px; 
-        }
-        .album-grid.scrollable {
-            flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto;
-        }
-        .album-grid.scrollable::-webkit-scrollbar { height: 8px; }
-        .album-grid.scrollable::-webkit-scrollbar-track { background: #110000; }
-        .album-grid.scrollable::-webkit-scrollbar-thumb { background: #400000; border-radius: 4px; }
-
-        .album-link { text-decoration: none; flex: 0 0 220px; }
-        .album-card { background-color: #110000; border: 1px solid #400000; border-radius: 10px; height: 100%; padding: 15px; transition: transform 0.2s, border-color 0.2s; box-sizing: border-box; }
-        .album-link:hover .album-card { transform: translateY(-8px); border-color: #ff0000; }
-        .album-cover { width: 100%; height: 200px; object-fit: cover; border-radius: 6px; margin-bottom: 12px; }
-        .album-title { font-size: 15px; font-weight: bold; color: #ffffff; margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .album-year { font-size: 13px; color: #ff4d4d; }
-
-        /* 앨범 상세 섹션 */
-        .album-detail-section { padding: 80px 20px; border-bottom: 1px solid #220000; display: flex; flex-direction: column; align-items: center; scroll-margin-top: 70px; }
-        .album-detail-container { max-width: 1100px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 25px; }
-        .album-detail-section h3 { font-family: 'Black Han Sans', sans-serif; font-size: 34px; color: #ff0000; margin-bottom: 5px; }
-        .detail-cover { width: 220px; height: 220px; object-fit: cover; border-radius: 10px; border: 2px solid #ff0000; box-shadow: 0 0 15px rgba(255, 0, 0, 0.3); }
-        .album-detail-section p { color: #cccccc; font-size: 16px; margin-bottom: 10px; }
-
-        /* 트랙리스트 테이블 스타일 */
-        .tracklist-table-container { width: 100%; overflow-x: auto; margin-top: 15px; }
-        .track-table { width: 100%; border-collapse: collapse; background-color: #080000; border: 1px solid #400000; text-align: left; font-size: 14px; }
-        .track-table th, .track-table td { padding: 12px 15px; border-bottom: 1px solid #330000; }
-        .track-table th { background-color: #1a0000; color: #ff0000; font-family: 'Black Han Sans', sans-serif; font-size: 16px; text-align: center; letter-spacing: 1px; }
-        .track-table td:nth-child(1) { text-align: center; color: #ff4d4d; font-weight: bold; width: 80px; }
-        .track-table td:nth-child(2) { color: #ffffff; font-weight: bold; cursor: pointer; text-decoration: underline; text-decoration-color: #550000; }
-        .track-table td:nth-child(2):hover { color: #ff4d4d; }
-        .track-table td:nth-child(3), .track-table td:nth-child(4), .track-table td:nth-child(5) { color: #cc9999; }
+        h1 { font-family: 'Black Han Sans', sans-serif; color: #ff0000; font-size: 60px; margin-bottom: 10px; }
+        p { color: #ff4d4d; font-size: 18px; }
+        .site-image { width: 250px; border-radius: 10px; margin: 20px 0; }
+        .content-section { padding: 60px 20px; border-bottom: 2px solid #330000; }
+        .content-section h2 { font-family: 'Black Han Sans', sans-serif; font-size: 36px; color: #ff0000; margin-bottom: 25px; }
+        .album-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .album-grid.scrollable { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; padding-bottom: 10px; }
+        .album-link { text-decoration: none; flex: 0 0 200px; }
+        .album-card { background-color: #110000; border: 1px solid #400000; border-radius: 10px; padding: 15px; transition: transform 0.2s; }
+        .album-link:hover .album-card { transform: translateY(-5px); border-color: #ff0000; }
+        .album-cover { width: 100%; height: 180px; object-fit: cover; border-radius: 6px; margin-bottom: 10px; }
+        .album-title { font-size: 14px; font-weight: bold; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .album-year { font-size: 12px; color: #ff4d4d; margin-top: 4px; }
+        .album-detail-section { padding: 60px 20px; border-bottom: 1px solid #220000; display: flex; flex-direction: column; align-items: center; scroll-margin-top: 70px; }
+        .album-detail-container { max-width: 1000px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .album-detail-section h3 { font-family: 'Black Han Sans', sans-serif; font-size: 30px; color: #ff0000; }
+        .detail-cover { width: 200px; height: 200px; object-fit: cover; border-radius: 10px; border: 2px solid #ff0000; }
+        .tracklist-table-container { width: 100%; overflow-x: auto; }
+        .track-table { width: 100%; border-collapse: collapse; background-color: #080000; border: 1px solid #400000; text-align: left; font-size: 13px; }
+        .track-table th, .track-table td { padding: 10px 12px; border-bottom: 1px solid #330000; }
+        .track-table th { background-color: #1a0000; color: #ff0000; font-family: 'Black Han Sans', sans-serif; text-align: center; }
+        .track-table td:nth-child(1) { text-align: center; color: #ff4d4d; font-weight: bold; width: 60px; }
+        .track-table td:nth-child(2) { color: #fff; font-weight: bold; cursor: pointer; text-decoration: underline; }
         .track-table tr:hover { background-color: #150000; }
-
-        /* 미디어 & 가사 출력 박스 */
-        .active-track-display {
-            width: 100%; background-color: #110000; border: 1px solid #400000; border-radius: 8px;
-            padding: 25px; box-sizing: border-box; margin-top: 20px; display: flex; flex-direction: column; align-items: center;
-        }
-        .active-track-title {
-            font-family: 'Black Han Sans', sans-serif; font-size: 22px; color: #ff0000; margin-bottom: 20px; letter-spacing: 1px;
-            border-bottom: 1px solid #400000; padding-bottom: 8px; width: 100%; text-align: center;
-        }
-        .video-container { position: relative; width: 100%; max-width: 800px; padding-bottom: 56.25%; height: 0; margin-bottom: 25px; }
+        .active-track-display { width: 100%; background-color: #110000; border: 1px solid #400000; border-radius: 8px; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; }
+        .active-track-title { font-family: 'Black Han Sans', sans-serif; font-size: 20px; color: #ff0000; margin-bottom: 15px; border-bottom: 1px solid #400000; padding-bottom: 6px; width: 100%; text-align: center; }
+        .video-container { position: relative; width: 100%; max-width: 700px; padding-bottom: 56.25%; height: 0; margin-bottom: 20px; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 6px; border: 1px solid #400000; }
-        
-        .lyrics-container {
-            width: 100%; background-color: #080000; border: 1px solid #330000; border-radius: 6px; padding: 25px; box-sizing: border-box;
-            text-align: center;
-        }
-        .lyrics-header { font-family: 'Black Han Sans', sans-serif; font-size: 16px; color: #ff4d4d; margin-bottom: 15px; }
-        .lyrics-text { color: #ffffff; white-space: pre-line; line-height: 1.8; font-size: 15px; }
+        .lyrics-container { width: 100%; background-color: #080000; border: 1px solid #330000; border-radius: 6px; padding: 20px; text-align: center; }
+        .lyrics-text { color: #fff; white-space: pre-line; line-height: 1.7; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -121,19 +64,14 @@
         <a href="#album3" class="nav-link">3집</a>
         <a href="#album4" class="nav-link">4집</a>
         <a href="#album5" class="nav-link">5집</a>
-        <a href="#singles-section" class="nav-link">싱글음반</a>
-        <a href="#part-section" class="nav-link">참여음반</a>
+        <a href="#singles-section" class="nav-link">싱글</a>
+        <a href="#part-section" class="nav-link">참여</a>
     </div>
 
     <div class="hero-section">
         <h1>P-TYPE THE BIG CAT</h1>
-        <p>이곳은 피타입의 음악들의 정보를 담은 웹사이트입니다.</p>
-        <div><img src="img/P-TYPE.jpg" alt="피타입 사진" class="site-image"></div>
-        <div class="icon-container">
-            <a href="https://www.instagram.com/ptype_thebigcat" target="_blank" class="social-icon-link"><img src="img/instagram.png" alt="인스타그램" class="social-icon"></a>
-            <a href="https://www.youtube.com/channel/UC_BBrruv8aajni5I9muvtEw" target="_blank" class="social-icon-link"><img src="img/youtube.png" alt="유튜브" class="social-icon"></a>
-            <a href="https://music.youtube.com/channel/UC_BBrruv8aajni5I9muvtEw" target="_blank" class="social-icon-link"><img src="img/youtubemusic.png" alt="유튜브 뮤직" class="social-icon"></a>
-        </div>
+        <p>피타입 디스코그래피 및 가사/유튜브 연동 웹사이트</p>
+        <div><img src="img/P-TYPE.jpg" alt="피타입" class="site-image"></div>
     </div>
 
     <div class="content-section">
@@ -166,165 +104,8 @@
     <div id="singles-details-container"></div>
     <div id="participation-details-container"></div>
 
+    <script src="data.js"></script>
     <script>
-        const albumsData = {
-            album1: {
-                title: "1집 - Heavy Bass (2004.05.31)",
-                desc: "한국 힙합 역사상 가장 찬란한 명반 중 하나로 꼽히는 피타입의 정규 1집 데뷔 앨범입니다.",
-                cover: "img/album1.png",
-                defaultVideo: "dQw4w9WgXcQ",
-                tracks: [
-                    ["01", "서시", "P-TYPE", "Keeproots", "Keeproots", "dQw4w9WgXcQ", 
-`새로운 시작 앞에서 난 가난한 가슴을 열어 말한다.
-어두운 밤 한 가운데 거친 방황과
-수 없이 만났어도 살아남았다고.
-쉽지는 않았어도 예까지 왔다고.
-
-사막 같은 도시를 사나운 바람
-벗 삼아 걷고 있는 사나이.
-세상 앞에 울부짖는 숫 사자다.
-시작 앞에서 난 혼자다.`],
-                    ["02", "Skit - 보여주고 증명하라", "P-TYPE", "P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "보여주고 증명하라 가사 내용입니다."],
-                    ["03", "돈키호테 (Feat. 휘성)", "P-TYPE, 휘성", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "돈키호테 가사 내용입니다."],
-                    ["04", "Skit - 힙합다운 힙합", "P-TYPE", "P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "Skit 가사 내용입니다."],
-                    ["05", "Heavy Bass", "P-TYPE", "P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "Heavy Bass 가사 내용입니다."],
-                    ["06", "P-Type The Big Cat", "P-TYPE", "SAATAN", "SAATAN", "dQw4w9WgXcQ", "P-Type The Big Cat 가사 내용입니다."],
-                    ["07", "힙합다운 힙합", "P-TYPE", "P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "힙합다운 힙합 가사 내용입니다."],
-                    ["08", "독종", "P-TYPE", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "독종 가사 내용입니다."],
-                    ["09", "So U Wanna Be Hardcore (Feat. MC Meta)", "P-TYPE, MC Meta", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "So U Wanna Be Hardcore 가사 내용입니다."],
-                    ["10", "언더그라운드", "P-TYPE", "P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "언더그라운드 가사 내용입니다."],
-                    ["11", "Musiq Noir (Feat. C-LUV)", "P-TYPE, C-LUV", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "Musiq Noir 가사 내용입니다."],
-                    ["12", "Skit - 언어의 연주가", "P-TYPE", "Keeproots", "P-TYPE", "dQw4w9WgXcQ", "Skit 가사 내용입니다."],
-                    ["13", "Wild Style (Feat. 빅마마)", "P-TYPE", "P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "Wild Style 가사 내용입니다."],
-                    ["14", "언어의 연주가 (Bonus Track)", "P-TYPE", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "언어의 연주가 가사 내용입니다."]
-                ]
-            },
-            album2: {
-                title: "2집 - The Vintage (2008.11.27)",
-                desc: "특유의 클래식하고 묵직한 서정성이 돋보이는 정규 2집 앨범입니다.",
-                cover: "img/album2.png",
-                defaultVideo: "dQw4w9WgXcQ",
-                tracks: [
-                    ["01", "Intro", "P-Type", "-", "-", "dQw4w9WgXcQ", "Intro 가사 내용입니다."],
-                    ["02", "비를 위한 발라드 (Feat. Gina)", "P-Type", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "비를 위한 발라드 가사 내용입니다."],
-                    ["03", "Happy People (Feat. Soulman)", "P-Type", "Artisan Beats", "Artisan Beats", "dQw4w9WgXcQ", "Happy People 가사 내용입니다."],
-                    ["04", "Music City (Feat. Ali)", "P-Type", "Artisan Beats", "Artisan Beats", "dQw4w9WgXcQ", "Music City 가사 내용입니다."],
-                    ["05", "A Long Time Ago (Feat. Heritage)", "P-Type", "Mild Beats", "Mild Beats", "dQw4w9WgXcQ", "A Long Time Ago 가사 내용입니다."],
-                    ["06", "Interlude (내레이션+)", "P-Type", "-", "-", "dQw4w9WgXcQ", "Interlude 가사 내용입니다."],
-                    ["07", "수컷 (Feat. 박광수)", "P-Type", "P-Type", "P-Type", "dQw4w9WgXcQ", "수컷 가사 내용입니다."],
-                    ["08", "젊은 날의 초상 (Feat. Koonta, 이인관)", "P-Type, Koonta, 이인관", "P-Type", "P-Type", "dQw4w9WgXcQ", "젊은 날의 초상 가사 내용입니다."],
-                    ["09", "소나기 (Feat. Soulman)", "P-Type", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "소나기 가사 내용입니다."],
-                    ["10", "후유증 (Feat. 정인, 이인관)", "P-Type, 한경훈", "한경훈", "한경훈", "dQw4w9WgXcQ", "후유증 가사 내용입니다."],
-                    ["11", "Poetry Sayer", "P-Type", "The Quiett", "The Quiett", "dQw4w9WgXcQ", "Poetry Sayer 가사 내용입니다."],
-                    ["12", "Skit (내레이션)", "P-Type", "-", "-", "dQw4w9WgXcQ", "Skit 가사 내용입니다."],
-                    ["13", "비를 위한 발라드 (Inst.)", "-", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "연주곡입니다."],
-                    ["14", "Skit (내레이션)", "P-Type", "-", "-", "dQw4w9WgXcQ", "Skit 가사 내용입니다."],
-                    ["15", "소나기 (Inst.)", "-", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "연주곡입니다."],
-                    ["16", "Skit (내레이션)", "P-Type", "-", "-", "dQw4w9WgXcQ", "Skit 가사 내용입니다."],
-                    ["17", "수컷 (Inst.)", "-", "P-Type", "P-Type", "dQw4w9WgXcQ", "연주곡입니다."]
-                ]
-            },
-            album3: {
-                title: "3집 - RAP (2013.07.29)",
-                desc: "랩이라는 장르와 그 본질에 대한 깊은 고찰이 담긴 정규 3집 앨범입니다.",
-                cover: "img/album3.png",
-                defaultVideo: "dQw4w9WgXcQ",
-                tracks: [
-                    ["01", "I’m Back", "P-type", "Ging, Optical Eyez XL", "Ging, Optical Eyez XL", "dQw4w9WgXcQ", "I'm Back 가사 내용입니다."],
-                    ["02", "Love, Life, Rap (Feat. GRAY)", "P-type", "GRAY, Keeproots", "Keeproots", "dQw4w9WgXcQ", "Love, Life, Rap 가사 내용입니다."],
-                    ["03", "볼케이노 (Feat. 선우정아, 손수경)", "P-type", "Keeproots, Fascinating, Rhymer", "Keeproots, Fascinating", "dQw4w9WgXcQ", "볼케이노 가사 내용입니다."],
-                    ["04", "꿈의 해석 (Feat. Jinbo)", "P-type", "프라이머리, Jinbo", "프라이머리", "dQw4w9WgXcQ", "꿈의 해석 가사 내용입니다."],
-                    ["05", "Highway Trucker", "P-type", "G-Slow", "G-Slow", "dQw4w9WgXcQ", "Highway Trucker 가사 내용입니다."],
-                    ["06", "OST: Peace (Feat. Paloalto, B-Free, Huckleberry P)", "P-type, Paloalto, B-Free, Huckleberry P", "G-Slow", "G-Slow", "dQw4w9WgXcQ", "Peace 가사 내용입니다."],
-                    ["07", "뿔 (Feat. BUMKEY)", "P-type, BUMKEY", "Keeproots, Fascinating, BUMKEY", "Keeproots, Fascinating", "dQw4w9WgXcQ", "뿔 가사 내용입니다."],
-                    ["08", "불 꺼", "P-type", "G-Slow", "G-Slow", "dQw4w9WgXcQ", "불 꺼 가사 내용입니다."],
-                    ["09", "OST: Respect (Feat. Beenzino, Dok2)", "P-type, Beenzino, Dok2", "Fascinating", "Fascinating", "dQw4w9WgXcQ", "Respect 가사 내용입니다."],
-                    ["10", "OST: One Love (Feat. Noise Mob)", "P-type, Minos, RHYME-A-", "Score 13", "Score 13", "dQw4w9WgXcQ", "One Love 가사 내용입니다."],
-                    ["11", "Unchangeable (Feat. Sean2slow)", "P-type, Sean2slow", "Optical Eyez XL", "Optical Eyez XL", "dQw4w9WgXcQ", "Unchangeable 가사 내용입니다."],
-                    ["12", "다이하드 (Feat. Ali, MC Meta)", "P-type, MC Meta", "Artisan Beats, Keeproots", "Keeproots", "dQw4w9WgXcQ", "다이하드 가사 내용입니다."]
-                ]
-            },
-            album4: {
-                title: "4집 - Street Poetry (2015.03.20)",
-                desc: "거리의 시인으로서 피타입의 날카로운 통찰력과 가사가 돋보이는 4집 앨범입니다.",
-                cover: "img/album4.png",
-                defaultVideo: "dQw4w9WgXcQ",
-                tracks: [
-                    ["01", "폭력적인 잡종문화", "P-Type", "Ronald Bell, R. Jackson, Deepfry", "Kay Gee's, Deepfry", "dQw4w9WgXcQ", "폭력적인 잡종문화 가사 내용입니다."],
-                    ["02", "Do The Right Rap (Feat. Huckleberry P)", "P-Type, Huckleberry P", "Fascinating", "Fascinating", "dQw4w9WgXcQ", "Do The Right Rap 가사 내용입니다."],
-                    ["03", "Timberland 6\" (Feat. NUCK of Souldive)", "P-Type, NUCK", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "Timberland 6\" 가사 내용입니다."],
-                    ["04", "네안데르탈 (Feat. Minos, Justhis)", "P-Type, Minos, Justhis", "Deepfry", "Deepfry", "dQw4w9WgXcQ", "네안데르탈 가사 내용입니다."],
-                    ["05", "광화문 (Feat. 태완)", "P-Type", "Fascinating, 김태완", "Fascinating, YELLA Diamond", "dQw4w9WgXcQ", "광화문 가사 내용입니다."],
-                    ["06", "돈키호테2 (Feat. 바버렛츠)", "P-Type", "Fascinating, 김은혜", "Fascinating, DJ Juice", "dQw4w9WgXcQ", "돈키호테2 가사 내용입니다."],
-                    ["07", "이방인 (Feat. 차붐)", "Neil Young, P-Type, 차붐", "Neil Young, Deepfry", "Neil Young, Deepfry", "dQw4w9WgXcQ", "이방인 가사 내용입니다."],
-                    ["08", "반환점", "P-Type", "김창완, 김창훈", "김창완, 김영진, 김제형", "dQw4w9WgXcQ", "반환점 가사 내용입니다."],
-                    ["09", "최악의 남자", "P-Type", "Fascinating", "Fascinating, DJ Juice, P-Type", "dQw4w9WgXcQ", "최악의 남자 가사 내용입니다."],
-                    ["10", "Vice Versa (Feat. 선우정아)", "선우정아, P-Type", "Kebee, 박민우, 선우정아", "Kebee, 박민우", "dQw4w9WgXcQ", "Vice Versa 가사 내용입니다."],
-                    ["11", "광화문 (Inst.) (CD only)", "-", "Fascinating, 김태완", "Fascinating, YELLA Diamond", "dQw4w9WgXcQ", "연주곡입니다."],
-                    ["12", "돈키호테2 (Inst.) (CD only)", "-", "Fascinating, 김은혜", "Fascinating, DJ Juice", "dQw4w9WgXcQ", "연주곡입니다."],
-                    ["13", "반환점 (Inst.) (CD only)", "-", "김창완, 김창훈", "김창완, 김영진, 김제형", "dQw4w9WgXcQ", "연주곡입니다."]
-                ]
-            },
-            album5: {
-                title: "5집 - Hardboiled Café 5 (2022.02.18)",
-                desc: "하드보일드한 감성을 담아내며 건재함을 증명한 정규 5집 앨범입니다.",
-                cover: "img/album5.png",
-                defaultVideo: "dQw4w9WgXcQ",
-                tracks: [
-                    ["01", "Writer's Profile", "P-TYPE", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "Writer's Profile 가사 내용입니다."],
-                    ["02", "Intro (Feat. WRKMS, 김현심)", "P-TYPE", "WRKMS", "WRKMS, P-TYPE", "dQw4w9WgXcQ", "Intro 가사 내용입니다."],
-                    ["03", "Hardboiled Café (Feat. 정인, FROM ALL TO HUMAN)", "P-TYPE", "Keeproots, FROM ALL TO HUMAN", "Keeproots, FROM ALL TO HUMAN, P-TYPE", "dQw4w9WgXcQ", "Hardboiled Café 가사 내용입니다."],
-                    ["04", "깨끗하고 밝은 곳", "P-TYPE", "PLAYHOUSE", "PLAYHOUSE", "dQw4w9WgXcQ", "깨끗하고 밝은 곳 가사 내용입니다."],
-                    ["05", "The Picaresque", "P-TYPE", "Fredi Casso", "Fredi Casso", "dQw4w9WgXcQ", "The Picaresque 가사 내용입니다."],
-                    ["06", "안녕, 내 사랑 (Feat. 르네, WRKMS)", "P-TYPE", "WRKMS, 르네", "P-TYPE", "dQw4w9WgXcQ", "안녕, 내 사랑 가사 내용입니다."],
-                    ["07", "노인의 테마: 낚시 (Feat. 최엘비)", "P-TYPE, 최엘비", "PLAYHOUSE", "PLAYHOUSE", "dQw4w9WgXcQ", "노인의 테마: 낚시 가사 내용입니다."],
-                    ["08", "The Simple Art of Rhyme (Feat. KWAII)", "P-TYPE, KWAII", "Pe2ny", "Pe2ny", "dQw4w9WgXcQ", "The Simple Art of Rhyme 가사 내용입니다."],
-                    ["09", "For Sale, My Rhymes, Never Used (Feat. JUSTHIS, DON MALIK)", "P-TYPE, JUSTHIS, DON MALIK", "Fredi Casso", "Fredi Casso", "dQw4w9WgXcQ", "For Sale 가사 내용입니다."],
-                    ["10", "MIC \"The Hammer\" (Feat. Paloalto, Chin)", "P-TYPE, Paloalto, Chin", "Deepfry", "Deepfry, Fascinating, P-TYPE", "dQw4w9WgXcQ", "MIC The Hammer 가사 내용입니다."],
-                    ["11", "Lyricist Paradox (Feat. DON MALIK)", "P-TYPE, DON MALIK", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "Lyricist Paradox 가사 내용입니다."],
-                    ["12", "Heavy Bass Saga (Feat. 김오키)", "P-TYPE", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "Heavy Bass Saga 가사 내용입니다."],
-                    ["13", "고양이와 남자", "P-TYPE", "Fredi Casso", "Fredi Casso", "dQw4w9WgXcQ", "고양이와 남자 가사 내용입니다."],
-                    ["14", "Moonlighting (Feat. 서사무엘) (album version)", "P-TYPE, 서사무엘", "Keeproots, 서사무엘", "Keeproots", "dQw4w9WgXcQ", "Moonlighting 가사 내용입니다."],
-                    ["15", "Big Sleep (Feat. ILLINIT)", "P-TYPE, ILLINIT", "Fascinating", "Fascinating", "dQw4w9WgXcQ", "Big Sleep 가사 내용입니다."],
-                    ["16", "Kiss Me Deadly (Feat. 김필)", "P-TYPE, 김필", "Fascinating, 김필", "Fascinating", "dQw4w9WgXcQ", "Kiss Me Deadly 가사 내용입니다."],
-                    ["17", "고양이는 아홉번 죽는다", "P-TYPE", "Fascinating", "Fascinating", "dQw4w9WgXcQ", "고양이는 아홉번 죽는다 가사 내용입니다."],
-                    ["18", "부정의 부정은 긍정 (Feat. 버벌진트)", "P-TYPE, Verbal Jint", "Fascinating", "Fascinating", "dQw4w9WgXcQ", "부정의 부정은 긍정 가사 내용입니다."],
-                    ["19", "Outro (Feat. 김현심)", "P-TYPE", "Keeproots, P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "Outro 가사 내용입니다."],
-                    ["20", "에필로그: 씬을 위한 오드 (Feat. The Quiett, 서사무엘)", "P-TYPE, The Quiett, 서사무엘", "Keeproots, 서사무엘", "Keeproots", "dQw4w9WgXcQ", "에필로그 가사 내용입니다."]
-                ]
-            }
-        };
-
-        const singlesInfo = [
-            { name: "Soulfire", date: "2006.09.07.", type: "싱글 1집" },
-            { name: "다이하드", date: "2013.03.22.", type: "싱글" },
-            { name: "Lyrical Saurus", date: "2013.11.08.", type: "무료 음원" },
-            { name: "불편한 관계", date: "2013.11.27.", type: "싱글" },
-            { name: "Timberland 6\"", date: "2014.05.28.", type: "싱글" },
-            { name: "광화문", date: "2015.03.11.", type: "싱글" },
-            { name: "버드맨", date: "2015.07.06.", type: "싱글" },
-            { name: "시차적응", date: "2015.11.09.", type: "싱글" },
-            { name: "게으르게", date: "2016.07.04.", type: "싱글" },
-            { name: "2 years part.1", date: "2017.06.19.", type: "더블 싱글" },
-            { name: "Explicit Content", date: "2020.02.03.", type: "더블 싱글" },
-            { name: "블루문특급", date: "2020.05.03.", type: "싱글" },
-            { name: "바벨", date: "2020.07.03.", type: "싱글" },
-            { name: "TBS 특집 다큐멘터리 '2020 전태일 랩소디'", date: "2020.11.19.", type: "싱글" },
-            { name: "신도시", date: "2021.02.18.", type: "싱글" },
-            { name: "Ordinary Verse", date: "2021.03.18.", type: "싱글" },
-            { name: "The Dog Walker", date: "2021.07.22.", type: "싱글" },
-            { name: "MIC \"The Hammer\"", date: "2022.02.11.", type: "싱글" },
-            { name: "2022 영등포", date: "2022.10.18.", type: "싱글" },
-            { name: "추가 싱글 20", date: "202X.XX.XX.", type: "싱글" },
-            { name: "추가 싱글 21", date: "202X.XX.XX.", type: "싱글" }
-        ];
-
-        const participationInfo = [
-            { name: "돈의 화신 OST - MONEY", date: "2013.03.16.", type: "참여 음반", desc: "SBS 드라마 '돈의 화신' OST 참여 곡입니다." },
-            { name: "스노우볼 프로젝트 Vol.3 - 우린 여기에", date: "2016.12.16.", type: "참여 음반", desc: "크라잉넛과 피타입이 함께 참여한 프로젝트 음반입니다." },
-            { name: "무증상", date: "2021.06.16.", type: "참여 음반 (더블 싱글)", desc: "P-TYPE & OPTICAL EYEZ XL의 참여 음반입니다." }
-        ];
-
         const singlesData = {};
         const singlesGrid = document.getElementById('singles-grid');
         const singlesDetailsContainer = document.getElementById('singles-details-container');
@@ -334,23 +115,12 @@
             const key = `single${i}`;
             singlesData[key] = {
                 title: `${item.type} - ${item.name} (${item.date})`,
-                desc: `피타입의 ${item.type} 음반 <${item.name}>입니다. (발매일: ${item.date})`,
+                desc: `${item.name} (${item.date})`,
                 cover: `img/single${i}.png`,
-                defaultVideo: `dQw4w9WgXcQ`,
-                tracks: [
-                    ["01", item.name, "P-TYPE", "Producer", "Arranger", "dQw4w9WgXcQ", `${item.name} 가사 내용입니다.\n(이곳에 가사를 입력하세요)`]
-                ]
+                defaultVideo: "dQw4w9WgXcQ",
+                tracks: [["01", item.name, "P-TYPE", "-", "-", "dQw4w9WgXcQ", `${item.name} 가사 내용입니다.`]]
             };
-
-            singlesGrid.innerHTML += `
-                <a href="#${key}" class="album-link">
-                    <div class="album-card">
-                        <img src="img/single${i}.png" alt="${item.name} 커버" class="album-cover" onerror="this.src='img/album1.png'">
-                        <div class="album-title">${item.name}</div>
-                        <div class="album-year">${item.date}</div>
-                    </div>
-                </a>
-            `;
+            singlesGrid.innerHTML += `<a href="#${key}" class="album-link"><div class="album-card"><img src="img/single${i}.png" class="album-cover" onerror="this.src='img/album1.png'"><div class="album-title">${item.name}</div><div class="album-year">${item.date}</div></div></a>`;
             singlesDetailsContainer.innerHTML += `<div id="${key}" class="album-detail-section" data-album="${key}"></div>`;
         });
 
@@ -365,78 +135,50 @@
                 title: `${item.type} - ${item.name} (${item.date})`,
                 desc: item.desc,
                 cover: `img/part${i}.png`,
-                defaultVideo: `dQw4w9WgXcQ`,
-                tracks: [
-                    ["01", item.name, "P-TYPE", "Producer", "Arranger", "dQw4w9WgXcQ", `${item.name} 가사 내용입니다.\n(이곳에 가사를 입력하세요)`]
-                ]
+                defaultVideo: "dQw4w9WgXcQ",
+                tracks: [["01", item.name, "P-TYPE", "-", "-", "dQw4w9WgXcQ", `${item.name} 가사 내용입니다.`]]
             };
-
-            participationGrid.innerHTML += `
-                <a href="#${key}" class="album-link">
-                    <div class="album-card">
-                        <img src="img/part${i}.png" alt="${item.name} 커버" class="album-cover" onerror="this.src='img/album1.png'">
-                        <div class="album-title">${item.name}</div>
-                        <div class="album-year">${item.date}</div>
-                    </div>
-                </a>
-            `;
+            participationGrid.innerHTML += `<a href="#${key}" class="album-link"><div class="album-card"><img src="img/part${i}.png" class="album-cover" onerror="this.src='img/album1.png'"><div class="album-title">${item.name}</div><div class="album-year">${item.date}</div></div></a>`;
             participationDetailsContainer.innerHTML += `<div id="${key}" class="album-detail-section" data-album="${key}"></div>`;
         });
 
         const allData = { ...albumsData, ...singlesData, ...participationData };
-
         const currentActiveTrack = {};
 
         function renderAlbumSection(id) {
             const data = allData[id];
             if (!data) return;
-
             const section = document.getElementById(id);
             if (!section) return;
 
-            if (currentActiveTrack[id] === undefined) {
-                currentActiveTrack[id] = 0;
-            }
-
+            if (currentActiveTrack[id] === undefined) currentActiveTrack[id] = 0;
             const activeIdx = currentActiveTrack[id];
             const activeTrack = data.tracks[activeIdx];
-            const videoId = activeTrack[5] && activeTrack[5] !== "VIDEO_ID" ? activeTrack[5] : data.defaultVideo;
-            const lyricsContent = activeTrack[6] || "등록된 가사가 없습니다.";
+            const videoId = activeTrack[5] !== "VIDEO_ID" ? activeTrack[5] : data.defaultVideo;
 
             let tableRows = data.tracks.map((t, tIndex) => `
                 <tr style="${tIndex === activeIdx ? 'background-color: #200000;' : ''}">
                     <td>${t[0]}</td>
                     <td><span onclick="selectTrack('${id}', ${tIndex})" style="cursor:pointer;">${t[1]}</span></td>
-                    <td>${t[2]}</td>
-                    <td>${t[3]}</td>
-                    <td>${t[4]}</td>
+                    <td>${t[2]}</td><td>${t[3]}</td><td>${t[4]}</td>
                 </tr>
             `).join('');
 
             section.innerHTML = `
                 <div class="album-detail-container">
                     <h3>${data.title}</h3>
-                    <img src="${data.cover}" alt="앨범 커버" class="detail-cover" onerror="this.src='img/album1.png'">
+                    <img src="${data.cover}" class="detail-cover" onerror="this.src='img/album1.png'">
                     <p>${data.desc}</p>
-                    
                     <div class="tracklist-table-container">
                         <table class="track-table">
-                            <thead>
-                                <tr><th>트랙</th><th>제목 (클릭시 재생 및 가사)</th><th>작사</th><th>작곡</th><th>편곡</th></tr>
-                            </thead>
+                            <thead><tr><th>트랙</th><th>제목 (클릭)</th><th>작사</th><th>작곡</th><th>편곡</th></tr></thead>
                             <tbody>${tableRows}</tbody>
                         </table>
                     </div>
-
                     <div class="active-track-display">
                         <div class="active-track-title">${activeTrack[1]}</div>
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/${videoId}" title="${activeTrack[1]}" allowfullscreen></iframe>
-                        </div>
-                        <div class="lyrics-container">
-                            <div class="lyrics-header">[ 가 사 ]</div>
-                            <div class="lyrics-text">${lyricsContent}</div>
-                        </div>
+                        <div class="video-container"><iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe></div>
+                        <div class="lyrics-container"><div class="lyrics-text">${activeTrack[6] || "가사가 없습니다."}</div></div>
                     </div>
                 </div>
             `;
@@ -448,8 +190,7 @@
         }
 
         document.querySelectorAll('.album-detail-section').forEach(section => {
-            const id = section.getAttribute('data-album');
-            renderAlbumSection(id);
+            renderAlbumSection(section.getAttribute('data-album'));
         });
     </script>
 </body>

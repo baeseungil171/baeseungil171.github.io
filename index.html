@@ -23,10 +23,39 @@
             margin: 0;
             padding: 0;
         }
+
+        /* 고정 내비게이션 바 스타일 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #080000;
+            border-bottom: 2px solid #ff0000;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 12px 0;
+            z-index: 1000;
+            overflow-x: auto;
+        }
+
+        .nav-link {
+            color: #ff4d4d;
+            text-decoration: none;
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 16px;
+            transition: color 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+        }
         
         /* 상단 메인 히어로 섹션 */
         .hero-section {
-            padding-top: 80px;
+            padding-top: 120px; /* 내비게이션 바 높이 고려 */
             padding-bottom: 50px;
             border-bottom: 2px solid #330000; 
         }
@@ -81,7 +110,7 @@
             border-bottom: 2px solid #330000;
         }
 
-        .content-section h2, .info-section h2 {
+        .content-section h2, .album-detail-section h2, .info-section h2 {
             font-family: 'Black Han Sans', sans-serif;
             font-size: 45px;
             color: #ff0000;
@@ -89,7 +118,7 @@
             letter-spacing: 1px;
         }
 
-        /* 앨범 목록 레이아웃 */
+        /* 앨범 목록 레이아웃 (정규 5개) */
         .album-grid {
             display: flex;
             flex-wrap: nowrap;       
@@ -102,14 +131,12 @@
             padding-bottom: 20px;    
         }
 
-        /* 앨범 링크 (기본 링크 밑줄 및 색상 제거) */
         .album-link {
             text-decoration: none;
             flex: 1;
             min-width: 200px;
         }
 
-        /* 개별 앨범 카드 */
         .album-card {
             background-color: #110000;
             border: 1px solid #400000;
@@ -145,89 +172,100 @@
             color: #ff4d4d;
         }
 
-        /* 전체 곡 한눈에 보기 섹션 스타일 */
-        .master-track-section {
-            padding: 80px 20px;
+        /* 개별 앨범별 상세 정보 구역 스타일 */
+        .album-detail-section {
+            padding: 100px 20px 80px 20px;
             border-bottom: 2px solid #330000;
-            max-width: 1100px;
-            margin: 0 auto;
             text-align: left;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .master-track-section h2 {
-            font-family: 'Black Han Sans', sans-serif;
-            font-size: 45px;
-            color: #ff0000;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-            text-align: center;
+        .album-detail-container::after {
+            content: "";
+            display: block;
+            clear: both;
         }
 
-        /* 전체 곡 리스트 컨테이너 (높이 확장형) */
-        .master-table-container {
-            max-height: 500px;
-            overflow-y: auto;
-            border: 1px solid #400000;
+        .detail-cover {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
             border-radius: 8px;
-            background-color: #0b0000;
-            margin-bottom: 30px;
+            float: left;
+            margin-right: 30px;
+            margin-bottom: 20px;
+            border: 1px solid #400000;
         }
 
-        .master-table-container::-webkit-scrollbar {
-            width: 8px;
+        .album-desc {
+            color: #cccccc;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
-        .master-table-container::-webkit-scrollbar-thumb {
+
+        /* 트랙리스트 테이블 스타일 */
+        .tracklist-table-container {
+            max-height: 250px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            clear: both;
+            border: 1px solid #400000;
+            border-radius: 6px;
+        }
+        .tracklist-table-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .tracklist-table-container::-webkit-scrollbar-thumb {
             background: #400000;
-            border-radius: 4px;
+            border-radius: 3px;
         }
 
-        .master-table {
+        .track-table, .info-table {
             width: 100%;
             border-collapse: collapse;
             color: #e0e0e0;
         }
-
-        .master-table th, .master-table td {
+        .track-table th, .track-table td, .info-table th, .info-table td {
             border-bottom: 1px solid #300000;
-            padding: 12px 15px;
+            padding: 10px 12px;
             text-align: left;
             font-size: 14px;
         }
-
-        .master-table th {
+        .track-table th, .info-table th {
             background-color: #1a0000;
             color: #ff4d4d;
             position: sticky;
             top: 0;
-            z-index: 10;
+            z-index: 5;
+        }
+        .track-table tr:hover, .info-table tr:hover {
+            background-color: #150000;
         }
 
-        .master-table tr:hover {
-            background-color: #1f0000;
-        }
-
-        /* 선택된 곡 플레이어 및 가사 영역 */
-        .master-player-display {
+        /* 앨범별 플레이어 및 가사 영역 */
+        .active-track-display {
+            margin-top: 25px;
             background: #110000;
             border: 1px solid #400000;
-            padding: 25px;
-            border-radius: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            clear: both;
         }
-
-        .master-player-title {
-            font-size: 20px;
+        .active-track-title {
+            font-size: 18px;
             font-weight: bold;
             color: #ff5252;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             text-align: center;
         }
-
         .video-container {
             position: relative;
             width: 100%;
             padding-bottom: 56.25%; /* 16:9 비율 */
             height: 0;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         .video-container iframe {
             position: absolute;
@@ -238,24 +276,22 @@
             border: none;
             border-radius: 6px;
         }
-
         .lyrics-toggle-btn {
             background-color: #330000;
             color: #ff4d4d;
             border: 1px solid #ff0000;
-            padding: 10px 20px;
+            padding: 8px 15px;
             cursor: pointer;
             border-radius: 4px;
             font-size: 14px;
             font-weight: bold;
             display: block;
-            margin: 0 auto 15px auto;
+            margin: 0 auto 10px auto;
             transition: background 0.2s;
         }
         .lyrics-toggle-btn:hover {
             background-color: #550000;
         }
-
         .lyrics-container {
             max-height: 0;
             overflow: hidden;
@@ -283,7 +319,6 @@
             color: #ccc;
             text-align: left;
         }
-
         .clickable-link {
             color: #ff4d4d;
             text-decoration: none;
@@ -294,39 +329,33 @@
             color: #ff8080;
         }
 
-        /* 싱글 및 참여 음반 섹션 */
+        /* 싱글 및 합작/참여 음반 섹션 */
         .info-section {
-            padding: 80px 20px;
+            padding: 100px 20px 80px 20px;
             border-bottom: 2px solid #330000;
             max-width: 900px;
             margin: 0 auto;
             text-align: left;
         }
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-            color: #e0e0e0;
-        }
-        .info-table th, .info-table td {
-            border: 1px solid #400000;
-            padding: 10px 12px;
-            text-align: left;
-            font-size: 14px;
-        }
-        .info-table th {
-            background-color: #1a0000;
-            color: #ff4d4d;
-        }
-        .info-table tr:hover {
-            background-color: #150000;
-        }
     </style>
 </head>
 <body>
 
+    <!-- 고정 내비게이션 바 -->
+    <nav class="navbar">
+        <a href="#top" class="nav-link">HOME</a>
+        <a href="#discography" class="nav-link">DISCOGRAPHY</a>
+        <a href="#album1" class="nav-link">1집 Heavy Bass</a>
+        <a href="#album2" class="nav-link">2집 The Vintage</a>
+        <a href="#album3" class="nav-link">3집 RAP</a>
+        <a href="#album4" class="nav-link">4집 Street Poetry</a>
+        <a href="#album5" class="nav-link">5집 Hardboiled Café</a>
+        <a href="#singles-section" class="nav-link">Singles</a>
+        <a href="#collab-section" class="nav-link">Collab / Part.</a>
+    </nav>
+
     <!-- 1. 최상단 메인 영역 -->
-    <div class="hero-section">
+    <div id="top" class="hero-section">
         <h1>P-TYPE THE BIG CAT</h1>
         <p>이곳은 피타입의 음악들의 정보를 담은 웹사이트입니다.</p>
         
@@ -349,49 +378,40 @@
         </div>
     </div>
 
-    <!-- 2. 정규앨범 5개 가로 한 줄 디스코그래피 구역 -->
-    <div class="content-section">
+    <!-- 2. 정규앨범 5개 가로 한 줄 디스코그래피 요약 구역 -->
+    <div id="discography" class="content-section">
         <h2>DISCOGRAPHY</h2>
         
         <div class="album-grid">
-            <!-- 1집 링크 -->
-            <a href="#master-section" class="album-link" onclick="filterTracks('Heavy Bass')">
+            <a href="#album1" class="album-link">
                 <div class="album-card">
                     <img src="img/album1.png" alt="1집 앨범 커버" class="album-cover">
                     <div class="album-title">Heavy Bass</div>
                     <div class="album-year">2004.05.31</div>
                 </div>
             </a>
-
-            <!-- 2집 링크 -->
-            <a href="#master-section" class="album-link" onclick="filterTracks('The Vintage')">
+            <a href="#album2" class="album-link">
                 <div class="album-card">
                     <img src="img/album2.png" alt="2집 앨범 커버" class="album-cover">
                     <div class="album-title">The Vintage</div>
                     <div class="album-year">2008.11.27</div>
                 </div>
             </a>
-
-            <!-- 3집 링크 -->
-            <a href="#master-section" class="album-link" onclick="filterTracks('RAP')">
+            <a href="#album3" class="album-link">
                 <div class="album-card">
                     <img src="img/album3.png" alt="3집 앨범 커버" class="album-cover">
                     <div class="album-title">RAP</div>
                     <div class="album-year">2013.07.29</div>
                 </div>
             </a>
-
-            <!-- 4집 링크 -->
-            <a href="#master-section" class="album-link" onclick="filterTracks('Street Poetry')">
+            <a href="#album4" class="album-link">
                 <div class="album-card">
                     <img src="img/album4.png" alt="4집 앨범 커버" class="album-cover">
                     <div class="album-title">Street Poetry</div>
                     <div class="album-year">2015.03.20</div>
                 </div>
             </a>
-
-            <!-- 5집 링크 -->
-            <a href="#master-section" class="album-link" onclick="filterTracks('Hardboiled Café 5')">
+            <a href="#album5" class="album-link">
                 <div class="album-card">
                     <img src="img/album5.png" alt="5집 앨범 커버" class="album-cover">
                     <div class="album-title">Hardboiled Café 5</div>
@@ -401,65 +421,37 @@
         </div>
     </div>
 
-    <!-- 3. 전체 곡 한눈에 보기 및 플레이어 섹션 -->
-    <div id="master-section" class="master-track-section">
-        <h2>ALL TRACKS</h2>
-        
-        <div style="margin-bottom: 15px; text-align: right;">
-            <button class="lyrics-toggle-btn" style="display:inline-block; margin:0;" onclick="filterTracks('ALL')">전체 곡 보기</button>
-        </div>
+    <!-- 3. 각 앨범별 상세 정보 공간 (독립 구역) -->
+    <div id="album1" class="album-detail-section"></div>
+    <div id="album2" class="album-detail-section"></div>
+    <div id="album3" class="album-detail-section"></div>
+    <div id="album4" class="album-detail-section"></div>
+    <div id="album5" class="album-detail-section"></div>
 
-        <div class="master-table-container">
-            <table class="master-table">
+    <!-- 4. 싱글 앨범 칸 -->
+    <div id="singles-section" class="info-section">
+        <h2>Singles & EPs</h2>
+        <div style="border: 1px solid #400000; border-radius: 6px; overflow: hidden;">
+            <table class="info-table">
                 <thead>
-                    <tr>
-                        <th>앨범명</th>
-                        <th>트랙</th>
-                        <th>제목 (클릭)</th>
-                        <th>작사</th>
-                        <th>작곡</th>
-                        <th>편곡</th>
-                    </tr>
+                    <tr><th>발매일</th><th>제목</th><th>종류</th></tr>
                 </thead>
-                <tbody id="master-track-tbody">
-                    <!-- 자바스크립트로 전체 곡 리스트가 동적 삽입됩니다 -->
-                </tbody>
+                <tbody id="singles-tbody"></tbody>
             </table>
         </div>
+    </div>
 
-        <!-- 선택된 곡 실시간 재생 및 가사 영역 -->
-        <div class="master-player-display" id="master-player">
-            <div class="master-player-title" id="player-title">곡을 선택해주세요</div>
-            <div class="video-container">
-                <iframe id="player-iframe" src="" allowfullscreen></iframe>
-            </div>
-            <button class="lyrics-toggle-btn" onclick="toggleMasterLyrics()">가사 보기 ▼</button>
-            <div class="lyrics-container" id="player-lyrics-box">
-                <div class="lyrics-header">[ 가 사 ]</div>
-                <div class="lyrics-text" id="player-lyrics-text">가사가 없습니다.</div>
-            </div>
+    <!-- 5. 합작 및 참여 음반 칸 -->
+    <div id="collab-section" class="info-section">
+        <h2>Collaboration / Participation</h2>
+        <div style="border: 1px solid #400000; border-radius: 6px; overflow: hidden;">
+            <table class="info-table">
+                <thead>
+                    <tr><th>발매일</th><th>제목</th><th>종류</th><th>설명</th></tr>
+                </thead>
+                <tbody id="participation-tbody"></tbody>
+            </table>
         </div>
-    </div>
-
-    <!-- 4. 싱글 및 참여 음반 섹션 -->
-    <div class="info-section">
-        <h2>Singles & EPs</h2>
-        <table class="info-table">
-            <thead>
-                <tr><th>발매일</th><th>제목</th><th>종류</th></tr>
-            </thead>
-            <tbody id="singles-tbody"></tbody>
-        </table>
-    </div>
-
-    <div class="info-section">
-        <h2>Participation / OST</h2>
-        <table class="info-table">
-            <thead>
-                <tr><th>발매일</th><th>제목</th><th>종류</th><th>설명</th></tr>
-            </thead>
-            <tbody id="participation-tbody"></tbody>
-        </table>
     </div>
 
     <!-- 순서 중요: lyrics.js가 data.js보다 위에 있어야 합니다 -->
@@ -467,117 +459,121 @@
     <script src="data.js"></script>
 
     <script>
-        let allTracksData = [];
-        let currentSelectedTrack = null;
-        let isLyricsOpen = false;
+        const currentActiveTrack = {};
+        const currentLyricsState = {};
 
-        // 모든 앨범의 데이터를 하나의 배열로 통합 추출
-        function initMasterTracks() {
-            allTracksData = [];
-            if (typeof albumsData === 'undefined') return;
+        function renderAlbumSection(id) {
+            const data = albumsData[id];
+            if (!data) return;
+            const section = document.getElementById(id);
+            if (!section) return;
 
-            Object.keys(albumsData).forEach(albumKey => {
-                const album = albumsData[albumKey];
-                album.tracks.forEach(track => {
-                    allTracksData.push({
-                        albumId: albumKey,
-                        albumTitle: album.title,
-                        defaultVideo: album.defaultVideo,
-                        trackNum: track[0],
-                        title: track[1],
-                        lyricist: track[2],
-                        composer: track[3],
-                        arranger: track[4],
-                        videoId: track[5],
-                        lyricKey: track[6]
-                    });
-                });
-            });
-            renderMasterTable(allTracksData);
+            if (currentActiveTrack[id] === undefined) currentActiveTrack[id] = 0;
+            if (currentLyricsState[id] === undefined) currentLyricsState[id] = false;
+
+            const activeIdx = currentActiveTrack[id];
+            const activeTrack = data.tracks[activeIdx];
             
-            // 첫 번째 곡을 기본 선택
-            if (allTracksData.length > 0) {
-                selectMasterTrack(0);
+            let videoId = activeTrack[5];
+            if (!videoId || videoId === "-" || videoId === "dQw4w9WgXcQ") {
+                videoId = data.defaultVideo;
             }
-        }
 
-        // 테이블에 곡 리스트 렌더링
-        function renderMasterTable(tracks) {
-            const tbody = document.getElementById('master-track-tbody');
-            if (!tbody) return;
+            const lyricKey = activeTrack[6];
+            const lyricText = (typeof lyricsData !== 'undefined' && lyricsData[lyricKey]) ? lyricsData[lyricKey] : (lyricKey || "가사가 없습니다.");
 
-            tbody.innerHTML = tracks.map((t, idx) => `
-                <tr id="track-row-${idx}" style="cursor: pointer;" onclick="selectMasterTrack(${idx})">
-                    <td style="color: #ff4d4d; font-size: 13px;">${t.albumTitle}</td>
-                    <td>${t.trackNum}</td>
-                    <td><span class="clickable-link">${t.title}</span></td>
-                    <td>${t.lyricist}</td>
-                    <td>${t.composer}</td>
-                    <td>${t.arranger}</td>
+            let tableRows = data.tracks.map((t, tIndex) => `
+                <tr style="${tIndex === activeIdx ? 'background-color: #330000;' : ''}" data-track-index="${tIndex}">
+                    <td>${t[0]}</td>
+                    <td><span class="clickable-link" onclick="selectTrack('${id}', ${tIndex})">${t[1]}</span></td>
+                    <td>${t[2]}</td><td>${t[3]}</td><td>${t[4]}</td>
                 </tr>
             `).join('');
-        }
 
-        // 특정 앨범 이름으로 곡 리스트 필터링
-        function filterTracks(albumTitle) {
-            if (albumTitle === 'ALL') {
-                renderMasterTable(allTracksData);
+            if (!section.querySelector('.album-detail-container')) {
+                section.innerHTML = `
+                    <div class="album-detail-container">
+                        <h2>${data.title}</h2>
+                        <img src="${data.cover}" class="detail-cover" alt="${data.title} 커버" onerror="this.src='img/album1.png'">
+                        <div class="album-desc">${data.desc}</div>
+                        <div class="tracklist-table-container">
+                            <table class="track-table">
+                                <thead><tr><th>트랙</th><th>제목 (클릭)</th><th>작사</th><th>작곡</th><th>편곡</th></tr></thead>
+                                <tbody>${tableRows}</tbody>
+                            </table>
+                        </div>
+                        <div class="active-track-display">
+                            <div class="active-track-title">${activeTrack[1]}</div>
+                            <div class="video-container"><iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe></div>
+                            
+                            <button class="lyrics-toggle-btn" onclick="toggleLyrics('${id}')">가사 보기 ▼</button>
+
+                            <div class="lyrics-container">
+                                <div class="lyrics-header">[ 가 사 ]</div>
+                                <div class="lyrics-text">${lyricText}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
             } else {
-                const filtered = allTracksData.filter(t => t.albumTitle === albumTitle);
-                renderMasterTable(filtered);
+                section.querySelector('h2').innerText = data.title;
+                const coverImg = section.querySelector('.detail-cover');
+                if (coverImg && coverImg.src !== data.cover) {
+                    coverImg.src = data.cover;
+                }
+                section.querySelector('.album-desc').innerHTML = data.desc;
+                section.querySelector('.active-track-title').innerText = activeTrack[1];
+
+                const iframe = section.querySelector('iframe');
+                const newSrc = `https://www.youtube.com/embed/${videoId}`;
+                if (!iframe.src.includes(videoId)) {
+                    iframe.src = newSrc;
+                }
+                section.querySelector('.lyrics-text').innerText = lyricText;
+                
+                const rows = section.querySelectorAll('.track-table tbody tr');
+                rows.forEach((row, idx) => {
+                    row.style.backgroundColor = (idx === activeIdx) ? '#330000' : '';
+                });
             }
         }
 
-        // 곡 선택 시 플레이어 및 가사 업데이트
-        function selectMasterTrack(index) {
-            const track = allTracksData[index];
-            if (!track) return;
-            currentSelectedTrack = track;
-
-            // 활성화된 행 표시 스타일 변경
-            document.querySelectorAll('.master-table tbody tr').forEach((tr, i) => {
-                tr.style.backgroundColor = '';
-            });
-            const activeRow = document.getElementById(`track-row-${index}`);
-            if (activeRow) activeRow.style.backgroundColor = '#330000';
-
-            // 플레이어 정보 업데이트
-            document.getElementById('player-title').innerText = `${track.albumTitle} - ${track.title}`;
+        function selectTrack(albumId, trackIndex) {
+            currentActiveTrack[albumId] = trackIndex;
+            currentLyricsState[albumId] = false;
             
-            let videoId = track.videoId;
-            if (!videoId || videoId === "-" || videoId === "dQw4w9WgXcQ") {
-                videoId = track.defaultVideo;
+            const section = document.getElementById(albumId);
+            if(section) {
+                const lyricsContainer = section.querySelector('.lyrics-container');
+                const btn = section.querySelector('.lyrics-toggle-btn');
+                if(lyricsContainer) lyricsContainer.classList.remove('show');
+                if(btn) btn.innerText = '가사 보기 ▼';
             }
-            document.getElementById('player-iframe').src = `https://www.youtube.com/embed/${videoId}`;
-
-            // 가사 업데이트
-            const lyricText = (typeof lyricsData !== 'undefined' && lyricsData[track.lyricKey]) 
-                ? lyricsData[track.lyricKey] 
-                : (track.lyricKey || "가사가 없습니다.");
-            document.getElementById('player-lyrics-text').innerText = lyricText;
-
-            // 가사창 닫기 초기화
-            isLyricsOpen = false;
-            document.getElementById('player-lyrics-box').classList.remove('show');
-            document.querySelector('.master-player-display .lyrics-toggle-btn').innerText = '가사 보기 ▼';
-        }
-
-        // 가사 토글 버튼
-        function toggleMasterLyrics() {
-            isLyricsOpen = !isLyricsOpen;
-            const box = document.getElementById('player-lyrics-box');
-            const btn = document.querySelector('.master-player-display .lyrics-toggle-btn');
             
-            if (isLyricsOpen) {
-                box.classList.add('show');
-                btn.innerText = '가사 접기 ▲';
-            } else {
-                box.classList.remove('show');
-                btn.innerText = '가사 보기 ▼';
+            renderAlbumSection(albumId);
+        }
+
+        function toggleLyrics(albumId) {
+            const section = document.getElementById(albumId);
+            if (!section) return;
+
+            currentLyricsState[albumId] = !currentLyricsState[albumId];
+            const isOpen = currentLyricsState[albumId];
+
+            const lyricsContainer = section.querySelector('.lyrics-container');
+            const btn = section.querySelector('.lyrics-toggle-btn');
+
+            if (lyricsContainer && btn) {
+                if (isOpen) {
+                    lyricsContainer.classList.add('show');
+                    btn.innerText = '가사 접기 ▲';
+                } else {
+                    lyricsContainer.classList.remove('show');
+                    btn.innerText = '가사 보기 ▼';
+                }
             }
         }
 
-        // 싱글 및 참여 음반 렌더링
         function renderInfoSections() {
             const singlesTbody = document.getElementById('singles-tbody');
             if (singlesTbody && typeof singlesInfo !== 'undefined') {
@@ -604,7 +600,9 @@
         }
 
         window.onload = function() {
-            initMasterTracks();
+            Object.keys(albumsData).forEach(albumId => {
+                renderAlbumSection(albumId);
+            });
             renderInfoSections();
         };
     </script>

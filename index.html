@@ -290,12 +290,12 @@
                         <div class="video-container"><iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe></div>
                         
                         <!-- 가사 보기 버튼 -->
-                        <button class="lyrics-toggle-btn" onclick="toggleLyrics('${id}')">
+                        <button class="lyrics-toggle-btn" id="lyrics-btn-${id}" onclick="toggleLyrics('${id}')">
                             ${isLyricsOpen ? '가사 접기 ▲' : '가사 보기 ▼'}
                         </button>
 
                         <!-- 가사 영역 -->
-                        <div class="lyrics-container ${isLyricsOpen ? 'show' : ''}">
+                        <div class="lyrics-container ${isLyricsOpen ? 'show' : ''}" id="lyrics-box-${id}">
                             <div class="lyrics-header">[ 가 사 ]</div>
                             <div class="lyrics-text">${activeTrack[6] || "가사가 없습니다."}</div>
                         </div>
@@ -312,7 +312,20 @@
 
         function toggleLyrics(albumId) {
             currentLyricsState[albumId] = !currentLyricsState[albumId];
-            renderAlbumSection(albumId);
+            const isOpen = currentLyricsState[albumId];
+
+            const lyricsBox = document.getElementById(`lyrics-box-${albumId}`);
+            const lyricsBtn = document.getElementById(`lyrics-btn-${albumId}`);
+
+            if (lyricsBox && lyricsBtn) {
+                if (isOpen) {
+                    lyricsBox.classList.add('show');
+                    lyricsBtn.innerText = '가사 접기 ▲';
+                } else {
+                    lyricsBox.classList.remove('show');
+                    lyricsBtn.innerText = '가사 보기 ▼';
+                }
+            }
         }
 
         document.querySelectorAll('.album-detail-section').forEach(section => {

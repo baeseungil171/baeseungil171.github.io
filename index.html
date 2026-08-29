@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -10,6 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 
     <style>
+        /* 부드러운 스크롤 이동 효과 적용 */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Apple SD Gothic Neo', sans-serif;
             background-color: #000000; /* 배경색: 검은색 */
@@ -84,7 +90,7 @@
             letter-spacing: 1px;
         }
 
-        /* 앨범 목록 레이아웃 (마우스 올릴 때 잘리지 않도록 위/아래 여백 추가) */
+        /* 앨범 목록 레이아웃 */
         .album-grid {
             display: flex;
             flex-wrap: nowrap;       
@@ -93,8 +99,15 @@
             max-width: 1300px;
             margin: 0 auto;
             overflow-x: auto;        
-            padding-top: 15px;       /* 카드가 위로 올라갈 때 공간 확보 */
-            padding-bottom: 20px;    /* 잘림 방지용 아래쪽 여백 */
+            padding-top: 15px;       
+            padding-bottom: 20px;    
+        }
+
+        /* 앨범 링크 (기본 링크 밑줄 및 색상 제거) */
+        .album-link {
+            text-decoration: none;
+            flex: 1;
+            min-width: 200px;
         }
 
         /* 개별 앨범 카드 */
@@ -102,14 +115,14 @@
             background-color: #110000;
             border: 1px solid #400000;
             border-radius: 10px;
-            min-width: 200px;        
-            flex: 1;
+            height: 100%;
             padding: 15px;
             transition: transform 0.2s, border-color 0.2s;
+            box-sizing: border-box;
         }
 
-        .album-card:hover {
-            transform: translateY(-8px); /* 위로 살짝 뜨는 효과 */
+        .album-link:hover .album-card {
+            transform: translateY(-8px); 
             border-color: #ff0000;
         }
 
@@ -131,6 +144,25 @@
         .album-year {
             font-size: 14px;
             color: #ff4d4d;
+        }
+
+        /* 하단 개별 앨범 상세 정보 구역 (나중에 내용을 채울 공간) */
+        .album-detail-section {
+            padding: 100px 20px;
+            border-bottom: 1px solid #220000;
+            min-height: 300px;
+        }
+
+        .album-detail-section h3 {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 36px;
+            color: #ff0000;
+            margin-bottom: 20px;
+        }
+
+        .album-detail-section p {
+            color: #cccccc;
+            font-size: 16px;
         }
     </style>
 </head>
@@ -165,42 +197,80 @@
         <h2>DISCOGRAPHY</h2>
         
         <div class="album-grid">
-            <!-- 1집 -->
-            <div class="album-card">
-                <img src="img/album1.png" alt="1집 앨범 커버" class="album-cover">
-                <div class="album-title">Heavy Bass</div>
-                <div class="album-year">2004.05.31</div>
-            </div>
+            <!-- 1집 링크 -->
+            <a href="#album1" class="album-link">
+                <div class="album-card">
+                    <img src="img/album1.png" alt="1집 앨범 커버" class="album-cover">
+                    <div class="album-title">Heavy Bass</div>
+                    <div class="album-year">2004.05.31</div>
+                </div>
+            </a>
 
-            <!-- 2집 -->
-            <div class="album-card">
-                <img src="img/album2.png" alt="2집 앨범 커버" class="album-cover">
-                <div class="album-title">The Vintage</div>
-                <div class="album-year">2008.11.27</div>
-            </div>
+            <!-- 2집 링크 -->
+            <a href="#album2" class="album-link">
+                <div class="album-card">
+                    <img src="img/album2.png" alt="2집 앨범 커버" class="album-cover">
+                    <div class="album-title">The Vintage</div>
+                    <div class="album-year">2008.11.27</div>
+                </div>
+            </a>
 
-            <!-- 3집 -->
-            <div class="album-card">
-                <img src="img/album3.png" alt="3집 앨범 커버" class="album-cover">
-                <div class="album-title">RAP</div>
-                <div class="album-year">2013.07.29</div>
-            </div>
+            <!-- 3집 링크 -->
+            <a href="#album3" class="album-link">
+                <div class="album-card">
+                    <img src="img/album3.png" alt="3집 앨범 커버" class="album-cover">
+                    <div class="album-title">RAP</div>
+                    <div class="album-year">2013.07.29</div>
+                </div>
+            </a>
 
-            <!-- 4집 -->
-            <div class="album-card">
-                <img src="img/album4.png" alt="4집 앨범 커버" class="album-cover">
-                <div class="album-title">Street Poetry</div>
-                <div class="album-year">2015.03.20</div>
-            </div>
+            <!-- 4집 링크 -->
+            <a href="#album4" class="album-link">
+                <div class="album-card">
+                    <img src="img/album4.png" alt="4집 앨범 커버" class="album-cover">
+                    <div class="album-title">Street Poetry</div>
+                    <div class="album-year">2015.03.20</div>
+                </div>
+            </a>
 
-            <!-- 5집 -->
-            <div class="album-card">
-                <img src="img/album5.png" alt="5집 앨범 커버" class="album-cover">
-                <div class="album-title">Hardboiled Café 5</div>
-                <div class="album-year">2022.02.18</div>
-            </div>
+            <!-- 5집 링크 -->
+            <a href="#album5" class="album-link">
+                <div class="album-card">
+                    <img src="img/album5.png" alt="5집 앨범 커버" class="album-cover">
+                    <div class="album-title">Hardboiled Café 5</div>
+                    <div class="album-year">2022.02.18</div>
+                </div>
+            </a>
         </div>
+    </div>
+
+    <!-- 3. 각 앨범별 상세 정보 공간 (나중에 내용을 채워 넣을 위치) -->
+    <div id="album1" class="album-detail-section">
+        <h3>1집 - Heavy Bass</h3>
+        <p>여기에 1집 앨범에 대한 상세한 설명, 트랙리스트, 가사 등을 채워 넣으세요.</p>
+    </div>
+
+    <div id="album2" class="album-detail-section">
+        <h3>2집 - The Vintage</h3>
+        <p>여기에 2집 앨범에 대한 상세한 설명, 트랙리스트, 가사 등을 채워 넣으세요.</p>
+    </div>
+
+    <div id="album3" class="album-detail-section">
+        <h3>3집 - RAP</h3>
+        <p>여기에 3집 앨범에 대한 상세한 설명, 트랙리스트, 가사 등을 채워 넣으세요.</p>
+    </div>
+
+    <div id="album4" class="album-detail-section">
+        <h3>4집 - Street Poetry</h3>
+        <p>여기에 4집 앨범에 대한 상세한 설명, 트랙리스트, 가사 등을 채워 넣으세요.</p>
+    </div>
+
+    <div id="album5" class="album-detail-section">
+        <h3>5집 - Hardboiled Café 5</h3>
+        <p>여기에 5집 앨범에 대한 상세한 설명, 트랙리스트, 가사 등을 채워 넣으세요.</p>
     </div>
 
 </body>
 </html>
+
+```

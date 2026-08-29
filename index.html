@@ -112,4 +112,138 @@
         <div class="album-grid">
             <a href="#album1" class="album-link"><div class="album-card"><img src="img/album1.png" class="album-cover"><div class="album-title">Heavy Bass</div><div class="album-year">2004.05.31</div></div></a>
             <a href="#album2" class="album-link"><div class="album-card"><img src="img/album2.png" class="album-cover"><div class="album-title">The Vintage</div><div class="album-year">2008.11.27</div></div></a>
-            <a href="#album3" class="album-link"><div class="album-card"><img
+            <a href="#album3" class="album-link"><div class="album-card"><img src="img/album3.png" class="album-cover"><div class="album-title">RAP</div><div class="album-year">2013.07.29</div></div></a>
+            <a href="#album4" class="album-link"><div class="album-card"><img src="img/album4.png" class="album-cover"><div class="album-title">Street Poetry</div><div class="album-year">2015.03.20</div></div></a>
+            <a href="#album5" class="album-link"><div class="album-card"><img src="img/album5.png" class="album-cover"><div class="album-title">Hardboiled Café 5</div><div class="album-year">2022.02.18</div></div></a>
+        </div>
+    </div>
+
+    <div id="singles-section" class="content-section">
+        <h2>싱글음반</h2>
+        <div class="album-grid scrollable" id="singles-grid"></div>
+    </div>
+
+    <div id="part-section" class="content-section">
+        <h2>참여 음반</h2>
+        <div class="album-grid scrollable" id="participation-grid"></div>
+    </div>
+
+    <div id="album1" class="album-detail-section" data-album="album1"></div>
+    <div id="album2" class="album-detail-section" data-album="album2"></div>
+    <div id="album3" class="album-detail-section" data-album="album3"></div>
+    <div id="album4" class="album-detail-section" data-album="album4"></div>
+    <div id="album5" class="album-detail-section" data-album="album5"></div>
+
+    <div id="singles-details-container"></div>
+    <div id="participation-details-container"></div>
+
+    <script src="data.js"></script>
+    <script>
+        const singlesData = {};
+        const singlesGrid = document.getElementById('singles-grid');
+        const singlesDetailsContainer = document.getElementById('singles-details-container');
+
+        singlesInfo.forEach((item, index) => {
+            const i = index + 1;
+            const key = `single${i}`;
+            singlesData[key] = {
+                title: `${item.type} - ${item.name} (${item.date})`,
+                desc: `${item.name} (${item.date})`,
+                cover: `img/single${i}.png`,
+                defaultVideo: "dQw4w9WgXcQ",
+                tracks: [["01", item.name, "P-TYPE", "-", "-", "dQw4w9WgXcQ", `${item.name} 가사 내용입니다.`]]
+            };
+            singlesGrid.innerHTML += `
+                <a href="#${key}" class="album-link">
+                    <div class="album-card">
+                        <img src="img/single${i}.png" class="album-cover" onerror="this.src='img/album1.png'">
+                        <div class="album-title">${item.name}</div>
+                        <div class="album-year">${item.date}</div>
+                    </div>
+                </a>
+            `;
+            singlesDetailsContainer.innerHTML += `<div id="${key}" class="album-detail-section" data-album="${key}"></div>`;
+        });
+
+        const participationData = {};
+        const participationGrid = document.getElementById('participation-grid');
+        const participationDetailsContainer = document.getElementById('participation-details-container');
+
+        participationInfo.forEach((item, index) => {
+            const i = index + 1;
+            const key = `part${i}`;
+            participationData[key] = {
+                title: `${item.type} - ${item.name} (${item.date})`,
+                desc: item.desc,
+                cover: `img/part${i}.png`,
+                defaultVideo: "dQw4w9WgXcQ",
+                tracks: [["01", item.name, "P-TYPE", "-", "-", "dQw4w9WgXcQ", `${item.name} 가사 내용입니다.`]]
+            };
+            participationGrid.innerHTML += `
+                <a href="#${key}" class="album-link">
+                    <div class="album-card">
+                        <img src="img/part${i}.png" class="album-cover" onerror="this.src='img/album1.png'">
+                        <div class="album-title">${item.name}</div>
+                        <div class="album-year">${item.date}</div>
+                    </div>
+                </a>
+            `;
+            participationDetailsContainer.innerHTML += `<div id="${key}" class="album-detail-section" data-album="${key}"></div>`;
+        });
+
+        const allData = { ...albumsData, ...singlesData, ...participationData };
+        const currentActiveTrack = {};
+
+        function renderAlbumSection(id) {
+            const data = allData[id];
+            if (!data) return;
+            const section = document.getElementById(id);
+            if (!section) return;
+
+            if (currentActiveTrack[id] === undefined) currentActiveTrack[id] = 0;
+            const activeIdx = currentActiveTrack[id];
+            const activeTrack = data.tracks[activeIdx];
+            const videoId = activeTrack[5] !== "VIDEO_ID" ? activeTrack[5] : data.defaultVideo;
+
+            let tableRows = data.tracks.map((t, tIndex) => `
+                <tr style="${tIndex === activeIdx ? 'background-color: #200000;' : ''}">
+                    <td>${t[0]}</td>
+                    <td><span onclick="selectTrack('${id}', ${tIndex})" style="cursor:pointer;">${t[1]}</span></td>
+                    <td>${t[2]}</td><td>${t[3]}</td><td>${t[4]}</td>
+                </tr>
+            `).join('');
+
+            section.innerHTML = `
+                <div class="album-detail-container">
+                    <h3>${data.title}</h3>
+                    <img src="${data.cover}" class="detail-cover" onerror="this.src='img/album1.png'">
+                    <p>${data.desc}</p>
+                    <div class="tracklist-table-container">
+                        <table class="track-table">
+                            <thead><tr><th>트랙</th><th>제목 (클릭)</th><th>작사</th><th>작곡</th><th>편곡</th></tr></thead>
+                            <tbody>${tableRows}</tbody>
+                        </table>
+                    </div>
+                    <div class="active-track-display">
+                        <div class="active-track-title">${activeTrack[1]}</div>
+                        <div class="video-container"><iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe></div>
+                        <div class="lyrics-container">
+                            <div class="lyrics-header">[ 가 사 ]</div>
+                            <div class="lyrics-text">${activeTrack[6] || "가사가 없습니다."}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function selectTrack(albumId, trackIndex) {
+            currentActiveTrack[albumId] = trackIndex;
+            renderAlbumSection(albumId);
+        }
+
+        document.querySelectorAll('.album-detail-section').forEach(section => {
+            renderAlbumSection(section.getAttribute('data-album'));
+        });
+    </script>
+</body>
+</html>

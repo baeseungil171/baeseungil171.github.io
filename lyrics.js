@@ -60,7 +60,7 @@ const lyricsData = {
 이것들을 증명하기 위한 모든 준비가 이제 끝났다.
 이제 당신들이 내게 반응할 차례다.`,
 
-    "album1_2": `"album1_2": `나는 아직 초라한 나그네
+    "album1_2": `나는 아직 초라한 나그네
 오늘도 꿈을 꾸네 품에 새긴 현실과
 내 운명 덕분에 가진 것이라곤 오직 이 고독 뿐
 절망을 지나온 거친 언어의 폭풍
@@ -120,7 +120,8 @@ I don't know why
 
 I don't know why
 I don't know why
-I don't know why`,,
+I don't know why`,
+
     "album1_3": `Skit - 힙합다운 힙합 가사 영역`,
     "album1_4": `Heavy Bass 가사 영역`,
     "album1_5": `P-type The Big Cat 가사 영역`,
@@ -194,7 +195,6 @@ I don't know why`,,
     // ==========================================
     // 싱글 음반들 (singlesInfo 순서 기준)
     // ==========================================
-    // 싱글 1: Soulfire (2006) - 10트랙
     "single1_0": `Soulfire - Intro 가사`,
     "single1_1": `Soulfire - Soulfire 가사`,
     "single1_2": `Soulfire - 부메랑 가사`,
@@ -206,45 +206,34 @@ I don't know why`,,
     "single1_8": `Soulfire - 부메랑 (Acapella)`,
     "single1_9": `Soulfire - 돈키호테 Remix (Acapella)`,
 
-    // 싱글 2: 다이하드 (2013) - 2트랙
     "single2_0": `다이하드 (Feat. 알리 & MC 메타) 가사`,
     "single2_1": `다이하드 (Inst.)`,
 
-    // 싱글 3: Lyrical Saurus (2013) - 1트랙
     "single3_0": `Lyrical Saurus 가사`,
 
-    // 싱글 4: 불편한 관계 (2013) - 2트랙
     "single4_0": `불편한 관계 (Feat. San E & 소정) 가사`,
     "single4_1": `불편한 관계 (Inst.)`,
 
-    // 싱글 5: Timberland 6" (2014) - 2트랙
     "single5_0": `Timberland 6'' (Feat. NUCK) 가사`,
     "single5_1": `반환점 가사`,
 
-    // 싱글 6: 광화문 (2015) - 1트랙
     "single6_0": `광화문 (feat. 태완) 가사`,
 
-    // 싱글 7: 버드맨 (2015) - 2트랙
     "single7_0": `버드맨 가사`,
     "single7_1": `버드맨 (Inst.)`,
 
-    // 싱글 8: 시차적응 (2015) - 2트랙
     "single8_0": `시차적응1 (Feat. nafla) 가사`,
     "single8_1": `시차적응2 (Feat. 버벌진트) 가사`,
 
-    // 싱글 9: 게으르으게 (2016) - 2트랙
     "single9_0": `게으르으게 (Feat. 거미) 가사`,
     "single9_1": `게으르으게 (Inst.)`,
 
-    // 싱글 10: 2 years part.1 (2017) - 2트랙
     "single10_0": `NAKED (Feat. 챈슬러) 가사`,
     "single10_1": `왜 나는 너를 사랑하는가 (Feat. 버벌진트) 가사`,
 
-    // 싱글 11: Explicit Content (발매연도별 싱글 등) - 2트랙
     "single11_0": `Explicit Content 가사`,
     "single11_1": `Explicit Content (DOPPELGANGEM Remix) 가사`,
 
-    // 싱글 12: 블루문특급 (2020) - 1트랙
     "single12_0": `블루문특급 (Feat. 서사무엘) 가사`,
 
     // ==========================================

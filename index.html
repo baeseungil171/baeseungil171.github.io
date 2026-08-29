@@ -3,78 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P-TYPE Archive</title>
+    <title>P-TYPE THE BIG CAT</title>
+    <!-- 구글 폰트(Black Han Sans) 불러오기 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
-            margin: 0;
-            padding: 20px;
+        /* 부드러운 스크롤 이동 효과 적용 */
+        html {
+            scroll-behavior: smooth;
         }
-        h1 {
+
+        body {
+            font-family: 'Apple SD Gothic Neo', sans-serif;
+            background-color: #000000; /* 배경색: 검은색 */
+            color: #ff0000;          /* 전체 글자색: 빨간색 */
             text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* 상단 메인 히어로 섹션 */
+        .hero-section {
+            padding-top: 80px;
+            padding-bottom: 50px;
+            border-bottom: 2px solid #330000; 
+        }
+
+        h1 {
+            font-family: 'Black Han Sans', sans-serif;
+            color: #ff0000;          
+            font-size: 72px;         
+            letter-spacing: 2px;     
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #ff4d4d;          
+            font-size: 20px;         
+        }
+
+        .site-image {
+            width: 300px;            
+            border-radius: 10px;     
+            margin: 20px 0;          
+        }
+
+        .icon-container {
+            margin-top: 25px;
+            display: flex;            
+            justify-content: center; 
+            align-items: center;     
+            gap: 30px;               
+        }
+
+        .social-icon-link {
+            display: inline-block;
+            width: 80px;             
+            height: 80px;
+            transition: transform 0.2s;
+        }
+
+        .social-icon-link:hover {
+            transform: scale(1.1);   
+        }
+
+        .social-icon {
+            width: 100%;             
+            height: 100%;
+            object-fit: contain;     
+        }
+
+        /* 디스코그래피 섹션 스타일 */
+        .content-section {
+            padding: 80px 20px;
+            border-bottom: 2px solid #330000;
+        }
+
+        .content-section h2, .info-section h2 {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 45px;
+            color: #ff0000;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        /* 앨범 목록 레이아웃 */
+        .album-grid {
+            display: flex;
+            flex-wrap: nowrap;       
+            justify-content: center;
+            gap: 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+            overflow-x: auto;        
+            padding-top: 15px;       
+            padding-bottom: 20px;    
+        }
+
+        /* 앨범 링크 (기본 링크 밑줄 및 색상 제거) */
+        .album-link {
+            text-decoration: none;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        /* 개별 앨범 카드 */
+        .album-card {
+            background-color: #110000;
+            border: 1px solid #400000;
+            border-radius: 10px;
+            height: 100%;
+            padding: 15px;
+            transition: transform 0.2s, border-color 0.2s;
+            box-sizing: border-box;
+        }
+
+        .album-link:hover .album-card {
+            transform: translateY(-8px); 
+            border-color: #ff0000;
+        }
+
+        .album-cover {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .album-title {
+            font-size: 16px;
+            font-weight: bold;
             color: #ffffff;
             margin-bottom: 5px;
         }
-        .subtitle-top {
-            text-align: center;
-            color: #ff5252;
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 30px;
+
+        .album-year {
+            font-size: 14px;
+            color: #ff4d4d;
         }
-        h2 {
-            color: #ffffff;
-        }
-        .container {
+
+        /* 각 앨범별 상세 정보 구역 (동적 렌더링 영역) */
+        .album-detail-section {
+            padding: 80px 20px;
+            border-bottom: 2px solid #330000;
+            text-align: left; /* 내부 컨텐츠 좌측 정렬 */
             max-width: 900px;
             margin: 0 auto;
         }
-        .album-section, .info-section {
-            background: #1e1e1e;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
+
         .album-detail-container::after {
             content: "";
             display: block;
             clear: both;
         }
+
+        .album-detail-section h3 {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 36px;
+            color: #ff0000;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
         .detail-cover {
             width: 200px;
             height: 200px;
             object-fit: cover;
-            border-radius: 4px;
+            border-radius: 8px;
             float: left;
-            margin-right: 20px;
+            margin-right: 25px;
             margin-bottom: 20px;
-            background-color: #333;
+            border: 1px solid #400000;
         }
+
         .album-desc {
+            color: #cccccc;
+            font-size: 16px;
+            line-height: 1.6;
             margin-bottom: 20px;
-            color: #ccc;
-            line-height: 1.5;
         }
-        .track-table, .info-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        .track-table th, .track-table td, .info-table th, .info-table td {
-            border: 1px solid #333;
-            padding: 8px 12px;
-            text-align: left;
-            font-size: 14px;
-        }
-        .track-table th, .info-table th {
-            background-color: #2c2c2c;
-        }
-        .track-table tr:hover, .info-table tr:hover {
-            background-color: #2a2a2a;
-        }
+
+        /* 테이블 및 인터랙티브 요소 스타일 */
         .tracklist-table-container {
             max-height: 220px;
             overflow-y: auto;
@@ -85,26 +197,49 @@
             width: 6px;
         }
         .tracklist-table-container::-webkit-scrollbar-thumb {
-            background: #444;
+            background: #400000;
             border-radius: 3px;
         }
+
+        .track-table, .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            color: #e0e0e0;
+        }
+        .track-table th, .track-table td, .info-table th, .info-table td {
+            border: 1px solid #400000;
+            padding: 10px 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+        .track-table th, .info-table th {
+            background-color: #1a0000;
+            color: #ff4d4d;
+        }
+        .track-table tr:hover, .info-table tr:hover {
+            background-color: #150000;
+        }
+
         .active-track-display {
-            margin-top: 20px;
-            background: #252525;
-            padding: 15px;
-            border-radius: 6px;
+            margin-top: 25px;
+            background: #110000;
+            border: 1px solid #400000;
+            padding: 20px;
+            border-radius: 8px;
             clear: both;
         }
         .active-track-title {
             font-size: 18px;
             font-weight: bold;
             color: #ff5252;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            text-align: center;
         }
         .video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%;
+            padding-bottom: 56.25%; /* 16:9 비율 */
             height: 0;
             margin-bottom: 15px;
         }
@@ -115,89 +250,175 @@
             width: 100%;
             height: 100%;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
         }
         .lyrics-toggle-btn {
-            background-color: #333;
-            color: #fff;
-            border: none;
+            background-color: #330000;
+            color: #ff4d4d;
+            border: 1px solid #ff0000;
             padding: 8px 15px;
             cursor: pointer;
             border-radius: 4px;
             font-size: 14px;
-            margin-bottom: 10px;
+            font-weight: bold;
+            display: block;
+            margin: 0 auto 10px auto;
+            transition: background 0.2s;
         }
         .lyrics-toggle-btn:hover {
-            background-color: #444;
+            background-color: #550000;
         }
         .lyrics-container {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
-            background: #181818;
-            border-radius: 4px;
+            background: #080000;
+            border-radius: 6px;
             padding: 0 15px;
         }
         .lyrics-container.show {
             max-height: 500px;
             overflow-y: auto;
             padding: 15px;
-            border: 1px solid #333;
+            border: 1px solid #400000;
         }
         .lyrics-header {
             font-weight: bold;
             color: #ff5252;
             margin-bottom: 8px;
+            text-align: center;
         }
         .lyrics-text {
             white-space: pre-wrap;
             font-size: 14px;
             line-height: 1.6;
             color: #ccc;
+            text-align: left;
         }
         .clickable-link {
-            color: #4da6ff;
+            color: #ff4d4d;
             text-decoration: none;
             cursor: pointer;
         }
         .clickable-link:hover {
             text-decoration: underline;
+            color: #ff8080;
+        }
+
+        /* 싱글 및 참여 음반 섹션 */
+        .info-section {
+            padding: 80px 20px;
+            border-bottom: 2px solid #330000;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>P-TYPE Archive</h1>
-        <div class="subtitle-top">P-TYPE THE BIG CAT</div>
+    <!-- 1. 최상단 메인 영역 -->
+    <div class="hero-section">
+        <h1>P-TYPE THE BIG CAT</h1>
+        <p>이곳은 피타입의 음악들의 정보를 담은 웹사이트입니다.</p>
         
-        <!-- 정규 앨범 영역 -->
-        <div id="album1" class="album-section"></div>
-        <div id="album2" class="album-section"></div>
-        <div id="album3" class="album-section"></div>
-        <div id="album4" class="album-section"></div>
-        <div id="album5" class="album-section"></div>
-
-        <!-- 싱글 및 참여 음반 영역 -->
-        <div class="info-section">
-            <h2>Singles & EPs</h2>
-            <table class="info-table">
-                <thead>
-                    <tr><th>발매일</th><th>제목</th><th>종류</th></tr>
-                </thead>
-                <tbody id="singles-tbody"></tbody>
-            </table>
+        <div>
+            <img src="img/P-TYPE.jpg" alt="피타입 사진" class="site-image">
         </div>
 
-        <div class="info-section">
-            <h2>Participation / OST</h2>
-            <table class="info-table">
-                <thead>
-                    <tr><th>발매일</th><th>제목</th><th>종류</th><th>설명</th></tr>
-                </thead>
-                <tbody id="participation-tbody"></tbody>
-            </table>
+        <div class="icon-container">
+            <a href="https://www.instagram.com/ptype_thebigcat?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank" class="social-icon-link">
+                <img src="img/instagram.png" alt="인스타그램" class="social-icon">
+            </a>
+            
+            <a href="Https://www.youtube.com/channel/UC_BBrruv8aajni5I9muvtEw" target="_blank" class="social-icon-link">
+                <img src="img/youtube.png" alt="유튜브" class="social-icon">
+            </a>
+
+            <a href="https://music.youtube.com/channel/UC_BBrruv8aajni5I9muvtEw?si=ZB1nuf0cdEgdFKBM" target="_blank" class="social-icon-link">
+                <img src="img/youtubemusic.png" alt="유튜브 뮤직" class="social-icon">
+            </a>
         </div>
+    </div>
+
+    <!-- 2. 정규앨범 5개 가로 한 줄 디스코그래피 구역 -->
+    <div class="content-section">
+        <h2>DISCOGRAPHY</h2>
+        
+        <div class="album-grid">
+            <!-- 1집 링크 -->
+            <a href="#album1" class="album-link">
+                <div class="album-card">
+                    <img src="img/album1.png" alt="1집 앨범 커버" class="album-cover">
+                    <div class="album-title">Heavy Bass</div>
+                    <div class="album-year">2004.05.31</div>
+                </div>
+            </a>
+
+            <!-- 2집 링크 -->
+            <a href="#album2" class="album-link">
+                <div class="album-card">
+                    <img src="img/album2.png" alt="2집 앨범 커버" class="album-cover">
+                    <div class="album-title">The Vintage</div>
+                    <div class="album-year">2008.11.27</div>
+                </div>
+            </a>
+
+            <!-- 3집 링크 -->
+            <a href="#album3" class="album-link">
+                <div class="album-card">
+                    <img src="img/album3.png" alt="3집 앨범 커버" class="album-cover">
+                    <div class="album-title">RAP</div>
+                    <div class="album-year">2013.07.29</div>
+                </div>
+            </a>
+
+            <!-- 4집 링크 -->
+            <a href="#album4" class="album-link">
+                <div class="album-card">
+                    <img src="img/album4.png" alt="4집 앨범 커버" class="album-cover">
+                    <div class="album-title">Street Poetry</div>
+                    <div class="album-year">2015.03.20</div>
+                </div>
+            </a>
+
+            <!-- 5집 링크 -->
+            <a href="#album5" class="album-link">
+                <div class="album-card">
+                    <img src="img/album5.png" alt="5집 앨범 커버" class="album-cover">
+                    <div class="album-title">Hardboiled Café 5</div>
+                    <div class="album-year">2022.02.18</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- 3. 각 앨범별 상세 정보 공간 (동적 주입) -->
+    <div id="album1" class="album-detail-section"></div>
+    <div id="album2" class="album-detail-section"></div>
+    <div id="album3" class="album-detail-section"></div>
+    <div id="album4" class="album-detail-section"></div>
+    <div id="album5" class="album-detail-section"></div>
+
+    <!-- 4. 싱글 및 참여 음반 섹션 -->
+    <div class="info-section">
+        <h2>Singles & EPs</h2>
+        <table class="info-table">
+            <thead>
+                <tr><th>발매일</th><th>제목</th><th>종류</th></tr>
+            </thead>
+            <tbody id="singles-tbody"></tbody>
+        </table>
+    </div>
+
+    <div class="info-section">
+        <h2>Participation / OST</h2>
+        <table class="info-table">
+            <thead>
+                <tr><th>발매일</th><th>제목</th><th>종류</th><th>설명</th></tr>
+            </thead>
+            <tbody id="participation-tbody"></tbody>
+        </table>
     </div>
 
     <!-- 순서 중요: lyrics.js가 data.js보다 위에 있어야 합니다 -->
@@ -229,7 +450,7 @@
             const lyricText = (typeof lyricsData !== 'undefined' && lyricsData[lyricKey]) ? lyricsData[lyricKey] : (lyricKey || "가사가 없습니다.");
 
             let tableRows = data.tracks.map((t, tIndex) => `
-                <tr style="${tIndex === activeIdx ? 'background-color: #200000;' : ''}" data-track-index="${tIndex}">
+                <tr style="${tIndex === activeIdx ? 'background-color: #330000;' : ''}" data-track-index="${tIndex}">
                     <td>${t[0]}</td>
                     <td><span class="clickable-link" onclick="selectTrack('${id}', ${tIndex})">${t[1]}</span></td>
                     <td>${t[2]}</td><td>${t[3]}</td><td>${t[4]}</td>
@@ -239,7 +460,7 @@
             if (!section.querySelector('.album-detail-container')) {
                 section.innerHTML = `
                     <div class="album-detail-container">
-                        <h2>${data.title}</h2>
+                        <h3>${data.title}</h3>
                         <img src="${data.cover}" class="detail-cover" alt="${data.title} 커버" onerror="this.src='img/album1.png'">
                         <div class="album-desc">${data.desc}</div>
                         <div class="tracklist-table-container">
@@ -262,7 +483,7 @@
                     </div>
                 `;
             } else {
-                section.querySelector('h2').innerText = data.title;
+                section.querySelector('h3').innerText = data.title;
                 const coverImg = section.querySelector('.detail-cover');
                 if (coverImg && coverImg.src !== data.cover) {
                     coverImg.src = data.cover;
@@ -279,7 +500,7 @@
                 
                 const rows = section.querySelectorAll('.track-table tbody tr');
                 rows.forEach((row, idx) => {
-                    row.style.backgroundColor = (idx === activeIdx) ? '#200000' : '';
+                    row.style.backgroundColor = (idx === activeIdx) ? '#330000' : '';
                 });
             }
         }

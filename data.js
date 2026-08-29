@@ -3,7 +3,7 @@ const albumsData = {
         title: "1집 - Heavy Bass (2004.05.31)",
         desc: "한국 힙합 역사상 가장 찬란한 명반 중 하나로 꼽히는 피타입의 정규 1집 데뷔 앨범입니다.",
         cover: "img/album1.png",
-        defaultVideo: "dQw4w9WgXcQ",
+        defaultVideo: "-UjhZpdCBYg",
         tracks: [
             [
                 "01", 
@@ -59,8 +59,8 @@ const albumsData = {
 이제는 펜을 내려놓고 마이크를 잡아.`
             ],
             ["02", "Skit - 보여주고 증명하라", "P-TYPE", "P-TYPE", "P-TYPE", "vwglS14KLYA", "보여주고 증명하라 가사..."],
-            ["03", "돈키호테 (Feat. 휘성)", "P-TYPE, 휘성", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "돈키호테 가사..."],
-            ["04", "Skit - 힙합다운 힙합", "P-TYPE", "P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "Skit 가사..."],
+            ["03", "돈키호테 (Feat. 휘성)", "P-TYPE, 휘성", "Keeproots", "Keeproots", "s4DlADgREec", "돈키호테 가사..."],
+            ["04", "Skit - 힙합다운 힙합", "P-TYPE", "P-TYPE", "P-TYPE", "KVK1BKb8", "Skit 가사..."],
             ["05", "Heavy Bass", "P-TYPE", "P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "Heavy Bass 가사..."],
             ["06", "P-Type The Big Cat", "P-TYPE", "SAATAN", "SAATAN", "dQw4w9WgXcQ", "가사..."],
             ["07", "힙합다운 힙합", "P-TYPE", "P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "가사..."],

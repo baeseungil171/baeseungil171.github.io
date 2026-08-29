@@ -94,7 +94,25 @@ const albumsData = {
         defaultVideo: "dQw4w9WgXcQ",
         tracks: [
             ["01", "Writer's Profile", "P-TYPE", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "가사..."],
-            ["02", "Intro (Feat. WRKMS, 김현심)", "P-TYPE", "WRKMS", "WRKMS, P-TYPE", "dQw4w9WgXcQ", "가사..."]
+            ["02", "Intro (Feat. WRKMS, 김현심)", "P-TYPE", "WRKMS", "WRKMS, P-TYPE", "dQw4w9WgXcQ", "가사..."],
+            ["03", "Hardboiled Café (Feat. 정인, FROM ALL TO HUMAN)", "P-TYPE", "Keeproots, FROM ALL TO HUMAN", "Keeproots, FROM ALL TO HUMAN, P-TYPE", "dQw4w9WgXcQ", "가사..."],
+            ["04", "깨끗하고 밝은 곳", "P-TYPE", "PLAYHOUSE", "PLAYHOUSE", "dQw4w9WgXcQ", "가사..."],
+            ["05", "The Picaresque", "P-TYPE", "Fredi Casso", "Fredi Casso", "dQw4w9WgXcQ", "가사..."],
+            ["06", "안녕, 내 사랑 (Feat. 르네, WRKMS)", "P-TYPE", "WRKMS, 르네", "P-TYPE", "dQw4w9WgXcQ", "가사..."],
+            ["07", "노인의 테마: 낚시 (Feat. 최엘비)", "P-TYPE, 최엘비", "PLAYHOUSE", "PLAYHOUSE", "dQw4w9WgXcQ", "가사..."],
+            ["08", "The Simple Art of Rhyme (Feat. KWAII)", "P-TYPE, KWAII", "Pe2ny", "Pe2ny", "dQw4w9WgXcQ", "가사..."],
+            ["09", "For Sale, My Rhymes, Never Used (Feat. JUSTHIS, DON MALIK)", "P-TYPE, JUSTHIS, DON MALIK", "Fredi Casso", "Fredi Casso", "dQw4w9WgXcQ", "가사..."],
+            ["10", "MIC \"The Hammer\" (Feat. Paloalto, Chin)", "P-TYPE, Paloalto, Chin", "Deepfry", "Deepfry, Fascinating, P-TYPE", "dQw4w9WgXcQ", "가사..."],
+            ["11", "Lyricist Paradox (Feat. DON MALIK)", "P-TYPE, DON MALIK", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "가사..."],
+            ["12", "Heavy Bass Saga (Feat. 김오키)", "P-TYPE", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "가사..."],
+            ["13", "고양이와 남자", "P-TYPE", "Fredi Casso", "Fredi Casso", "dQw4w9WgXcQ", "가사..."],
+            ["14", "Moonlighting (Feat. 서사무엘) (album version)", "P-TYPE, 서사무엘", "Keeproots, 서사무엘", "Keeproots", "dQw4w9WgXcQ", "가사..."],
+            ["15", "Big Sleep (Feat. ILLINIT)", "P-TYPE, ILLINIT", "Fascinating", "Fascinating", "dQw4w9WgXcQ", "가사..."],
+            ["16", "Kiss Me Deadly (Feat. 김필)", "P-TYPE, 김필", "Fascinating, 김필", "Fascinating", "dQw4w9WgXcQ", "가사..."],
+            ["17", "고양이는 아홉번 죽는다", "P-TYPE", "Fascinating", "Fascinating", "dQw4w9WgXcQ", "가사..."],
+            ["18", "부정의 부정은 긍정 (Feat. 버벌진트)", "P-TYPE, Verbal Jint", "Fascinating", "Fascinating", "dQw4w9WgXcQ", "가사..."],
+            ["19", "Outro (Feat. 김현심)", "P-TYPE", "Keeproots, P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "가사..."],
+            ["20", "에필로그: 씬을 위한 오드 (Feat. The Quiett, 서사무엘)", "P-TYPE, The Quiett, 서사무엘", "Keeproots, 서사무엘", "Keeproots", "dQw4w9WgXcQ", "가사..."]
         ]
     }
 };

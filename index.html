@@ -84,16 +84,17 @@
             letter-spacing: 1px;
         }
 
-        /* 앨범 목록을 무조건 가로 한 줄로 정렬하는 레이아웃 */
+        /* 앨범 목록 레이아웃 (마우스 올릴 때 잘리지 않도록 위/아래 여백 추가) */
         .album-grid {
             display: flex;
-            flex-wrap: nowrap;       /* 줄바꿈 방지: 한 줄로 고정 */
+            flex-wrap: nowrap;       
             justify-content: center;
             gap: 20px;
             max-width: 1300px;
             margin: 0 auto;
-            overflow-x: auto;        /* 화면이 너무 작을 때 가로로 스크롤 가능하게 처리 */
-            padding-bottom: 15px;
+            overflow-x: auto;        
+            padding-top: 15px;       /* 카드가 위로 올라갈 때 공간 확보 */
+            padding-bottom: 20px;    /* 잘림 방지용 아래쪽 여백 */
         }
 
         /* 개별 앨범 카드 */
@@ -101,14 +102,14 @@
             background-color: #110000;
             border: 1px solid #400000;
             border-radius: 10px;
-            min-width: 200px;        /* 카드의 최소 너비 설정 */
+            min-width: 200px;        
             flex: 1;
             padding: 15px;
             transition: transform 0.2s, border-color 0.2s;
         }
 
         .album-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px); /* 위로 살짝 뜨는 효과 */
             border-color: #ff0000;
         }
 
@@ -195,7 +196,7 @@
             <!-- 5집 -->
             <div class="album-card">
                 <img src="img/album5.png" alt="5집 앨범 커버" class="album-cover">
-                <div class="album-title">Hardboiled Café</div>
+                <div class="album-title">Hardboiled Café 5</div>
                 <div class="album-year">2022.02.18</div>
             </div>
         </div>

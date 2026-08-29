@@ -5,8 +5,8 @@ const albumsData = {
         cover: "img/album1.png",
         defaultVideo: "-UjhZpdCBYg",
         tracks: [
-            ["01", "서시", "P-TYPE", "Keeproots", "Keeproots", "-UjhZpdCBYg", "album1_0"],
-            ["02", "Skit - 보여주고 증명하라", "P-TYPE", "P-TYPE", "P-TYPE", "vwglS14KLYA", "album1_1"],
+            ["01", "서시", "P-TYPE", "Keeproots", "Keeproots", "-UjhZpdCBYg", "거친 숨을 몰아쉬며\n나 홀로 선 이 무대 위\n지켜봐 온 이들 앞에\n내 목소리를 던진다"],
+            ["02", "Skit - 보여주고 증명하라", "P-TYPE", "P-TYPE", "P-TYPE", "vwglS14KLYA", "말보다는 행동\n결과로 증명해 보이겠어"],
             ["03", "돈키호테 (Feat. 휘성)", "P-TYPE, 휘성", "Keeproots", "Keeproots", "s4DlADgREec", "가사가 없습니다."],
             ["04", "Skit - 힙합다운 힙합", "P-TYPE", "P-TYPE", "P-TYPE", "KVK1BKb8", "가사가 없습니다."],
             ["05", "Heavy Bass", "P-TYPE", "P-TYPE", "P-TYPE", "fhLRh2Diu8A", "가사가 없습니다."],

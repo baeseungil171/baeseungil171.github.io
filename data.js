@@ -58,7 +58,17 @@ const albumsData = {
 정상을 찾아갈 난 지금 혼자다.
 이제는 펜을 내려놓고 마이크를 잡아.`
             ],
-            ["02", "Skit - 보여주고 증명하라", "P-TYPE", "P-TYPE", "P-TYPE", "vwglS14KLYA", "보여주고 증명하라 가사..."],
+            ["02", "Skit - 보여주고 증명하라", "P-TYPE", "P-TYPE", "P-TYPE", "vwglS14KLYA", "결코 짧지만은 않은 시간을
+기다려왔다고 생각한다.
+
+난 이미 예전에 이 작업들을 계획했고
+다소 오래 걸리긴 했지만
+이제 세상 앞에 그 결과물을 내놓으려한다.
+
+내가 믿었던 방식,
+근거가 확실한 실력, 힙합다운 힙합.
+이것들을 증명하기 위한 모든 준비가 이제 끝났다.
+이제 당신들이 내게 반응할 차례다."],
             ["03", "돈키호테 (Feat. 휘성)", "P-TYPE, 휘성", "Keeproots", "Keeproots", "s4DlADgREec", "돈키호테 가사..."],
             ["04", "Skit - 힙합다운 힙합", "P-TYPE", "P-TYPE", "P-TYPE", "KVK1BKb8", "Skit 가사..."],
             ["05", "Heavy Bass", "P-TYPE", "P-TYPE", "P-TYPE", "fhLRh2Diu8A", "Heavy Bass 가사..."],

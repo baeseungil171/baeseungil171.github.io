@@ -102,7 +102,7 @@
 </head>
 <body>
 
-    <!-- 고정 내비게이션 바 (싱글음반 통합 링크 포함) -->
+    <!-- 고정 내비게이션 바 -->
     <div class="navbar">
         <a href="#" class="nav-link">HOME</a>
         <a href="#album1" class="nav-link">1집</a>
@@ -136,12 +136,10 @@
         </div>
     </div>
 
-    <!-- 싱글음반 섹션 (총 21개 동적 생성) -->
+    <!-- 싱글음반 섹션 (21개 자동 생성) -->
     <div id="singles-section" class="content-section">
         <h2>싱글음반</h2>
-        <div class="album-grid" id="singles-grid">
-            <!-- 자바스크립트로 21개 싱글 카드 자동 생성 -->
-        </div>
+        <div class="album-grid" id="singles-grid"></div>
     </div>
 
     <!-- 정규 앨범 상세 영역 -->
@@ -152,12 +150,9 @@
     <div id="album5" class="album-detail-section" data-album="album5"></div>
 
     <!-- 싱글음반 상세 영역 컨테이너 -->
-    <div id="singles-details-container">
-        <!-- 자바스크립트로 21개 싱글 상세 섹션 자동 생성 -->
-    </div>
+    <div id="singles-details-container"></div>
 
     <script>
-        // 정규 앨범 데이터
         const albumsData = {
             album1: {
                 title: "1집 - Heavy Bass (2004.05.31)",
@@ -166,8 +161,7 @@
                 youtubeId: "YOUR_YOUTUBE_VIDEO_ID_1",
                 tracks: [
                     ["01", "서시", "P-TYPE", "Keeproots", "Keeproots"],
-                    ["02", "Skit - 보여주고 증명하라", "P-TYPE", "P-TYPE", "P-TYPE"],
-                    ["03", "돈키호테 (Feat. 휘성)", "P-TYPE, 휘성", "Keeproots", "Keeproots"]
+                    ["02", "Skit - 보여주고 증명하라", "P-TYPE", "P-TYPE", "P-TYPE"]
                 ]
             },
             album2: {
@@ -186,8 +180,7 @@
                 cover: "img/album3.png",
                 youtubeId: "YOUR_YOUTUBE_VIDEO_ID_3",
                 tracks: [
-                    ["01", "I’m Back", "P-type", "Ging, Optical Eyez XL", "Ging, Optical Eyez XL"],
-                    ["02", "Love, Life, Rap (Feat. GRAY)", "P-type", "GRAY, Keeproots", "Keeproots"]
+                    ["01", "I’m Back", "P-type", "Ging, Optical Eyez XL", "Ging, Optical Eyez XL"]
                 ]
             },
             album4: {
@@ -196,8 +189,7 @@
                 cover: "img/album4.png",
                 youtubeId: "YOUR_YOUTUBE_VIDEO_ID_4",
                 tracks: [
-                    ["01", "폭력적인 잡종문화", "P-Type", "Ronald Bell 외", "Kay Gee's, Deepfry"],
-                    ["02", "Do The Right Rap (Feat. Huckleberry P)", "P-Type 외", "Fascinating", "Fascinating"]
+                    ["01", "폭력적인 잡종문화", "P-Type", "Ronald Bell 외", "Kay Gee's, Deepfry"]
                 ]
             },
             album5: {
@@ -206,26 +198,51 @@
                 cover: "img/album5.png",
                 youtubeId: "YOUR_YOUTUBE_VIDEO_ID_5",
                 tracks: [
-                    ["01", "Writer's Profile", "P-TYPE", "Keeproots", "Keeproots"],
-                    ["02", "Intro (Feat. WRKMS, 김현심)", "P-TYPE", "WRKMS", "WRKMS, P-TYPE"]
+                    ["01", "Writer's Profile", "P-TYPE", "Keeproots", "Keeproots"]
                 ]
             }
         };
 
-        // 총 21개의 싱글음반 데이터 자동 생성 (필요에 따라 각 항목의 제목과 정보를 수정하세요)
+        // 이미지에 나온 21개 싱글/무료 음반 정보 배열
+        const singlesInfo = [
+            { name: "Soulfire", date: "2006.09.07.", type: "싱글 1집" },
+            { name: "다이하드", date: "2013.03.22.", type: "싱글" },
+            { name: "Lyrical Saurus", date: "2013.11.08.", type: "무료 음원" },
+            { name: "불편한 관계", date: "2013.11.27.", type: "싱글" },
+            { name: "Timberland 6\"", date: "2014.05.28.", type: "싱글" },
+            { name: "광화문", date: "2015.03.11.", type: "싱글" },
+            { name: "버드맨", date: "2015.07.06.", type: "싱글" },
+            { name: "시차적응", date: "2015.11.09.", type: "싱글" },
+            { name: "게으르게", date: "2016.07.04.", type: "싱글" },
+            { name: "2 years part.1", date: "2017.06.19.", type: "더블 싱글" },
+            { name: "Explicit Content", date: "2020.02.03.", type: "더블 싱글" },
+            { name: "블루문특급", date: "2020.05.03.", type: "싱글" },
+            { name: "바벨", date: "2020.07.03.", type: "싱글" },
+            { name: "TBS 특집 다큐멘터리 '2020 전태일 랩소디'", date: "2020.11.19.", type: "싱글" },
+            { name: "신도시", date: "2021.02.18.", type: "싱글" },
+            { name: "Ordinary Verse", date: "2021.03.18.", type: "싱글" },
+            { name: "The Dog Walker", date: "2021.07.22.", type: "싱글" },
+            { name: "MIC \"The Hammer\"", date: "2022.02.11.", type: "싱글" },
+            { name: "2022 영등포", date: "2022.10.18.", type: "싱글" },
+            { name: "추가 싱글 20", date: "202X.XX.XX.", type: "싱글" },
+            { name: "추가 싱글 21", date: "202X.XX.XX.", type: "싱글" }
+        ];
+
         const singlesData = {};
         const singlesGrid = document.getElementById('singles-grid');
         const singlesDetailsContainer = document.getElementById('singles-details-container');
 
-        for (let i = 1; i <= 21; i++) {
+        singlesInfo.forEach((item, index) => {
+            const i = index + 1;
             const key = `single${i}`;
+            
             singlesData[key] = {
-                title: `싱글음반 ${i}집`,
-                desc: `피타입의 통산 ${i}번째 싱글 프로젝트 음반입니다.`,
+                title: `${item.type} - ${item.name} (${item.date})`,
+                desc: `피타입의 ${item.type} 음반 <${item.name}>입니다. (발매일: ${item.date})`,
                 cover: `img/single${i}.png`,
                 youtubeId: `YOUR_YOUTUBE_VIDEO_ID_SINGLE_${i}`,
                 tracks: [
-                    ["01", `싱글 트랙 ${i} (Title)`, "P-TYPE", "Producer", "Arranger"]
+                    ["01", item.name, "P-TYPE", "Producer", "Arranger"]
                 ]
             };
 
@@ -233,9 +250,9 @@
             singlesGrid.innerHTML += `
                 <a href="#${key}" class="album-link">
                     <div class="album-card">
-                        <img src="img/single${i}.png" alt="싱글 ${i} 커버" class="album-cover" onerror="this.src='img/album1.png'">
-                        <div class="album-title">싱글음반 ${i}집</div>
-                        <div class="album-year">Single / Project</div>
+                        <img src="img/single${i}.png" alt="${item.name} 커버" class="album-cover" onerror="this.src='img/album1.png'">
+                        <div class="album-title">${item.name}</div>
+                        <div class="album-year">${item.date}</div>
                     </div>
                 </a>
             `;
@@ -244,9 +261,9 @@
             singlesDetailsContainer.innerHTML += `
                 <div id="${key}" class="album-detail-section" data-album="${key}"></div>
             `;
-        }
+        });
 
-        // 모든 앨범(정규 + 싱글) 렌더링 함수 실행
+        // 앨범 렌더링
         const allData = { ...albumsData, ...singlesData };
 
         document.querySelectorAll('.album-detail-section').forEach(section => {

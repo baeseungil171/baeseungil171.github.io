@@ -11,7 +11,7 @@ const albumsData = {
                 "P-TYPE", 
                 "Keeproots", 
                 "Keeproots", 
-                "dQw4w9WgXcQ", // 유튜브 ID (원하시는 링크의 ID로 변경 가능)
+                "dQw4w9WgXcQ", 
                 `새로운 시작 앞에서 난 가난한 가슴을 열어 말한다.
 어두운 밤 한 가운데 거친 방황과
 수 없이 만났어도 살아남았다고.
@@ -73,8 +73,6 @@ const albumsData = {
             ["14", "언어의 연주가 (Bonus Track)", "P-TYPE", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "가사..."]
         ]
     },
-    // ... (이후 2집~5집 데이터 계속)
-};
     album2: {
         title: "2집 - The Vintage (2008.11.27)",
         desc: "특유의 클래식하고 묵직한 서정성이 돋보이는 정규 2집 앨범입니다.",

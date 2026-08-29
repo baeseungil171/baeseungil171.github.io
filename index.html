@@ -1,11 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P-TYPE THE BIG CAT</title>
-    <!-- 구글 폰트(Black Han Sans) 불러오기 -->
+    <title>P-TYPE THE BIG CAT - Discography & Soundtracks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
@@ -19,7 +17,7 @@
         body {
             font-family: 'Apple SD Gothic Neo', sans-serif;
             background-color: #000000; /* 배경색: 검은색 */
-            color: #ff0000;          /* 전체 글자색: 빨간색 */
+            color: #ff0000;         /* 전체 글자색: 빨간색 */
             text-align: center;
             margin: 0;
             padding: 0;
@@ -53,7 +51,7 @@
 
         .icon-container {
             margin-top: 25px;
-            display: flex;           
+            display: flex;            
             justify-content: center; 
             align-items: center;     
             gap: 30px;               
@@ -93,14 +91,14 @@
         /* 앨범 목록 레이아웃 */
         .album-grid {
             display: flex;
-            flex-wrap: nowrap;       
+            flex-wrap: nowrap;        
             justify-content: center;
             gap: 20px;
             max-width: 1300px;
             margin: 0 auto;
-            overflow-x: auto;        
-            padding-top: 15px;       
-            padding-bottom: 20px;    
+            overflow-x: auto;         
+            padding-top: 15px;        
+            padding-bottom: 20px;     
         }
 
         /* 앨범 링크 (기본 링크 밑줄 및 색상 제거) */
@@ -146,29 +144,93 @@
             color: #ff4d4d;
         }
 
-        /* 하단 개별 앨범 상세 정보 구역 (나중에 내용을 채울 공간) */
+        /* 각 앨범별 상세 정보 구역 (앨범 커버 및 사운드트랙 추가 가능 영역) */
         .album-detail-section {
-            padding: 100px 20px;
+            padding: 80px 20px;
             border-bottom: 1px solid #220000;
-            min-height: 300px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .album-detail-container {
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
 
         .album-detail-section h3 {
             font-family: 'Black Han Sans', sans-serif;
             font-size: 36px;
             color: #ff0000;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* 상세 구역 내부 앨범 커버 크게 보기 */
+        .detail-cover {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #ff0000;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
         }
 
         .album-detail-section p {
             color: #cccccc;
             font-size: 16px;
         }
+
+        /* 사운드트랙(오디오 플레이어 또는 유튜브 임베드) 영역 스타일 */
+        .soundtrack-box {
+            width: 100%;
+            background-color: #110000;
+            border: 1px solid #400000;
+            border-radius: 8px;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-top: 15px;
+        }
+
+        .soundtrack-box h4 {
+            color: #ff0000;
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-family: 'Black Han Sans', sans-serif;
+        }
+
+        /* HTML5 오디오 태그 커스텀 스타일링 대체용 및 유튜브 반응형 컨테이너 */
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 비율 */
+            height: 0;
+            margin-top: 10px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 6px;
+            border: 1px solid #400000;
+        }
     </style>
 </head>
 <body>
 
-    <!-- 1. 최상단 메인 영역 -->
     <div class="hero-section">
         <h1>P-TYPE THE BIG CAT</h1>
         <p>이곳은 피타입의 음악들의 정보를 담은 웹사이트입니다.</p>
@@ -182,7 +244,7 @@
                 <img src="img/instagram.png" alt="인스타그램" class="social-icon">
             </a>
             
-            <a href="Https://www.youtube.com/channel/UC_BBrruv8aajni5I9muvtEw" target="_blank" class="social-icon-link">
+            <a href="https://www.youtube.com/channel/UC_BBrruv8aajni5I9muvtEw" target="_blank" class="social-icon-link">
                 <img src="img/youtube.png" alt="유튜브" class="social-icon">
             </a>
 
@@ -192,12 +254,10 @@
         </div>
     </div>
 
-    <!-- 2. 정규앨범 5개 가로 한 줄 디스코그래피 구역 -->
     <div class="content-section">
         <h2>DISCOGRAPHY</h2>
         
         <div class="album-grid">
-            <!-- 1집 링크 -->
             <a href="#album1" class="album-link">
                 <div class="album-card">
                     <img src="img/album1.png" alt="1집 앨범 커버" class="album-cover">
@@ -206,7 +266,6 @@
                 </div>
             </a>
 
-            <!-- 2집 링크 -->
             <a href="#album2" class="album-link">
                 <div class="album-card">
                     <img src="img/album2.png" alt="2집 앨범 커버" class="album-cover">
@@ -215,7 +274,6 @@
                 </div>
             </a>
 
-            <!-- 3집 링크 -->
             <a href="#album3" class="album-link">
                 <div class="album-card">
                     <img src="img/album3.png" alt="3집 앨범 커버" class="album-cover">
@@ -224,7 +282,6 @@
                 </div>
             </a>
 
-            <!-- 4집 링크 -->
             <a href="#album4" class="album-link">
                 <div class="album-card">
                     <img src="img/album4.png" alt="4집 앨범 커버" class="album-cover">
@@ -233,7 +290,6 @@
                 </div>
             </a>
 
-            <!-- 5집 링크 -->
             <a href="#album5" class="album-link">
                 <div class="album-card">
                     <img src="img/album5.png" alt="5집 앨범 커버" class="album-cover">
@@ -244,33 +300,80 @@
         </div>
     </div>
 
-    <!-- 3. 각 앨범별 상세 정보 공간 (나중에 내용을 채워 넣을 위치) -->
     <div id="album1" class="album-detail-section">
-        <h3>1집 - Heavy Bass</h3>
-        <p>여기에 1집 앨범에 대한 상세한 설명, 트랙리스트, 가사 등을 채워 넣으세요.</p>
+        <div class="album-detail-container">
+            <h3>1집 - Heavy Bass</h3>
+            <img src="img/album1.png" alt="1집 상세 커버" class="detail-cover">
+            <p>한국 힙합 역사상 가장 찬란한 명반 중 하나로 꼽히는 피타입의 정규 1집 데뷔 앨범입니다.</p>
+            
+            <div class="soundtrack-box">
+                <h4>SOUNDTRACK / PREVIEW</h4>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/placeholder" title="1집 사운드트랙" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="album2" class="album-detail-section">
-        <h3>2집 - The Vintage</h3>
-        <p>여기에 2집 앨범에 대한 상세한 설명, 트랙리스트, 가사 등을 채워 넣으세요.</p>
+        <div class="album-detail-container">
+            <h3>2집 - The Vintage</h3>
+            <img src="img/album2.png" alt="2집 상세 커버" class="detail-cover">
+            <p>특유의 클래식하고 묵직한 서정성이 돋보이는 정규 2집 앨범입니다.</p>
+            
+            <div class="soundtrack-box">
+                <h4>SOUNDTRACK / PREVIEW</h4>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/placeholder" title="2집 사운드트랙" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="album3" class="album-detail-section">
-        <h3>3집 - RAP</h3>
-        <p>여기에 3집 앨범에 대한 상세한 설명, 트랙리스트, 가사 등을 채워 넣으세요.</p>
+        <div class="album-detail-container">
+            <h3>3집 - RAP</h3>
+            <img src="img/album3.png" alt="3집 상세 커버" class="detail-cover">
+            <p>랩이라는 장르와 그 본질에 대한 깊은 고찰이 담긴 정규 3집 앨범입니다.</p>
+            
+            <div class="soundtrack-box">
+                <h4>SOUNDTRACK / PREVIEW</h4>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/placeholder" title="3집 사운드트랙" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="album4" class="album-detail-section">
-        <h3>4집 - Street Poetry</h3>
-        <p>여기에 4집 앨범에 대한 상세한 설명, 트랙리스트, 가사 등을 채워 넣으세요.</p>
+        <div class="album-detail-container">
+            <h3>4집 - Street Poetry</h3>
+            <img src="img/album4.png" alt="4집 상세 커버" class="detail-cover">
+            <p>거리의 시인으로서 피타입의 날카로운 통찰력과 가사가 돋보이는 4집 앨범입니다.</p>
+            
+            <div class="soundtrack-box">
+                <h4>SOUNDTRACK / PREVIEW</h4>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/placeholder" title="4집 사운드트랙" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="album5" class="album-detail-section">
-        <h3>5집 - Hardboiled Café 5</h3>
-        <p>여기에 5집 앨범에 대한 상세한 설명, 트랙리스트, 가사 등을 채워 넣으세요.</p>
+        <div class="album-detail-container">
+            <h3>5집 - Hardboiled Café 5</h3>
+            <img src="img/album5.png" alt="5집 상세 커버" class="detail-cover">
+            <p>하드보일드한 감성을 담아내며 건재함을 증명한 정규 5집 앨범입니다.</p>
+            
+            <div class="soundtrack-box">
+                <h4>SOUNDTRACK / PREVIEW</h4>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/placeholder" title="5집 사운드트랙" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>
 </html>
-
-```

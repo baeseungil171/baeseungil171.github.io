@@ -11,7 +11,7 @@ const albumsData = {
                 "P-TYPE", 
                 "Keeproots", 
                 "Keeproots", 
-                "dQw4w9WgXcQ", 
+                "-UjhZpdCBYg", 
                 `새로운 시작 앞에서 난 가난한 가슴을 열어 말한다.
 어두운 밤 한 가운데 거친 방황과
 수 없이 만났어도 살아남았다고.
@@ -58,7 +58,7 @@ const albumsData = {
 정상을 찾아갈 난 지금 혼자다.
 이제는 펜을 내려놓고 마이크를 잡아.`
             ],
-            ["02", "Skit - 보여주고 증명하라", "P-TYPE", "P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "보여주고 증명하라 가사..."],
+            ["02", "Skit - 보여주고 증명하라", "P-TYPE", "P-TYPE", "P-TYPE", "vwglS14KLYA", "보여주고 증명하라 가사..."],
             ["03", "돈키호테 (Feat. 휘성)", "P-TYPE, 휘성", "Keeproots", "Keeproots", "dQw4w9WgXcQ", "돈키호테 가사..."],
             ["04", "Skit - 힙합다운 힙합", "P-TYPE", "P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "Skit 가사..."],
             ["05", "Heavy Bass", "P-TYPE", "P-TYPE", "P-TYPE", "dQw4w9WgXcQ", "Heavy Bass 가사..."],

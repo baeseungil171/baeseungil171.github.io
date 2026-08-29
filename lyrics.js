@@ -132,10 +132,10 @@ I don't know why`,
     "album1_10": `Musiq Noir 가사 영역`,
     "album1_11": `Skit - 언어의 연주가 가사 영역`,
     "album1_12": `Wild Style (Feat. Big Mama) 가사 영역`,
-    "album1_13": `아웃트로 / 보너스 트랙 가사 영역`,
+    "album1_13": `언어의 연주가 (Bonus Track) 가사 영역`,
 
     // ==========================================
-    // 2집 - The Vintage (2008.11.27) [총 12트랙 예시]
+    // 2집 - The Vintage (2008.11.27)
     // ==========================================
     "album2_0": `The Vintage 1번 트랙 가사`,
     "album2_1": `The Vintage 2번 트랙 가사`,
@@ -149,23 +149,30 @@ I don't know why`,
     "album2_9": `The Vintage 10번 트랙 가사`,
     "album2_10": `The Vintage 11번 트랙 가사`,
     "album2_11": `The Vintage 12번 트랙 가사`,
+    "album2_12": `The Vintage 13번 트랙 가사`,
+    "album2_13": `The Vintage 14번 트랙 가사`,
+    "album2_14": `The Vintage 15번 트랙 가사`,
+    "album2_15": `The Vintage 16번 트랙 가사`,
+    "album2_16": `The Vintage 17번 트랙 가사`,
 
     // ==========================================
-    // 3집 - RAP (2013.07.29) [총 10트랙 예시]
+    // 3집 - RAP (2013.07.29)
     // ==========================================
-    "album3_0": `RAP 앨범 1번 트랙 가사`,
-    "album3_1": `RAP 앨범 2번 트랙 가사`,
-    "album3_2": `RAP 앨범 3번 트랙 가사`,
-    "album3_3": `RAP 앨범 4번 트랙 가사`,
-    "album3_4": `RAP 앨범 5번 트랙 가사`,
-    "album3_5": `RAP 앨범 6번 트랙 가사`,
-    "album3_6": `RAP 앨범 7번 트랙 가사`,
-    "album3_7": `RAP 앨범 8번 트랙 가사`,
-    "album3_8": `RAP 앨범 9번 트랙 가사`,
-    "album3_9": `RAP 앨범 10번 트랙 가사`,
+    "album3_0": `RAP 1번 트랙 가사`,
+    "album3_1": `RAP 2번 트랙 가사`,
+    "album3_2": `RAP 3번 트랙 가사`,
+    "album3_3": `RAP 4번 트랙 가사`,
+    "album3_4": `RAP 5번 트랙 가사`,
+    "album3_5": `RAP 6번 트랙 가사`,
+    "album3_6": `RAP 7번 트랙 가사`,
+    "album3_7": `RAP 8번 트랙 가사`,
+    "album3_8": `RAP 9번 트랙 가사`,
+    "album3_9": `RAP 10번 트랙 가사`,
+    "album3_10": `RAP 11번 트랙 가사`,
+    "album3_11": `RAP 12번 트랙 가사`,
 
     // ==========================================
-    // 4집 - Street Poetry (2015.03.20) [총 10트랙 예시]
+    // 4집 - Street Poetry (2015.03.20)
     // ==========================================
     "album4_0": `Street Poetry 1번 트랙 가사`,
     "album4_1": `Street Poetry 2번 트랙 가사`,
@@ -177,9 +184,12 @@ I don't know why`,
     "album4_7": `Street Poetry 8번 트랙 가사`,
     "album4_8": `Street Poetry 9번 트랙 가사`,
     "album4_9": `Street Poetry 10번 트랙 가사`,
+    "album4_10": `Street Poetry 11번 트랙 가사`,
+    "album4_11": `Street Poetry 12번 트랙 가사`,
+    "album4_12": `Street Poetry 13번 트랙 가사`,
 
     // ==========================================
-    // 5집 - Hardboiled Café (2022.02.18) [총 10트랙 예시]
+    // 5집 - Hardboiled Café 5 (2022.02.18)
     // ==========================================
     "album5_0": `Hardboiled Café 1번 트랙 가사`,
     "album5_1": `Hardboiled Café 2번 트랙 가사`,
@@ -191,9 +201,19 @@ I don't know why`,
     "album5_7": `Hardboiled Café 8번 트랙 가사`,
     "album5_8": `Hardboiled Café 9번 트랙 가사`,
     "album5_9": `Hardboiled Café 10번 트랙 가사`,
+    "album5_10": `Hardboiled Café 11번 트랙 가사`,
+    "album5_11": `Hardboiled Café 12번 트랙 가사`,
+    "album5_12": `Hardboiled Café 13번 트랙 가사`,
+    "album5_13": `Hardboiled Café 14번 트랙 가사`,
+    "album5_14": `Hardboiled Café 15번 트랙 가사`,
+    "album5_15": `Hardboiled Café 16번 트랙 가사`,
+    "album5_16": `Hardboiled Café 17번 트랙 가사`,
+    "album5_17": `Hardboiled Café 18번 트랙 가사`,
+    "album5_18": `Hardboiled Café 19번 트랙 가사`,
+    "album5_19": `Hardboiled Café 20번 트랙 가사`,
 
     // ==========================================
-    // 싱글 음반들 (singlesInfo 순서 기준)
+    // 싱글 음반들
     // ==========================================
     "single1_0": `Soulfire - Intro 가사`,
     "single1_1": `Soulfire - Soulfire 가사`,
@@ -237,7 +257,7 @@ I don't know why`,
     "single12_0": `블루문특급 (Feat. 서사무엘) 가사`,
 
     // ==========================================
-    // 참여 및 합작 음반들 (participationInfo 순서 기준)
+    // 참여 음반들
     // ==========================================
     "part1_0": `참여음반 1번 트랙 가사`,
     "part2_0": `참여음반 2번 트랙 가사`,

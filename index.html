@@ -12,24 +12,23 @@
             margin: 0;
             padding: 20px;
         }
-        h1 {
-            text-align: center;
-            color: #ffffff;
-            margin-bottom: 5px;
-        }
-        .subtitle-top {
-            text-align: center;
-            color: #ff5252;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 30px;
-        }
-        h2 {
-            color: #ffffff;
-        }
         .container {
             max-width: 900px;
             margin: 0 auto;
+        }
+        .main-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .main-header h1 {
+            color: #ffffff;
+            margin: 0 0 5px 0;
+            font-size: 28px;
+        }
+        .main-header .subtitle {
+            color: #ff5252;
+            font-size: 18px;
+            font-weight: bold;
         }
         .album-section, .info-section {
             background: #1e1e1e;
@@ -38,10 +37,14 @@
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
-        .album-detail-container::after {
+        .album-section::after, .album-detail-container::after {
             content: "";
             display: block;
             clear: both;
+        }
+        .album-section h2, .info-section h2 {
+            color: #ffffff;
+            margin-top: 0;
         }
         .detail-cover {
             width: 200px;
@@ -51,7 +54,12 @@
             float: left;
             margin-right: 20px;
             margin-bottom: 20px;
-            background-color: #333; /* 이미지가 로드되기 전 배경색 */
+            background-color: #333;
+        }
+        .album-desc {
+            margin-bottom: 20px;
+            line-height: 1.5;
+            color: #ccc;
         }
         .track-table, .info-table {
             width: 100%;
@@ -99,7 +107,7 @@
         .video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 비율 */
+            padding-bottom: 56.25%;
             height: 0;
             margin-bottom: 15px;
         }
@@ -163,8 +171,10 @@
 <body>
 
     <div class="container">
-        <h1>P-TYPE Archive</h1>
-        <div class="subtitle-top">P-TYPE THE BIG CAT</div>
+        <div class="main-header">
+            <h1>P-TYPE Archive</h1>
+            <div class="subtitle">P-TYPE THE BIG CAT</div>
+        </div>
         
         <!-- 정규 앨범 영역 -->
         <div id="album1" class="album-section"></div>
@@ -195,7 +205,6 @@
         </div>
     </div>
 
-    <!-- 순서 중요: lyrics.js가 data.js보다 위에 있어야 합니다 -->
     <script src="lyrics.js"></script>
     <script src="data.js"></script>
 
@@ -234,9 +243,9 @@
             if (!section.querySelector('.album-detail-container')) {
                 section.innerHTML = `
                     <div class="album-detail-container">
-                        <h3>${data.title}</h3>
-                        <img src="${data.cover}" class="detail-cover" alt="${data.title} 앨범 커버">
-                        <p>${data.desc}</p>
+                        <h2>${data.title}</h2>
+                        <img src="${data.cover}" class="detail-cover" alt="${data.title} 커버" onerror="this.src='img/album1.png'">
+                        <div class="album-desc">${data.desc}</div>
                         <div class="tracklist-table-container">
                             <table class="track-table">
                                 <thead><tr><th>트랙</th><th>제목 (클릭)</th><th>작사</th><th>작곡</th><th>편곡</th></tr></thead>
@@ -257,12 +266,13 @@
                     </div>
                 `;
             } else {
-                section.querySelector('.active-track-title').innerText = activeTrack[1];
-                // 커버 이미지 경로 실시간 동기화 보장
+                section.querySelector('h2').innerText = data.title;
                 const coverImg = section.querySelector('.detail-cover');
                 if (coverImg && coverImg.src !== data.cover) {
                     coverImg.src = data.cover;
                 }
+                section.querySelector('.album-desc').innerText = data.desc;
+                section.querySelector('.active-track-title').innerText = activeTrack[1];
 
                 const iframe = section.querySelector('iframe');
                 const newSrc = `https://www.youtube.com/embed/${videoId}`;
